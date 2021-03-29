@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+
+        body {
+            background: #8ddee2;
+        }
+
+        .center-box {
+            height: 400px;
+            width: 400px;
+            position: fixed;
+            top: calc(50% - 200px);
+            left: calc(50% - 200px);
+            animation: 5s float infinite ease;
+        }
+
+        @keyframes float {
+            from {
+                transform: translate(0, 0px);
+            }
+
+            65% {
+                transform: translate(0, 10px);
+            }
+
+            to {
+                transform: translate(0, -0px);
+            }
+        }
+
+        .boat {
+            width: 400px;
+            height: 100px;
+            margin-top: -15px;
+        }
+
+        .boat .boat-body {
+            width: 380px;
+            height: 90px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: #cdab33;
+            border-bottom-left-radius: 90px;
+            border-bottom-right-radius: 20px;
+            -webkit-clip-path: polygon(0 0, 100% 0, 99% 100%, 0% 100%);
+        }
+
+        .boat .boat-body:before {
+            content: "";
+            width: 380px;
+            height: 70px;
+            position: absolute;
+            bottom: 20px;
+            right: 0px;
+            background: #d2bd39;
+            border-bottom-left-radius: 60px;
+        }
+
+        .boat .boat-body:after {
+            content: "";
+            width: 380px;
+            height: 40px;
+            position: absolute;
+            bottom: 50px;
+            right: 0px;
+            background: #e8da43;
+            border-bottom-left-radius: 60px;
+        }
+
+        .boat .top {
+            width: 390px;
+            height: 5px;
+            background: #e8da43;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-bottom: solid 5px #cdab33;
+        }
+
+        .boat .motor {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: #ef4723;
+            top: -50px;
+            right: -370px;
+        }
+
+        .boat .motor:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80px;
+            height: 20px;
+            border-top-left-radius: 18px;
+            border-top-right-radius: 18px;
+            background: #fff;
+        }
+
+        .boat .motor:before {
+            content: "";
+            position: absolute;
+            -webkit-clip-path: polygon(0 0, 100% 0, 60% 100%, 0% 100%);
+            width: 20px;
+            height: 100px;
+            background: #bf3526;
+            top: 55px;
+            right: 20px;
+            z-index: -1;
+        }
+
+        .boat .motor .parts,
+        .boat .motor .parts:before,
+        .boat .motor .parts:after {
+            width: 25px;
+            height: 5px;
+            right: 10px;
+            top: 30px;
+            background: #bf3526;
+            border-radius: 20px;
+            position: absolute;
+        }
+
+        .boat .motor .parts:before,
+        .boat .motor .parts:after {
+            content: "";
+            right: 0px;
+        }
+
+        .boat .motor .parts:before {
+            top: 10px;
+        }
+
+        .boat .motor .parts:after {
+            top: 20px;
+        }
+
+        .boat .motor .button {
+            position: absolute;
+            left: -10px;
+            top: 25px;
+            background: #bf3526;
+            height: 10px;
+            width: 20px;
+            border-radius: 20px;
+        }
+
+        .fisherman {
+            width: 400px;
+            height: 300px;
+        }
+
+        .fisherman .left-leg {
+            width: 20px;
+            height: 100px;
+            background: #de4125;
+            border-radius: 20px;
+            position: absolute;
+            bottom: -14px;
+            right: 120px;
+            transform: rotate(-50deg);
+        }
+
+        .fisherman .left-leg:before {
+            content: "";
+            width: 20px;
+            height: 100px;
+            background: #de4125;
+            border-radius: 20px;
+            position: absolute;
+            bottom: 20px;
+            left: -37px;
+            transform: rotate(60deg);
+        }
+
+        .fisherman .left-leg:after {
+            content: "";
+            position: absolute;
+            bottom: 2px;
+            left: -70px;
+            width: 30px;
+            height: 100px;
+            background: #338ca0;
+            transform: rotate(60deg);
+        }
+
+        .fisherman .butt {
+            width: 50px;
+            height: 20px;
+            background: #bf3526;
+            position: absolute;
+            border-radius: 20px;
+            bottom: 0px;
+            right: 90px;
+        }
+
+        .fisherman .right-leg {
+            width: 20px;
+            height: 110px;
+            background: #bf3526;
+            border-radius: 20px;
+            position: absolute;
+            bottom: -22px;
+            right: 159px;
+            transform: rotate(-60deg);
+        }
+
+        .fisherman .right-leg:before {
+            content: "";
+            width: 20px;
+            height: 100px;
+            background: #bf3526;
+            border-radius: 20px;
+            position: absolute;
+            bottom: 45px;
+            left: -40px;
+            transform: rotate(80deg);
+        }
+
+        .fisherman .right-leg:after {
+            content: "";
+            position: absolute;
+            bottom: 38px;
+            left: -75px;
+            width: 30px;
+            height: 100px;
+            background: #338ca0;
+            transform: rotate(80deg);
+        }
+
+        .fisherman .body {
+            width: 80px;
+            height: 150px;
+            background: #d2bd24;
+            position: absolute;
+            bottom: 15px;
+            right: 40px;
+            -webkit-clip-path: ellipse(40% 50% at 0% 50%);
+            transform: rotate(-20deg);
+        }
+
+        .fisherman .body:before {
+            content: "";
+            width: 80px;
+            height: 200px;
+            background: #d2bd24;
+            position: absolute;
+            bottom: -10px;
+            right: 15px;
+            -webkit-clip-path: ellipse(90% 50% at 0% 50%);
+            transform: rotate(10deg);
+        }
+
+        .fisherman .left-arm {
+            width: 20px;
+            height: 90px;
+            background: #e8d93d;
+            border-radius: 20px;
+            position: absolute;
+            bottom: 55px;
+            right: 135px;
+            transform: rotate(30deg);
+        }
+
+        .fisherman .left-arm:after {
+            content: "";
+            width: 20px;
+            height: 60px;
+            background: #e8d93d;
+            border-radius: 20px;
+            position: absolute;
+            bottom: -15px;
+            right: 20px;
+            transform: rotate(-70deg);
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+        }
+
+        .fisherman .left-arm:before {
+            content: "";
+            background: #ffd1b5;
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top: 50px;
+            right: 53px;
+            border-radius: 20px;
+        }
+
+        .fisherman .right-arm {
+            width: 20px;
+            height: 110px;
+            background: #d2bd24;
+            border-radius: 20px;
+            position: absolute;
+            bottom: 46px;
+            right: 163px;
+            transform: rotate(40deg);
+        }
+
+        .fisherman .right-arm:after {
+            content: "";
+            width: 20px;
+            height: 50px;
+            background: #d2bd24;
+            border-radius: 20px;
+            position: absolute;
+            bottom: -15px;
+            right: 20px;
+            transform: rotate(-80deg);
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+        }
+
+        .fisherman .right-arm:before {
+            content: "";
+            background: #ffd1b5;
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top: 82px;
+            right: 50px;
+            border-radius: 20px;
+        }
+
+        .waves {
+            poistion: absolute;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+            width: calc(100% + 50px);
+        }
+
+        .waves img {
+            height: 25px;
+            animation: 4s waves infinite linear;
+        }
+
+        @keyframes waves {
+            from {
+                margin-left: 0px;
+            }
+
+            to {
+                margin-left: -350px;
+            }
+        }
+
+        .bg {
+            background: #63432e;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 50%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .bg:before {
+            content: "";
+            background: #76ced8;
+            position: absolute;
+            bottom: -40px;
+            height: 40px;
+            width: 100%;
+            left: 0;
+        }
+
+        /*
+.bg:after {
+	content: "";
+	position: absolute;
+	background: #d4ee8d;
+	width: 100%;
+	height: calc(100% - 60px);
+	left: 0;
+	top: 0;
+}
+*/
+
+        .bg .bushes {
+            width: 100%;
+            height: 40px;
+            position: absolute;
+            left: 0;
+            bottom: 20px;
+            background: url("http://vysocina.xyz/spacer.png") repeat-x;
+            background-size: 45px;
+        }
+
+        .fisherman .head {
+            position: absolute;
+            bottom: 135px;
+            right: 110px;
+            width: 60px;
+            height: 80px;
+            border-radius: 50%;
+            transform: rotate(10deg);
+        }
+
+        .head .nose {
+            width: 0;
+            height: 0;
+            border-top: 20px solid transparent;
+            border-bottom: 8px solid transparent;
+
+            border-right: 15px solid #fab58e;
+            position: absolute;
+            top: 25px;
+            left: 6px;
+            transform: rotate(-10deg);
+        }
+
+        .head .eyes {
+            width: 5px;
+            height: 8px;
+            border-radius: 50%;
+            background: #1a1a1a;
+            position: absolute;
+            top: 25px;
+            left: 6px;
+            transform: rotate(-10deg);
+        }
+
+        .head .eyes:before {
+            content: "";
+            width: 5px;
+            height: 8px;
+            border-radius: 50%;
+            background: #1a1a1a;
+            position: absolute;
+            top: 0px;
+            left: 20px;
+        }
+
+        .head .eyebrows {
+            width: 15px;
+            height: 7px;
+            background: #e67e5b;
+            position: absolute;
+            top: 15px;
+            left: -3px;
+            transform: rotate(-10deg);
+        }
+
+        .head .eyebrows:before {
+            content: "";
+            width: 20px;
+            height: 7px;
+            background: #e67e5b;
+            position: absolute;
+            top: 0px;
+            left: 22px;
+        }
+
+        .head .face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #d76540;
+            overflow: hidden;
+        }
+
+        .head .face:before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            background: #ffd1b5;
+            border-radius: 50%;
+            width: 60px;
+            height: 85px;
+            transform: rotate(-10deg);
+        }
+
+        .head .beard {
+            width: 40px;
+            height: 25px;
+            background: #e67e5b;
+            position: absolute;
+            top: 38px;
+            left: 1px;
+            transform: rotate(-10deg);
+            -webkit-clip-path: ellipse(50% 50% at 50% 100%);
+        }
+
+        .head .hat {
+            width: 80px;
+            height: 8px;
+            background: #3d402b;
+            position: absolute;
+            top: 8px;
+            left: -13px;
+        }
+
+        .head .hat:before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            bottom: 8px;
+            width: 60px;
+            height: 40px;
+            background: #7b8445;
+            -webkit-clip-path: ellipse(50% 50% at 50% 100%);
+        }
+
+        .rod {
+            position: absolute;
+            bottom: 130px;
+            left: -140px;
+            width: 380px;
+            height: 5px;
+            background: #331604;
+            transform: rotate(10deg);
+        }
+
+        .rod .handle {
+            width: 20px;
+            height: 20px;
+            border-radius: 20px;
+            background: #efdddb;
+            left: 310px;
+            top: 3px;
+        }
+
+        .rod .handle:before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 7px;
+            width: 13px;
+            height: 4px;
+            background: #1a1a1a;
+        }
+
+        .rod .rope {
+            width: 3px;
+            height: 250px;
+            background: #fff;
+            top: -18px;
+            left: 22px;
+            transform: rotate(-10deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center-box">
+        <div class="fisherman">
+            <div class="body"></div>
+            <div class="right-arm"></div>
+            <div class="right-leg"></div>
+            <div class="rod">
+                <!-- # -->
+                <div class="handle"></div>
+                <div class="rope"></div>
+                <div class="water"></div>
+            </div> <!-- # -->
+            <div class="butt"></div>
+            <div class="left-leg"></div>
+            <div class="left-arm"></div>
+
+            <div class="head">
+                <div class="face"></div>
+                <div class="eyebrows"></div>
+                <div class="hat"></div>
+                <div class="eyes"></div>
+                <div class="nose"></div>
+                <div class="beard"></div>
+            </div>
+        </div>
+
+        <div class="boat">
+            <div class="motor">
+                <div class="parts"></div>
+                <div class="button"></div>
+            </div>
+            <div class="top"></div>
+            <div class="boat-body"></div>
+
+            <div class="waves">
+                <img src="http://vysocina.xyz/waves.png" alt="waves" />
+            </div>
+        </div>
+    </div>
+
+    <div class="bg">
+        <!--<div class="bushes"></div>-->
+    </div>
+</body>
+
+</html>

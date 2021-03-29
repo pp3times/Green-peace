@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background: #F0FCFF url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1601/skyBG.png') repeat-x;
+            background-size: 850px 100%;
+            background-position: 0 bottom;
+            /* Step 2 */
+            animation: bg-move 8s ease-in-out infinite forwards;
+        }
+
+        .boat {
+            width: 380px;
+            position: absolute;
+            bottom: 5%;
+            left: 35%;
+        }
+
+        .boat img {
+            width: 100%;
+        }
+
+        .boat::after {
+            content: "";
+            display: block;
+            width: 120px;
+            height: 120px;
+            background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1601/steam.png') no-repeat;
+            background-size: 120px;
+            position: absolute;
+            bottom: 105%;
+            left: 15%;
+            opacity: 0;
+        }
+
+        .jetski {
+            width: 150px;
+            position: absolute;
+            bottom: 30%;
+            left: -50%;
+            /* Step 3 */
+            animation: jetski-move 8s 6s ease-in-out infinite, jetski-float 3s infinite;
+        }
+
+        /*	Animations
+------------------------------------------
+For the .boat selector, instead of declaring each animation property separately, we combined animation name, duration, timing-fucntion, and iteration-count into shorthand where each value is separated by a space. */
+
+        .boat {
+            animation: rock-boat 3s ease-in-out infinite;
+        }
+
+        .boat::after {
+            animation: steam 4s 2s infinite;
+        }
+
+        /*	Keyframes
+------------------------------------------ 
+Animation sequence rock-boat assumes transform function from 0% and 100% are both 0 for rotate and translateY (by default). */
+
+        @keyframes rock-boat {
+            50% {
+                transform: rotate(-5deg) translateY(-10px);
+            }
+        }
+
+        @keyframes steam {
+
+            40%,
+            60% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-15%, -75%) rotateZ(20deg);
+            }
+        }
+
+        /* Step 2 */
+        @keyframes bg-move {
+            0% {
+                background-position: 0 bottom;
+            }
+
+            100% {
+                background-position: -850px bottom;
+            }
+        }
+
+        /* Step 3 */
+        @keyframes jetski-move {
+            50% {
+                left: 10%;
+            }
+        }
+
+        @keyframes jetski-float {
+            50% {
+                transform: rotateZ(5deg) translateY(-5px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <img class="jetski" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1601/jetski.png">
+    <img class="boat" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1601/tugboat.png" alt="tugboat">
+</body>
+
+</html>
