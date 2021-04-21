@@ -1,4 +1,6 @@
 class Main {
+    #resources;
+
     constructor() {
         this.app = new PIXI.Application({
             width: 1920,
@@ -32,6 +34,13 @@ class Main {
             requestAnimationFrame(this.update);
         };
 
+        this.#resources = [
+            {
+                name: "bg_water",
+                path: "bg_water.png"
+            },
+        ]
+
         this.#Load()
     }
 
@@ -46,14 +55,7 @@ class Main {
             console.log("ERROR LOAD", err)
         })
 
-        const resources = [
-            {
-                name: "bg_water",
-                path: "bg_water.png"
-            },
-        ]
-
-        resources.forEach((resource) => {
+        this.#resources.forEach((resource) => {
             this.loader.add(resource.name, `./resources/${resource.path}`)
         })
 
