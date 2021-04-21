@@ -2,29 +2,50 @@ let app;
 let player;
 
 window.onload = () => {
-    app = new PIXI.Application()
+    app = new PIXI.Application({
+        width: 1920,
+        height: 1080,
+        antialias: true,
+        transparent: false,
+        resolution: 1,
+        forceCanvas: true,
+        autoResize: true,
+        view: document.getElementById("app"),
+    })
 
-    document.body.appendChild(app.view)
+    const loader = PIXI.Loader.shared;
 
-    app.loader.add('bunny', './assets/image/bunny.png').load((loader, resources) => {
-        // This creates a texture from a 'bunny.png' image
-        const bunny = new PIXI.Sprite(resources.bunny.texture);
+    const resources = [
+        {
+            name: "bg_water",
+            path: "bg_water.png"
+        },
+    ]
 
-        // Setup the position of the bunny
-        bunny.x = app.renderer.width / 2;
-        bunny.y = app.renderer.height / 2;
+    loader.onLoad.add(handleLoad)
+    loader.onProgress.add(handleProgressLoad)
+    loader.onComplete.add(handleCompleteLoad)
+    loader.onError.add(handleErrorLoad)
 
-        // Rotate around the center
-        bunny.anchor.x = 0.5;
-        bunny.anchor.y = 0.5;
+    resources.forEach((resource) => {
+        loader.add(resource.name, `./resources/${resource.path}`)
+    })
 
-        // Add the bunny to the scene we are building
-        app.stage.addChild(bunny);
+    loader.load();
+}
 
-        // Listen for frame updates
-        app.ticker.add(() => {
-            // each frame we spin the bunny around a bit
-            bunny.rotation += 0.01;
-        });
-    });
+const handleLoad = () => {
+    console.log(`Loading...`)
+}
+
+const handleProgressLoad = (data) => {
+    console.log(`Progress load ${data.progress}%`)
+}
+
+const handleCompleteLoad = () => {
+    console.log(PIXI.utils.TextureCache)
+}
+
+const handleErrorLoad = (err) => {
+    console.log("ERROR LOAD", err)
 }
