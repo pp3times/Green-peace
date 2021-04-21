@@ -1,4 +1,4 @@
-function Load() {
+function Loader() {
     let loader = PIXI.Loader.shared;
 
     loader.onLoad.add(() => {

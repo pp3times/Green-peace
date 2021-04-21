@@ -2,13 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6203bd2-57b5-498f-a3a4-37207da2e875" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/game/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/js/Background.js" beforeDir="false" afterPath="$PROJECT_DIR$/game/js/Background.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/js/Loader.js" beforeDir="false" afterPath="$PROJECT_DIR$/game/js/Loader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/js/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/game/js/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/js/Scroller.js" beforeDir="false" afterPath="$PROJECT_DIR$/game/js/Scroller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/game/js/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -19,6 +32,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -43,7 +57,7 @@
       <updated>1618990792838</updated>
       <workItem from="1618990794010" duration="32000" />
       <workItem from="1618990850189" duration="101000" />
-      <workItem from="1618990966907" duration="8007000" />
+      <workItem from="1618990966907" duration="16535000" />
     </task>
     <servers />
   </component>
