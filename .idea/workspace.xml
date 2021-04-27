@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6203bd2-57b5-498f-a3a4-37207da2e875" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/game/js/SliceType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/js/WallSlice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/js/WallSpritesPool.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/js/Walls.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/game/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/js/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/game/js/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/js/Scroller.js" beforeDir="false" afterPath="$PROJECT_DIR$/game/js/Scroller.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +37,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Gitlab/payment-gateway-frontend" />
     <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -52,7 +58,12 @@
       <updated>1618990792838</updated>
       <workItem from="1618990794010" duration="32000" />
       <workItem from="1618990850189" duration="101000" />
-      <workItem from="1618990966907" duration="17203000" />
+      <workItem from="1618990966907" duration="25673000" />
+      <workItem from="1619100280848" duration="594000" />
+      <workItem from="1619343626791" duration="1717000" />
+      <workItem from="1619389223459" duration="591000" />
+      <workItem from="1619435162468" duration="595000" />
+      <workItem from="1619526416638" duration="253000" />
     </task>
     <servers />
   </component>
@@ -69,6 +80,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
