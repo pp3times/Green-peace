@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-import Home from './Home';
+import Home from './views/Home';
 import { GAME_SIZE, GAME_WIDTH, GAME_HEIGHT } from 'config';
 
 export default class App extends PIXI.Application {
