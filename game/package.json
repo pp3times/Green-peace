@@ -14,7 +14,7 @@
   "dependencies": {
     "@pixi/sound": "^4.0.2",
     "lodash": "^4.17.21",
-    "pixi.js": "^6.0.2"
+    "pixi.js": "^6.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.13.16",
