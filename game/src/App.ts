@@ -4,13 +4,23 @@ import { GAME_SIZE, GAME_WIDTH, GAME_HEIGHT } from 'config';
 import Game from './views/Game';
 import { sound } from '@pixi/sound';
 
+interface IOption {
+    sound: boolean;
+}
+
 export default class App extends PIXI.Application {
+    option: IOption;
+
     constructor() {
         let { w, h } = GAME_SIZE();
         super({
             width: w,
             height: h,
         });
+
+        this.option = {
+            sound: true,
+        };
 
         this.loader.onComplete.add(() => {
             this.stage.alpha = 0;
@@ -47,6 +57,14 @@ export default class App extends PIXI.Application {
             {
                 name: 'sound-start',
                 path: 'start.mp3',
+            },
+            {
+                name: 'sound_close',
+                path: 'sound_close.png',
+            },
+            {
+                name: 'sound_open',
+                path: 'sound_open.png',
             },
         ];
 
