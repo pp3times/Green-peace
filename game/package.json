@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@pixi/sound": "^4.0.2",
     "lodash": "^4.17.21",
     "pixi.js": "^6.0.2"
   },
