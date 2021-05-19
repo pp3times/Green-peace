@@ -1,6 +1,8 @@
 import * as PIXI from 'pixi.js';
 import Home from './views/Home';
 import { GAME_SIZE, GAME_WIDTH, GAME_HEIGHT } from 'config';
+import Game from './views/Game';
+import { sound } from '@pixi/sound';
 
 export default class App extends PIXI.Application {
     constructor() {
@@ -11,7 +13,17 @@ export default class App extends PIXI.Application {
         });
 
         this.loader.onComplete.add(() => {
-            this.stage.addChild(new Home(this));
+            this.stage.alpha = 0;
+            const home = new Home(this);
+            this.stage.addChild(home);
+            let update = () => {
+                home.update();
+                requestAnimationFrame(update);
+                if (this.stage.alpha < 1) {
+                    this.stage.alpha += 0.005;
+                }
+            };
+            requestAnimationFrame(update);
             changeSize();
         });
 
@@ -21,12 +33,20 @@ export default class App extends PIXI.Application {
                 path: 'bg_water.png',
             },
             {
+                name: 'game_bg',
+                path: 'game_bg.png',
+            },
+            {
                 name: 'wall',
                 path: 'wall.json',
             },
             {
                 name: 'start-seen',
                 path: 'start.png',
+            },
+            {
+                name: 'sound-start',
+                path: 'start.mp3',
             },
         ];
 
