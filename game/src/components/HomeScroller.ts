@@ -6,6 +6,6 @@ export default class HomeScroller extends Scroller {
     constructor(app: PIXI.Application) {
         let texture = app.loader.resources['game_bg'].texture;
         super(app, texture);
-        this.DELTA_X = 0.05;
+        this.DELTA_X = 0.01;
     }
 }
