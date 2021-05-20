@@ -1,8 +1,11 @@
 import * as PIXI from 'pixi.js';
 import Home from './views/Home';
 import { GAME_SIZE, GAME_WIDTH, GAME_HEIGHT } from 'config';
-import Game from './views/Game';
-import { sound } from '@pixi/sound';
+import { PixiPlugin } from 'gsap/all';
+import { gsap, TweenMax } from 'gsap';
+import resources from './resources';
+import IView from './views/IView';
+import CutScenes from './views/CutScenes';
 
 interface IOption {
     sound: boolean;
@@ -12,6 +15,9 @@ export default class App extends PIXI.Application {
     option: IOption;
 
     constructor() {
+        gsap.registerPlugin(PixiPlugin);
+        PixiPlugin.registerPIXI(PIXI);
+
         let { w, h } = GAME_SIZE();
         super({
             width: w,

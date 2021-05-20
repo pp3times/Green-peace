@@ -3,12 +3,13 @@ import { GAME_WIDTH, GAME_HEIGHT } from 'config';
 import HomeScroller from '../components/HomeScroller';
 import { sound } from '@pixi/sound';
 import App from '../App';
+import { TweenMax } from 'gsap';
+import IView from './IView';
+import Game from './Game';
 
-export default class Home extends PIXI.Container {
-    scroller: HomeScroller;
-
+export default class Home extends IView {
     constructor(app: App) {
-        super();
+        super(app);
         this.scroller = new HomeScroller(app);
         this.addChild(this.scroller);
         let res = app.loader.resources;
@@ -37,7 +38,6 @@ export default class Home extends PIXI.Container {
                     sound.muteAll();
                 }
             });
-
             this.addChild(image);
         }
         sound.play('sound-start', {

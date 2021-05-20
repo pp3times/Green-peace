@@ -1,12 +1,11 @@
 import * as PIXI from 'pixi.js';
 import GameScroller from '../components/GameScroller';
-import { GAME_HEIGHT, GAME_WIDTH } from '../config';
+import IView from './IView';
+import App from '../App';
 
-export default class Game extends PIXI.Container {
-    scroller: GameScroller;
-
-    constructor(app: PIXI.Application) {
-        super();
+export default class Game extends IView {
+    constructor(app: App) {
+        super(app);
         this.scroller = new GameScroller(app);
         this.addChild(this.scroller);
     }

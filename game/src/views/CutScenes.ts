@@ -1,17 +1,21 @@
-import * as PIXI from 'pixi.js';
-import { GAME_WIDTH, GAME_HEIGHT } from 'config';
 import HomeScroller from '../components/HomeScroller';
+import IView from './IView';
+import App from '../App';
 
-export default class Scenes extends PIXI.Container {
-    scroller: HomeScroller;
+interface IScene {
+    frames: IFrame[];
+    duration: number;
+    fps: number;
+}
 
-    constructor(app: PIXI.Application) {
-        super();
-        this.scroller = new HomeScroller(app);
-        this.addChild(this.scroller);
+interface IFrame {
+    resource: string;
+}
+
+export default class CutScenes extends IView {
+    constructor(app: App, scenes: IScene[]) {
+        super(app);
     }
 
-    public update() {
-        this.scroller.update();
-    }
+    update() {}
 }
