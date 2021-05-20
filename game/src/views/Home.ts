@@ -1,11 +1,12 @@
 import * as PIXI from 'pixi.js';
 import { GAME_WIDTH, GAME_HEIGHT } from 'config';
 import HomeScroller from '../components/HomeScroller';
-import { sound } from '@pixi/sound';
 import App from '../App';
 import { TweenMax } from 'gsap';
 import IView from './IView';
 import Game from './Game';
+import { fadeIn, fadeOut } from '../lib/sound';
+import { sound } from '@pixi/sound';
 
 export default class Home extends IView {
     constructor(app: App) {
@@ -61,10 +62,18 @@ export default class Home extends IView {
             });
             this.addChild(image);
         }
-        sound.play('sound-start', {
+        fadeIn('sound-start', 0.3, 2000, {
             loop: true,
         });
-        sound.volume('sound-start', 0.3);
+    }
+
+    beforeDestroy() {
+        super.beforeDestroy();
+        fadeOut('sound-start', 2000);
+    }
+
+    destroy(options?: boolean | PIXI.IDestroyOptions) {
+        super.destroy(options);
     }
 
     update() {
