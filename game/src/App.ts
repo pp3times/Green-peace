@@ -44,37 +44,6 @@ export default class App extends PIXI.Application {
             this.currentView.initial();
         });
 
-        let resources = [
-            {
-                name: 'bg_water',
-                path: 'bg_water.png',
-            },
-            {
-                name: 'game_bg',
-                path: 'game_bg.png',
-            },
-            {
-                name: 'wall',
-                path: 'wall.json',
-            },
-            {
-                name: 'start-seen',
-                path: 'start.png',
-            },
-            {
-                name: 'sound-start',
-                path: 'start.mp3',
-            },
-            {
-                name: 'sound_close',
-                path: 'sound_close.png',
-            },
-            {
-                name: 'sound_open',
-                path: 'sound_open.png',
-            },
-        ];
-
         this.loader.onLoad.add(() => {
             console.log(`Loading...`);
         });
