@@ -13,7 +13,11 @@ export default class Home extends IView {
         super(app);
         this.scroller = new HomeScroller(app);
         this.addChild(this.scroller);
-        let res = app.loader.resources;
+    }
+
+    initial() {
+        super.initial();
+        let res = this.app.loader.resources;
         {
             let btn = new PIXI.Sprite(res['start_button'].texture);
             btn.x = GAME_WIDTH / 2;
@@ -37,7 +41,7 @@ export default class Home extends IView {
             });
             // @ts-ignore
             btn.on('pointerdown', () => {
-                app.changeScenes(new Game(app));
+                this.app.changeScenes(new Game(this.app));
             });
             this.addChild(btn);
         }
@@ -50,11 +54,11 @@ export default class Home extends IView {
             image.buttonMode = true;
             // @ts-ignore
             image.on('pointerdown', () => {
-                let open = app.option.sound;
+                let open = this.app.option.sound;
                 image.texture =
                     res[open ? 'sound_close' : 'sound_open'].texture;
-                app.option.sound = !open;
-                if (app.option.sound) {
+                this.app.option.sound = !open;
+                if (this.app.option.sound) {
                     sound.unmuteAll();
                 } else {
                     sound.muteAll();
