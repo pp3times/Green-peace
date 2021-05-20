@@ -6,10 +6,14 @@ import { sound } from '@pixi/sound';
 import { TweenMax } from 'gsap';
 
 export default class IView extends PIXI.Container {
+    app: App;
     scroller: Scroller;
 
     constructor(app: App) {
         super();
+        this.width = GAME_WIDTH;
+        this.height = GAME_HEIGHT;
+        this.app = app;
         this.alpha = 0;
     }
 
@@ -20,8 +24,9 @@ export default class IView extends PIXI.Container {
         });
     }
 
+    beforeDestroy() {}
+
     destroy(options?: boolean | PIXI.IDestroyOptions) {
-        sound.removeAll();
         super.destroy(options);
     }
 
