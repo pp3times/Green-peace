@@ -67,7 +67,7 @@ export default class Home extends IView {
         sound.volume('sound-start', 0.3);
     }
 
-    public update() {
+    update() {
         this.scroller.update();
     }
 }

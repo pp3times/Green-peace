@@ -10,7 +10,7 @@ export default class Game extends IView {
         this.addChild(this.scroller);
     }
 
-    public update() {
+    update() {
         this.scroller.update();
     }
 }

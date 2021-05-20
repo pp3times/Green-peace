@@ -24,13 +24,13 @@ export default class Scroller extends PIXI.TilingSprite {
         this.SCROLL_SPEED = 10;
     }
 
-    public setViewportX(newViewportX: number) {
+    setViewportX(newViewportX: number) {
         let distanceTravelled = this.viewportX - newViewportX;
         this.viewportX = newViewportX;
         this.tilePosition.x -= distanceTravelled * this.DELTA_X;
     }
 
-    public update() {
+    update() {
         this.setViewportX(this.viewportX + this.SCROLL_SPEED);
     }
 }
