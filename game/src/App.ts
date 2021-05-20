@@ -6,6 +6,7 @@ import { gsap, TweenMax } from 'gsap';
 import resources from './resources';
 import IView from './views/IView';
 import CutScenes from './views/CutScenes';
+import TWEEN from '@tweenjs/tween.js';
 
 interface IOption {
     sound: boolean;
@@ -34,6 +35,7 @@ export default class App extends PIXI.Application {
             this.stage.addChild(this.currentView);
             let update = () => {
                 this.currentView.update();
+                TWEEN.update();
                 requestAnimationFrame(update);
             };
             requestAnimationFrame(update);
@@ -70,6 +72,7 @@ export default class App extends PIXI.Application {
     }
 
     changeScenes(next: IView) {
+        this.currentView.beforeDestroy();
         TweenMax.to(this.currentView, 2, {
             pixi: { alpha: 0 },
             ease: 'easeIn',
