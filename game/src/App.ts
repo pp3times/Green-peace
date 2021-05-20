@@ -5,7 +5,6 @@ import { PixiPlugin } from 'gsap/all';
 import { gsap, TweenMax } from 'gsap';
 import resources from './resources';
 import IView from './views/IView';
-import CutScenes from './views/CutScenes';
 import TWEEN from '@tweenjs/tween.js';
 
 interface IOption {
@@ -31,18 +30,6 @@ export default class App extends PIXI.Application {
         };
 
         this.loader.onComplete.add(() => {
-            /*this.currentView = new CutScenes(this, [
-                {
-                    frames: ['frame_1_1'],
-                    dpf: 1000,
-                    duration: 5000,
-                },
-                {
-                    frames: ['frame_2_1', 'frame_2_2'],
-                    dpf: 1000,
-                    duration: 5000,
-                },
-            ]);*/
             this.currentView = new Home(this);
             this.stage.addChild(this.currentView);
             let update = () => {
