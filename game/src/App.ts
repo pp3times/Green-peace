@@ -35,9 +35,6 @@ export default class App extends PIXI.Application {
             let update = () => {
                 this.currentView.update();
                 requestAnimationFrame(update);
-                if (this.stage.alpha < 1) {
-                    this.stage.alpha += 0.005;
-                }
             };
             requestAnimationFrame(update);
             changeSize();
