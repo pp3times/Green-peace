@@ -13,6 +13,7 @@ interface IOption {
 
 export default class App extends PIXI.Application {
     option: IOption;
+    currentView: IView;
 
     constructor() {
         gsap.registerPlugin(PixiPlugin);
@@ -29,11 +30,10 @@ export default class App extends PIXI.Application {
         };
 
         this.loader.onComplete.add(() => {
-            this.stage.alpha = 0;
-            const home = new Home(this);
-            this.stage.addChild(home);
+            this.currentView = new Home(this);
+            this.stage.addChild(this.currentView);
             let update = () => {
-                home.update();
+                this.currentView.update();
                 requestAnimationFrame(update);
                 if (this.stage.alpha < 1) {
                     this.stage.alpha += 0.005;
@@ -41,6 +41,7 @@ export default class App extends PIXI.Application {
             };
             requestAnimationFrame(update);
             changeSize();
+            this.currentView.initial();
         });
 
         let resources = [
@@ -100,5 +101,18 @@ export default class App extends PIXI.Application {
             this.stage.height = Math.ceil(GAME_HEIGHT * ratio);
             this.resize();
         };
+    }
+
+    changeScenes(next: IView) {
+        TweenMax.to(this.currentView, 2, {
+            pixi: { alpha: 0 },
+            ease: 'easeIn',
+        }).then(() => {
+            this.currentView.destroy();
+            this.stage.removeChild(this.currentView);
+            this.stage.addChild(next);
+            this.currentView = next;
+            next.initial();
+        });
     }
 }

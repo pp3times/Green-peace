@@ -14,10 +14,31 @@ export default class Home extends IView {
         this.addChild(this.scroller);
         let res = app.loader.resources;
         {
-            let image = new PIXI.Sprite(res['start-seen'].texture);
-            image.width = GAME_WIDTH;
-            image.height = GAME_HEIGHT;
-            this.addChild(image);
+            let btn = new PIXI.Sprite(res['start_button'].texture);
+            btn.x = GAME_WIDTH / 2;
+            btn.y = GAME_HEIGHT / 2 + 150;
+            btn.anchor.set(0.5);
+            btn.interactive = true;
+            btn.buttonMode = true;
+            // @ts-ignore
+            btn.on('mouseover', () => {
+                TweenMax.to(btn, 0.2, {
+                    pixi: { scale: 1.1 },
+                    ease: 'easeIn',
+                });
+            });
+            // @ts-ignore
+            btn.on('mouseout', () => {
+                TweenMax.to(btn, 0.2, {
+                    pixi: { scale: 1 },
+                    ease: 'easeIn',
+                });
+            });
+            // @ts-ignore
+            btn.on('pointerdown', () => {
+                app.changeScenes(new Game(app));
+            });
+            this.addChild(btn);
         }
         {
             let image = new PIXI.Sprite(res['sound_open'].texture);
