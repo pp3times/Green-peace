@@ -31,7 +31,7 @@ export default class CutScenes extends IView {
         this.background.interactive = true;
 
         this.addChild(this.background);
-        this.mask = new PIXI.Sprite(
+        let mask = new PIXI.Sprite(
             this.app.renderer.generateTexture(
                 new PIXI.Graphics()
                     .beginFill(0xff0000)
@@ -40,6 +40,8 @@ export default class CutScenes extends IView {
                 PIXI.SCALE_MODES.NEAREST
             )
         );
+        this.mask = mask;
+        this.addChild(mask);
     }
 
     initial() {}
