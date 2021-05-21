@@ -13,17 +13,38 @@ interface IScene {
 
 export default class CutScenes extends IView {
     scenes: IScene[];
+    background: PIXI.Sprite;
 
     constructor(app: App, scenes: IScene[]) {
         super(app);
         this.scenes = scenes;
+        this.alpha = 1;
+        this.background = new PIXI.Sprite(
+            this.app.renderer.generateTexture(
+                new PIXI.Graphics()
+                    .beginFill(0x000000)
+                    .drawRect(0, 0, GAME_WIDTH, GAME_HEIGHT)
+                    .endFill(),
+                PIXI.SCALE_MODES.NEAREST
+            )
+        );
+        this.background.interactive = true;
+
+        this.addChild(this.background);
+        this.mask = new PIXI.Sprite(
+            this.app.renderer.generateTexture(
+                new PIXI.Graphics()
+                    .beginFill(0xff0000)
+                    .drawRect(0, 0, GAME_WIDTH, GAME_HEIGHT)
+                    .endFill(),
+                PIXI.SCALE_MODES.NEAREST
+            )
+        );
     }
 
-    initial() {
-        super.initial();
-    }
+    initial() {}
 
-    start(): Promise<null> {
+    start(): Promise<void> {
         return new Promise(async (resolve) => {
             for (let scene of this.scenes) {
                 let sprite: PIXI.AnimatedSprite;
@@ -35,28 +56,34 @@ export default class CutScenes extends IView {
                         textureArray.push(texture);
                     });
                     sprite = new PIXI.AnimatedSprite(textureArray);
-                    sprite.alpha = 0;
-                    let { w, h } = GAME_SIZE();
-                    sprite.width = w;
-                    sprite.height = h;
+                    sprite.width = GAME_WIDTH;
+                    sprite.height = GAME_HEIGHT;
                     sprite.animationSpeed = 20 / scene.dpf;
+                    sprite.alpha = 0;
                     this.addChild(sprite);
-                    TweenMax.to(sprite, 0.3, {
+
+                    TweenMax.to(sprite, 1, {
                         pixi: { alpha: 1 },
                         ease: 'easeIn',
-                    }).then(() => sprite.play());
-                    setTimeout(() => {
-                        TweenMax.to(sprite, 0.3, {
-                            pixi: { alpha: 0 },
-                            ease: 'easeOut',
-                        }).then(() => {
-                            this.removeChild(sprite);
-                            resolve1(0);
-                        });
-                    }, scene.duration);
+                    }).then(() => {
+                        sprite.play();
+
+                        setTimeout(() => {
+                            TweenMax.to(sprite, 1, {
+                                pixi: { alpha: 0 },
+                                ease: 'easeIn',
+                            }).then(() => {
+                                this.removeChild(sprite);
+                                resolve1(0);
+                            });
+                        }, scene.duration);
+                    });
                 });
             }
-            resolve(null);
+            TweenMax.to(this, 1, {
+                pixi: { alpha: 0 },
+                ease: 'easeIn',
+            }).then(() => resolve());
         });
     }
 }

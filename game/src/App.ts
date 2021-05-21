@@ -14,6 +14,7 @@ interface IOption {
 export default class App extends PIXI.Application {
     option: IOption;
     currentView: IView;
+    mask: PIXI.Sprite;
 
     constructor() {
         gsap.registerPlugin(PixiPlugin);
@@ -29,17 +30,20 @@ export default class App extends PIXI.Application {
             sound: true,
         };
 
+        this.mask = new PIXI.Sprite(
+            this.renderer.generateTexture(
+                new PIXI.Graphics()
+                    .beginFill(0xff0000)
+                    .drawRect(0, 0, GAME_WIDTH, GAME_HEIGHT)
+                    .endFill(),
+                PIXI.SCALE_MODES.NEAREST
+            )
+        );
+        this.mask.interactive = true;
+        this.mask.alpha = 0;
+
         this.loader.onComplete.add(() => {
-            this.currentView = new Home(this);
-            this.stage.addChild(this.currentView);
-            let update = () => {
-                this.currentView.update();
-                TWEEN.update();
-                requestAnimationFrame(update);
-            };
-            requestAnimationFrame(update);
-            changeSize();
-            this.currentView.initial();
+            this.inital();
         });
 
         this.loader.onLoad.add(() => {
@@ -57,22 +61,25 @@ export default class App extends PIXI.Application {
         });
 
         this.loader.load();
+    }
 
-        let changeSize = () => {
-            let ratio = Math.min(
-                (window.innerWidth * 0.9) / GAME_WIDTH,
-                (window.innerHeight * 0.9) / GAME_HEIGHT
-            );
-            this.stage.scale.x = this.stage.scale.y = ratio;
-            this.stage.width = Math.ceil(GAME_WIDTH * ratio);
-            this.stage.height = Math.ceil(GAME_HEIGHT * ratio);
-            this.resize();
+    inital() {
+        this.currentView = new Home(this);
+        this.stage.addChild(this.currentView);
+        this.stage.addChild(this.mask);
+        let update = () => {
+            this.currentView.update();
+            TWEEN.update();
+            requestAnimationFrame(update);
         };
+        requestAnimationFrame(update);
+        this.changeSize();
+        this.currentView.initial();
     }
 
     changeScenes(next: IView) {
         this.currentView.beforeDestroy();
-        TweenMax.to(this.currentView, 2, {
+        TweenMax.to(this.mask, 2, {
             pixi: { alpha: 0 },
             ease: 'easeIn',
         }).then(() => {
@@ -82,5 +89,16 @@ export default class App extends PIXI.Application {
             this.currentView = next;
             next.initial();
         });
+    }
+
+    private changeSize() {
+        let ratio = Math.min(
+            (window.innerWidth * 0.9) / GAME_WIDTH,
+            (window.innerHeight * 0.9) / GAME_HEIGHT
+        );
+        this.stage.scale.x = this.stage.scale.y = ratio;
+        this.stage.width = Math.ceil(GAME_WIDTH * ratio);
+        this.stage.height = Math.ceil(GAME_HEIGHT * ratio);
+        this.resize();
     }
 }

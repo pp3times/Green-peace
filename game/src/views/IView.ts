@@ -15,13 +15,15 @@ export default class IView extends PIXI.Container {
         this.width = w;
         this.height = h;
         this.app = app;
-        this.alpha = 0;
+        this.mask = app.mask;
     }
 
-    initial() {
-        TweenMax.to(this, 2, {
+    initial(): void {
+        TweenMax.to(this.app.mask, 1, {
             pixi: { alpha: 1 },
             ease: 'easeIn',
+        }).then(() => {
+            this.app.mask.interactive = false;
         });
     }
 
