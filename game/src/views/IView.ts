@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-import { GAME_WIDTH, GAME_HEIGHT } from 'config';
+import { GAME_HEIGHT, GAME_SIZE, GAME_WIDTH } from 'config';
 import App from '../App';
 import Scroller from '../controllers/Scroller';
 import { sound } from '@pixi/sound';
@@ -11,8 +11,9 @@ export default class IView extends PIXI.Container {
 
     constructor(app: App) {
         super();
-        this.width = GAME_WIDTH;
-        this.height = GAME_HEIGHT;
+        let { w, h } = GAME_SIZE();
+        this.width = w;
+        this.height = h;
         this.app = app;
         this.alpha = 0;
     }
@@ -24,11 +25,11 @@ export default class IView extends PIXI.Container {
         });
     }
 
-    beforeDestroy() {}
+    beforeDestroy(): void {}
 
-    destroy(options?: boolean | PIXI.IDestroyOptions) {
+    destroy(options?: boolean | PIXI.IDestroyOptions): void {
         super.destroy(options);
     }
 
-    update() {}
+    update(): void {}
 }
