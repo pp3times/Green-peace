@@ -1,20 +1,20 @@
 import * as PIXI from 'pixi.js';
 import App from '../App';
-import IView from '../views/IView';
 import Player from '../Player';
 import { GAME_WIDTH } from 'config';
+import Game from '../views/Game';
 
 export default class Interface extends PIXI.Container {
     app: App;
     player: Player;
-    view: IView;
+    game: Game;
     private health: PIXI.Container;
     private point: PIXI.Container;
 
-    constructor(app: App, view: IView, player: Player) {
+    constructor(app: App, game: Game, player: Player) {
         super();
         this.app = app;
-        this.view = view;
+        this.game = game;
         this.player = player;
     }
 
