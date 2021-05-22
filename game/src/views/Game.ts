@@ -73,14 +73,28 @@ export default class Game extends IView {
                                 tip.x = data.x;
                                 if (!repeat) {
                                     this.entities.forEach((e) => {
-                                        if (rectsIntersect(tip, e)) {
-                                            e.deSpawn();
-                                            move.pause();
+                                        if (e instanceof Fish) {
+                                            if (rectsIntersect(tip, e)) {
+                                                console.log('GOT', e.point);
+                                                this.interface.addPoint(
+                                                    e.point
+                                                );
+                                                this.interface.setHealth(
+                                                    this.player.health - 1
+                                                );
+                                                this.player.got_fish++;
+                                                console.log(this.player);
+                                                e.deSpawn();
+                                                move.pause();
 
-                                            setTimeout(() => {
-                                                move.to({ x: data.x }, 1000);
-                                                move.resume(1);
-                                            }, 1000);
+                                                setTimeout(() => {
+                                                    move.to(
+                                                        { x: data.x },
+                                                        1000
+                                                    );
+                                                    move.resume(1);
+                                                }, 1000);
+                                            }
                                         }
                                     });
                                 }
