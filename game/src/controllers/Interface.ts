@@ -8,8 +8,8 @@ export default class Interface extends PIXI.Container {
     app: App;
     player: Player;
     view: IView;
-    health: PIXI.Container;
-    point: PIXI.Container;
+    private health: PIXI.Container;
+    private point: PIXI.Container;
 
     constructor(app: App, view: IView, player: Player) {
         super();
