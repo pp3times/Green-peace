@@ -29,7 +29,6 @@ export default class Interface extends PIXI.Container {
             health.x += i * (health.width + 5);
             this.health.addChild(health);
         }
-        this.health.pivot.set(0, 0);
         this.health.x = 10;
         this.health.y = 10;
 
