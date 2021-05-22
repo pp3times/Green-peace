@@ -24,7 +24,7 @@ export default class Interface extends PIXI.Container {
             this.removeChild(this.health);
         }
         this.health = new PIXI.Container();
-        for (let i = 0; i < this.player.health; i++) {
+        for (let i = 0; i < health; i++) {
             let health = new PIXI.Sprite(texture);
             health.x += i * (health.width + 5);
             this.health.addChild(health);
