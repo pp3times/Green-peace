@@ -126,9 +126,15 @@ export default class Game extends IView {
     randomSpawn() {
         let res = this.app.loader.resources;
         if (this.entities.length < 10) {
-            this.spawnEntity(new Fish(res['fish1'].texture, this));
-            this.spawnEntity(new Fish(res['fish2'].texture, this, 0.5));
-            this.spawnEntity(new Fish(res['fish3'].texture, this, 1));
+            this.spawnEntity(
+                new Fish(res['fish1'].texture, this, 500, 0.3, 'A')
+            );
+            this.spawnEntity(
+                new Fish(res['fish2'].texture, this, 1000, 0.5, 'B')
+            );
+            this.spawnEntity(
+                new Fish(res['fish3'].texture, this, 2000, 1, 'C')
+            );
         }
     }
 
