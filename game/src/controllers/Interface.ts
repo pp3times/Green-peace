@@ -60,5 +60,9 @@ export default class Interface extends PIXI.Container {
         this.player.point = point;
     }
 
+    addPoint(point: number) {
+        this.setPoint(this.player.point + point);
+    }
+
     update() {}
 }
