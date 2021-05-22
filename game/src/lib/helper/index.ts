@@ -7,9 +7,9 @@ export function rectsIntersect(
     let aBox = a.getBounds();
     let bBox = b.getBounds();
     return (
-        aBox.x + aBox.width > bBox.x &&
-        aBox.x < bBox.x + bBox.width &&
-        aBox.y + aBox.height > bBox.y &&
-        aBox.y < bBox.y + bBox.height
+        aBox.x + aBox.width/2 > bBox.x &&
+        aBox.x < bBox.x + bBox.width/2 &&
+        aBox.y + aBox.height/2 > bBox.y &&
+        aBox.y < bBox.y + bBox.height/2
     );
 }
