@@ -8,7 +8,7 @@ import TWEEN from '@tweenjs/tween.js';
 
 export function fadeIn(
     alias: string,
-    volume: number,
+    volume?: number,
     duration?: number,
     options?: PlayOptions | CompleteCallback | string
 ): IMediaInstance | Promise<IMediaInstance> {
@@ -16,7 +16,7 @@ export function fadeIn(
     sound.volume(alias, 0);
     let state = { value: 0 };
     new TWEEN.Tween(state)
-        .to({ value: volume }, duration || 1000)
+        .to({ value: volume || 1 }, duration || 1000)
         .onUpdate(() => {
             sound.volume(alias, state.value);
         })

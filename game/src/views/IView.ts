@@ -4,10 +4,12 @@ import App from '../App';
 import Scroller from '../controllers/Scroller';
 import { sound } from '@pixi/sound';
 import { TweenMax } from 'gsap';
+import Entity from '../entities/Entity';
 
 export default class IView extends PIXI.Container {
     app: App;
     scroller: Scroller;
+    entities: Entity[] = [];
 
     constructor(app: App) {
         super();
@@ -15,10 +17,10 @@ export default class IView extends PIXI.Container {
         this.width = w;
         this.height = h;
         this.app = app;
-        this.mask = app.mask;
     }
 
     initial(): void {
+        this.mask = this.app.mask;
         TweenMax.to(this.app.mask, 1, {
             pixi: { alpha: 1 },
             ease: 'easeIn',
@@ -31,7 +33,21 @@ export default class IView extends PIXI.Container {
 
     destroy(options?: boolean | PIXI.IDestroyOptions): void {
         super.destroy(options);
+        this.entities.forEach((e) => {
+            e.deSpawn();
+        });
+        this.scroller = null;
     }
 
-    update(): void {}
+    update() {
+        if (this.scroller) {
+            this.scroller.update();
+        }
+        this.entities.forEach((e) => e.update());
+    }
+
+    spawnEntity(entity: Entity) {
+        this.entities.push(entity);
+        entity.spawn();
+    }
 }

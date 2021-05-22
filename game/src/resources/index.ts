@@ -8,10 +8,6 @@ export default [
         path: 'game_bg.png',
     },
     {
-        name: 'wall',
-        path: 'wall.json',
-    },
-    {
         name: 'start_button',
         path: 'start_button.png',
     },
@@ -28,6 +24,10 @@ export default [
         path: 'sound_open.png',
     },
     {
+        name: 'bg1',
+        path: 'bg1.mp3',
+    },
+    {
         name: 'frame_1_1',
         path: 'frame_1_1.png',
     },
@@ -42,5 +42,45 @@ export default [
     {
         name: 'frame_2_2',
         path: 'frame_2_2.png',
+    },
+    {
+        name: 'boat',
+        path: 'boat.png',
+    },
+    {
+        name: 'fish1',
+        path: 'fish1b.png',
+    },
+    {
+        name: 'fish2',
+        path: 'fish2b.png',
+    },
+    {
+        name: 'fish3',
+        path: 'fish3b.png',
+    },
+    {
+        name: 'OPENNING-1',
+        path: 'OPENNING-1.png',
+    },
+    {
+        name: 'OPENNING-2',
+        path: 'OPENNING-2.png',
+    },
+    {
+        name: 'OPENNING-3',
+        path: 'OPENNING-3.png',
+    },
+    {
+        name: 'hook',
+        path: 'hook.png',
+    },
+    {
+        name: 'coin',
+        path: 'coin.png',
+    },
+    {
+        name: 'heart',
+        path: 'heart.png',
     },
 ];

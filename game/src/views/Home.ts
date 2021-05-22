@@ -21,7 +21,7 @@ export default class Home extends IView {
         {
             let btn = new PIXI.Sprite(res['start_button'].texture);
             btn.x = GAME_WIDTH / 2;
-            btn.y = GAME_HEIGHT / 2 + 150;
+            btn.y = GAME_HEIGHT / 2 - 150;
             btn.anchor.set(0.5);
             btn.interactive = true;
             btn.buttonMode = true;
@@ -74,13 +74,5 @@ export default class Home extends IView {
     beforeDestroy() {
         super.beforeDestroy();
         fadeOut('sound-start', 2000);
-    }
-
-    destroy(options?: boolean | PIXI.IDestroyOptions) {
-        super.destroy(options);
-    }
-
-    update() {
-        this.scroller.update();
     }
 }

@@ -66,7 +66,7 @@ export default class App extends PIXI.Application {
     inital() {
         this.currentView = new Home(this);
         this.stage.addChild(this.currentView);
-        this.stage.addChild(this.mask);
+
         let update = () => {
             this.currentView.update();
             TWEEN.update();
@@ -75,19 +75,24 @@ export default class App extends PIXI.Application {
         requestAnimationFrame(update);
         this.changeSize();
         this.currentView.initial();
+        this.stage.addChild(this.mask);
     }
 
     changeScenes(next: IView) {
+        this.mask.interactive = true;
         this.currentView.beforeDestroy();
+
         TweenMax.to(this.mask, 2, {
             pixi: { alpha: 0 },
             ease: 'easeIn',
         }).then(() => {
             this.currentView.destroy();
             this.stage.removeChild(this.currentView);
-            this.stage.addChild(next);
+            this.stage.removeChild(this.mask);
             this.currentView = next;
-            next.initial();
+            this.stage.addChild(this.currentView);
+            this.currentView.initial();
+            this.stage.addChild(this.mask);
         });
     }
 

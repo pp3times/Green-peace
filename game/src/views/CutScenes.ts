@@ -14,11 +14,13 @@ interface IScene {
 export default class CutScenes extends IView {
     scenes: IScene[];
     background: PIXI.Sprite;
+    fade: boolean;
 
-    constructor(app: App, scenes: IScene[]) {
+    constructor(app: App, scenes: IScene[], fade?: boolean) {
         super(app);
+        this.mask = null;
         this.scenes = scenes;
-        this.alpha = 1;
+        this.alpha = fade ? 0 : 1;
         this.background = new PIXI.Sprite(
             this.app.renderer.generateTexture(
                 new PIXI.Graphics()
@@ -31,22 +33,16 @@ export default class CutScenes extends IView {
         this.background.interactive = true;
 
         this.addChild(this.background);
-        let mask = new PIXI.Sprite(
-            this.app.renderer.generateTexture(
-                new PIXI.Graphics()
-                    .beginFill(0xff0000)
-                    .drawRect(0, 0, GAME_WIDTH, GAME_HEIGHT)
-                    .endFill(),
-                PIXI.SCALE_MODES.NEAREST
-            )
-        );
-        this.mask = mask;
-        this.addChild(mask);
     }
 
     initial() {}
 
     start(): Promise<void> {
+        this.app.stage.addChild(this);
+        TweenMax.to(this, 1, {
+            pixi: { alpha: 1 },
+            ease: 'easeIn',
+        });
         return new Promise(async (resolve) => {
             for (let scene of this.scenes) {
                 let sprite: PIXI.AnimatedSprite;
@@ -71,7 +67,7 @@ export default class CutScenes extends IView {
                         sprite.play();
 
                         setTimeout(() => {
-                            TweenMax.to(sprite, 1, {
+                            TweenMax.to(sprite, 0.5, {
                                 pixi: { alpha: 0 },
                                 ease: 'easeIn',
                             }).then(() => {
@@ -85,7 +81,10 @@ export default class CutScenes extends IView {
             TweenMax.to(this, 1, {
                 pixi: { alpha: 0 },
                 ease: 'easeIn',
-            }).then(() => resolve());
+            }).then(() => {
+                resolve();
+                this.app.stage.removeChild(this);
+            });
         });
     }
 }
