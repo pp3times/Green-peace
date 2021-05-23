@@ -116,7 +116,14 @@ export default class Game extends IView {
                                                         [
                                                             {
                                                                 frames: [
-                                                                    'SCENE1',
+                                                                    'SCENE1-1',
+                                                                ],
+                                                                dpf: 1000,
+                                                                duration: 5000,
+                                                            },
+                                                            {
+                                                                frames: [
+                                                                    'SCENE1-2',
                                                                 ],
                                                                 dpf: 1000,
                                                                 duration: 5000,
@@ -148,17 +155,24 @@ export default class Game extends IView {
                                                         [
                                                             {
                                                                 frames: [
-                                                                    'SCENE2-1',
+                                                                    'SCENE2-1-1',
                                                                 ],
                                                                 dpf: 1000,
-                                                                duration: 2000,
+                                                                duration: 4000,
                                                             },
                                                             {
                                                                 frames: [
-                                                                    'SCENE2-2',
+                                                                    'SCENE2-2-1',
                                                                 ],
                                                                 dpf: 1000,
-                                                                duration: 2000,
+                                                                duration: 4000,
+                                                            },
+                                                            {
+                                                                frames: [
+                                                                    'SCENE2-2-2',
+                                                                ],
+                                                                dpf: 1000,
+                                                                duration: 4000,
                                                             },
                                                         ]
                                                     );
@@ -190,14 +204,21 @@ export default class Game extends IView {
                                                                     'SCENE3-1',
                                                                 ],
                                                                 dpf: 1000,
-                                                                duration: 2000,
+                                                                duration: 4000,
                                                             },
                                                             {
                                                                 frames: [
-                                                                    'SCENE3-2',
+                                                                    'SCENE3-2-1',
                                                                 ],
                                                                 dpf: 1000,
-                                                                duration: 2000,
+                                                                duration: 4000,
+                                                            },
+                                                            {
+                                                                frames: [
+                                                                    'SCENE3-2-2',
+                                                                ],
+                                                                dpf: 1000,
+                                                                duration: 4000,
                                                             },
                                                         ]
                                                     );
@@ -230,17 +251,17 @@ export default class Game extends IView {
                                                         [
                                                             {
                                                                 frames: [
-                                                                    'SCENE4-1',
+                                                                    'SCENE4-1-1',
                                                                 ],
                                                                 dpf: 1000,
-                                                                duration: 2000,
+                                                                duration: 4000,
                                                             },
                                                             {
                                                                 frames: [
-                                                                    'SCENE4-2',
+                                                                    'SCENE4-2-1',
                                                                 ],
                                                                 dpf: 1000,
-                                                                duration: 2000,
+                                                                duration: 4000,
                                                             },
                                                         ]
                                                     );
@@ -283,7 +304,7 @@ export default class Game extends IView {
                                                             },
                                                             {
                                                                 frames: [
-                                                                    'SCENE5-3',
+                                                                    'SCENE5-3-1',
                                                                 ],
                                                                 dpf: 1000,
                                                                 duration: 2000,
@@ -319,29 +340,46 @@ export default class Game extends IView {
         {
             let scene = new CutScenes(this.app, [
                 {
-                    frames: ['OPENNING-1'],
+                    frames: ['OPENNING-1-1'],
                     dpf: 1000,
-                    duration: 2000,
+                    duration: 4000,
                 },
                 {
-                    frames: ['OPENNING-2'],
+                    frames: ['OPENNING-1-2'],
                     dpf: 1000,
-                    duration: 2000,
+                    duration: 4000,
+                },
+                {
+                    frames: ['OPENNING-1-3'],
+                    dpf: 1000,
+                    duration: 4000,
+                },
+                {
+                    frames: ['OPENNING-2-1'],
+                    dpf: 1000,
+                    duration: 4000,
+                },
+                {
+                    frames: ['OPENNING-2-2'],
+                    dpf: 1000,
+                    duration: 4000,
                 },
                 {
                     frames: ['OPENNING-3'],
                     dpf: 1000,
-                    duration: 2000,
+                    duration: 4000,
                 },
             ]);
             await scene.start();
         }
+
+        //this.scroller.texture = res['SCENE4-2'].texture;
     }
 
     randomSpawn() {
         let res = this.app.loader.resources;
-        if (this.entities.length < 10) {
-            if (this.player.health > 2) {
+        if (this.player.health > 2) {
+            if (this.entities.length < 10) {
                 this.spawnEntity(
                     new Fish(res['fish1'].texture, this, 100, 0.5, 'A')
                 );
@@ -351,7 +389,9 @@ export default class Game extends IView {
                 this.spawnEntity(
                     new Fish(res['fish3'].texture, this, 1000, 2, 'C')
                 );
-            } else {
+            }
+        } else {
+            if (this.entities.length < 5) {
                 this.spawnEntity(
                     new Fish(res['fish1'].texture, this, 100, 0.5, 'A')
                 );
