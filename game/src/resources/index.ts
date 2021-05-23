@@ -61,11 +61,31 @@ export default [
     },
     {
         name: 'OPENNING-1',
-        path: 'OPENNING-1.png',
+        path: 'OPENING-1.png',
+    },
+    {
+        name: 'OPENNING-1-1',
+        path: 'OPENING-1-1.png',
+    },
+    {
+        name: 'OPENNING-1-2',
+        path: 'OPENING-1-2.png',
+    },
+    {
+        name: 'OPENNING-1-3',
+        path: 'OPENING-1-3.png',
     },
     {
         name: 'OPENNING-2',
         path: 'OPENNING-2.png',
+    },
+    {
+        name: 'OPENNING-2-1',
+        path: 'OPENNING-2-1.png',
+    },
+    {
+        name: 'OPENNING-2-2',
+        path: 'OPENNING-2-2.png',
     },
     {
         name: 'OPENNING-3',
@@ -84,6 +104,18 @@ export default [
         path: 'SCENE2-1.png',
     },
     {
+        name: 'SCENE2-1-1',
+        path: 'SCENE2-1-1.png',
+    },
+    {
+        name: 'SCENE2-2-1',
+        path: 'SCENE2-2-1.png',
+    },
+    {
+        name: 'SCENE2-2-2',
+        path: 'SCENE2-2-2.png',
+    },
+    {
         name: 'SCENE2-2',
         path: 'SCENE2-2.png',
     },
@@ -96,18 +128,42 @@ export default [
         path: 'SCENE3-2.png',
     },
     {
+        name: 'SCENE3-2-1',
+        path: 'SCENE3-2-1.png',
+    },
+    {
+        name: 'SCENE3-2-2',
+        path: 'SCENE3-2-2.png',
+    },
+    {
         name: 'SCENE1',
         path: 'SCENE1.png',
+    },
+    {
+        name: 'SCENE1-1',
+        path: 'SCENE1-1.png',
+    },
+    {
+        name: 'SCENE1-2',
+        path: 'SCENE1-2.png',
     },
 
     {
         name: 'SCENE4-1',
         path: 'SCENE4-1.png',
     },
+    {
+        name: 'SCENE4-1-1',
+        path: 'SCENE4-1-1.png',
+    },
 
     {
         name: 'SCENE4-2',
         path: 'SCENE4-2.png',
+    },
+    {
+        name: 'SCENE4-2-1',
+        path: 'SCENE4-2-1.png',
     },
     {
         name: 'SCENE5-1',
@@ -121,6 +177,10 @@ export default [
     {
         name: 'SCENE5-3',
         path: 'SCENE5-3.png',
+    },
+    {
+        name: 'SCENE5-3-1',
+        path: 'SCENE5-3-1.png',
     },
 
     {
