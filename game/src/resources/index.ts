@@ -49,15 +49,15 @@ export default [
     },
     {
         name: 'fish1',
-        path: 'fish1b.png',
+        path: 'fish1.png',
     },
     {
         name: 'fish2',
-        path: 'fish2b.png',
+        path: 'fish2.png',
     },
     {
         name: 'fish3',
-        path: 'fish3b.png',
+        path: 'fish3.png',
     },
     {
         name: 'OPENNING-1',
@@ -129,7 +129,7 @@ export default [
     },
     {
         name: 'hook',
-        path: 'hook.png',
+        path: 'hooka.png',
     },
     {
         name: 'coin',
