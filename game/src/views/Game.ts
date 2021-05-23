@@ -334,7 +334,7 @@ export default class Game extends IView {
                     duration: 2000,
                 },
             ]);
-            //await scene.start();
+            await scene.start();
         }
     }
 
