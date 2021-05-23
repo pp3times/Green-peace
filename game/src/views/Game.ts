@@ -97,6 +97,207 @@ export default class Game extends IView {
                                             }
                                         }
                                     });
+
+                                    if (
+                                        this.player.got_fish == 2 &&
+                                        this.player.check != 1
+                                    ) {
+                                        {
+                                            this.interface.setHealth(
+                                                this.player.health - 1
+                                            );
+                                            this.player.check++;
+                                            setTimeout(() => {
+                                                move.to({ x: data.x }, 1000);
+                                                move.resume(1);
+                                                {
+                                                    let scene = new CutScenes(
+                                                        this.app,
+                                                        [
+                                                            {
+                                                                frames: [
+                                                                    'SCENE1',
+                                                                ],
+                                                                dpf: 1000,
+                                                                duration: 5000,
+                                                            },
+                                                        ]
+                                                    );
+                                                    scene.start().then(() => {
+                                                        this.running = true;
+                                                    });
+                                                    this.running = true;
+                                                }
+                                            }, 1000);
+                                        }
+                                    } else if (
+                                        this.player.got_fish == 4 &&
+                                        this.player.check != 2
+                                    ) {
+                                        {
+                                            this.interface.setHealth(
+                                                this.player.health - 1
+                                            );
+                                            this.player.check++;
+                                            setTimeout(() => {
+                                                move.to({ x: data.x }, 1000);
+                                                move.resume(1);
+                                                {
+                                                    let scene = new CutScenes(
+                                                        this.app,
+                                                        [
+                                                            {
+                                                                frames: [
+                                                                    'SCENE2-1',
+                                                                ],
+                                                                dpf: 1000,
+                                                                duration: 2000,
+                                                            },
+                                                            {
+                                                                frames: [
+                                                                    'SCENE2-2',
+                                                                ],
+                                                                dpf: 1000,
+                                                                duration: 2000,
+                                                            },
+                                                        ]
+                                                    );
+                                                    scene.start().then(() => {
+                                                        this.running = true;
+                                                    });
+                                                    this.running = true;
+                                                }
+                                            }, 1000);
+                                        }
+                                    } else if (
+                                        this.player.got_fish == 6 &&
+                                        this.player.check != 3
+                                    ) {
+                                        {
+                                            this.interface.setHealth(
+                                                this.player.health - 1
+                                            );
+                                            this.player.check++;
+                                            setTimeout(() => {
+                                                move.to({ x: data.x }, 1000);
+                                                move.resume(1);
+                                                {
+                                                    let scene = new CutScenes(
+                                                        this.app,
+                                                        [
+                                                            {
+                                                                frames: [
+                                                                    'SCENE3-1',
+                                                                ],
+                                                                dpf: 1000,
+                                                                duration: 2000,
+                                                            },
+                                                            {
+                                                                frames: [
+                                                                    'SCENE3-2',
+                                                                ],
+                                                                dpf: 1000,
+                                                                duration: 2000,
+                                                            },
+                                                        ]
+                                                    );
+                                                    scene.start().then(() => {
+                                                        this.running = true;
+                                                        this.scroller.texture =
+                                                            res[
+                                                                'dark_sea'
+                                                            ].texture;
+                                                    });
+                                                    this.running = true;
+                                                }
+                                            }, 1000);
+                                        }
+                                    } else if (
+                                        this.player.got_fish == 8 &&
+                                        this.player.check != 4
+                                    ) {
+                                        {
+                                            this.interface.setHealth(
+                                                this.player.health - 1
+                                            );
+                                            this.player.check++;
+                                            setTimeout(() => {
+                                                move.to({ x: data.x }, 1000);
+                                                move.resume(1);
+                                                {
+                                                    let scene = new CutScenes(
+                                                        this.app,
+                                                        [
+                                                            {
+                                                                frames: [
+                                                                    'SCENE4-1',
+                                                                ],
+                                                                dpf: 1000,
+                                                                duration: 2000,
+                                                            },
+                                                            {
+                                                                frames: [
+                                                                    'SCENE4-2',
+                                                                ],
+                                                                dpf: 1000,
+                                                                duration: 2000,
+                                                            },
+                                                        ]
+                                                    );
+                                                    scene.start().then(() => {
+                                                        this.running = true;
+                                                    });
+                                                    this.running = true;
+                                                }
+                                            }, 1000);
+                                        }
+                                    } else if (
+                                        this.player.got_fish == 10 &&
+                                        this.player.check != 5
+                                    ) {
+                                        {
+                                            this.interface.setHealth(
+                                                this.player.health - 1
+                                            );
+                                            this.player.check++;
+                                            setTimeout(() => {
+                                                move.to({ x: data.x }, 1000);
+                                                move.resume(1);
+                                                {
+                                                    let scene = new CutScenes(
+                                                        this.app,
+                                                        [
+                                                            {
+                                                                frames: [
+                                                                    'SCENE5-1',
+                                                                ],
+                                                                dpf: 1000,
+                                                                duration: 2000,
+                                                            },
+                                                            {
+                                                                frames: [
+                                                                    'SCENE5-2',
+                                                                ],
+                                                                dpf: 1000,
+                                                                duration: 2000,
+                                                            },
+                                                            {
+                                                                frames: [
+                                                                    'SCENE5-3',
+                                                                ],
+                                                                dpf: 1000,
+                                                                duration: 2000,
+                                                            },
+                                                        ]
+                                                    );
+                                                    scene.start().then(() => {
+                                                        this.running = true;
+                                                    });
+                                                    this.running = true;
+                                                }
+                                            }, 1000);
+                                        }
+                                    }
                                 }
                             })
                             .onRepeat((data) => {
