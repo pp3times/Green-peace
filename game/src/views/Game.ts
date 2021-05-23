@@ -79,21 +79,21 @@ export default class Game extends IView {
                                                 this.interface.addPoint(
                                                     e.point
                                                 );
-                                                this.interface.setHealth(
-                                                    this.player.health - 1
-                                                );
+
                                                 this.player.got_fish++;
                                                 console.log(this.player);
                                                 e.deSpawn();
                                                 move.pause();
-
                                                 setTimeout(() => {
                                                     move.to(
                                                         { x: data.x },
                                                         1000
                                                     );
                                                     move.resume(1);
-                                                }, 1000);
+                                                    {
+                                                        this.running = true;
+                                                    }
+                                                }, 1);
                                             }
                                         }
                                     });
