@@ -82,9 +82,9 @@ export default class CutScenes extends IView {
                 pixi: { alpha: 0 },
                 ease: 'easeIn',
             }).then(() => {
-                resolve();
                 this.app.stage.removeChild(this);
             });
+            resolve();
         });
     }
 }
