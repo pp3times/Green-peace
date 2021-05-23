@@ -18,7 +18,10 @@ export default class Fish extends Entity {
         super(texture, view);
         this.behaviors.push(new Swimming(this, speed || 0.3));
         this.anchor.set(0.5);
-        this.y = (Math.random() * GAME_HEIGHT) / 2 + GAME_HEIGHT / 2;
+        this.y =
+            (Math.random() * GAME_HEIGHT) / 2 +
+            GAME_HEIGHT / 2 +
+            GAME_HEIGHT / 10;
         this.scale.x = -1;
         this.type = type;
         this.point = point;
