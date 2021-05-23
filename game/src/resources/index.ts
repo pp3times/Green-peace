@@ -72,6 +72,62 @@ export default [
         path: 'OPENNING-3.png',
     },
     {
+        name: 'ENDING1-1',
+        path: 'ENDING1-1.png',
+    },
+    {
+        name: 'ENDING1-2',
+        path: 'ENDING1-2.png',
+    },
+    {
+        name: 'SCENE2-1',
+        path: 'SCENE2-1.png',
+    },
+    {
+        name: 'SCENE2-2',
+        path: 'SCENE2-2.png',
+    },
+    {
+        name: 'SCENE3-1',
+        path: 'SCENE3-1.png',
+    },
+    {
+        name: 'SCENE3-2',
+        path: 'SCENE3-2.png',
+    },
+    {
+        name: 'SCENE1',
+        path: 'SCENE1.png',
+    },
+
+    {
+        name: 'SCENE4-1',
+        path: 'SCENE4-1.png',
+    },
+
+    {
+        name: 'SCENE4-2',
+        path: 'SCENE4-2.png',
+    },
+    {
+        name: 'SCENE5-1',
+        path: 'SCENE5-1.png',
+    },
+
+    {
+        name: 'SCENE5-2',
+        path: 'SCENE5-2.png',
+    },
+    {
+        name: 'SCENE5-3',
+        path: 'SCENE5-3.png',
+    },
+
+    {
+        name: 'dark_sea',
+        path: 'dark_sea.png',
+    },
+    {
         name: 'hook',
         path: 'hook.png',
     },
