@@ -1,0 +1,22 @@
+{
+  "name": "green-peace",
+  "version": "1.0.0",
+  "description": "Green peace 2021 ITKMITL(18)",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "tailwindcss build src/style.css -o public/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pp3times/Green-peace.git"
+  },
+  "author": "Mewtwo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pp3times/Green-peace/issues"
+  },
+  "homepage": "https://github.com/pp3times/Green-peace#readme",
+  "dependencies": {
+    "tailwindcss": "^2.1.2"
+  }
+}
