@@ -99,7 +99,7 @@ export default class Game extends IView {
                                     });
 
                                     if (
-                                        this.player.got_fish == 2 &&
+                                        this.player.got_fish == 8 &&
                                         this.player.check != 1
                                     ) {
                                         {
@@ -131,7 +131,7 @@ export default class Game extends IView {
                                             }, 1000);
                                         }
                                     } else if (
-                                        this.player.got_fish == 4 &&
+                                        this.player.got_fish == 16 &&
                                         this.player.check != 2
                                     ) {
                                         {
@@ -170,7 +170,7 @@ export default class Game extends IView {
                                             }, 1000);
                                         }
                                     } else if (
-                                        this.player.got_fish == 6 &&
+                                        this.player.got_fish == 24 &&
                                         this.player.check != 3
                                     ) {
                                         {
@@ -213,7 +213,7 @@ export default class Game extends IView {
                                             }, 1000);
                                         }
                                     } else if (
-                                        this.player.got_fish == 8 &&
+                                        this.player.got_fish == 34 &&
                                         this.player.check != 4
                                     ) {
                                         {
@@ -252,7 +252,7 @@ export default class Game extends IView {
                                             }, 1000);
                                         }
                                     } else if (
-                                        this.player.got_fish == 10 &&
+                                        this.player.got_fish == 44 &&
                                         this.player.check != 5
                                     ) {
                                         {
