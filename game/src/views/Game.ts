@@ -34,7 +34,9 @@ export default class Game extends IView {
         this.running = true;
         this.interface.setHealth(5);
         this.interface.setPoint(0);
-        fadeIn('bg1', 0.05);
+        fadeIn('bg2', 0.05, 2000, {
+            loop: true,
+        });
         let res = this.app.loader.resources;
         {
             {

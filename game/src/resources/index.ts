@@ -16,6 +16,10 @@ export default [
         path: 'start.mp3',
     },
     {
+        name: 'sound-start2',
+        path: 'music_start.mp3',
+    },
+    {
         name: 'sound_close',
         path: 'sound_close.png',
     },
@@ -26,6 +30,10 @@ export default [
     {
         name: 'bg1',
         path: 'bg1.mp3',
+    },
+    {
+        name: 'bg2',
+        path: 'music_game.mp3',
     },
     {
         name: 'frame_1_1',
