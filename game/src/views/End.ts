@@ -40,7 +40,7 @@ export default class End extends IView {
         });
         let text = new PIXI.Text('GAME OVER', style);
         text.x = GAME_WIDTH / 2;
-        text.y = GAME_HEIGHT / 2 - 100;
+        text.y = GAME_HEIGHT / 2 - 150;
         text.resolution = 3;
         text.anchor.set(0.5);
         {
@@ -102,7 +102,7 @@ export default class End extends IView {
                 scene.start().then(() => {
                     action.texture = res['info'].texture;
                     action.x = GAME_WIDTH / 4;
-                    action.y = GAME_HEIGHT - action.height / 2;
+                    action.y = GAME_HEIGHT - action.height / 2 - 100;
                     this.removeChild(text);
                     this.removeChild(this.scroller);
                     this.scroller = null;
