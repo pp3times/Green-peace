@@ -99,6 +99,28 @@ export default class Game extends IView {
         });
         this.addChild(new Boat(this));
 
+        {
+            let image = new PIXI.Sprite(res['sound_open'].texture);
+            image.x = GAME_WIDTH;
+            image.y = GAME_HEIGHT;
+            image.anchor.set(1.2);
+            image.interactive = true;
+            image.buttonMode = true;
+            // @ts-ignore
+            image.on('pointerdown', () => {
+                let open = this.app.option.sound;
+                image.texture =
+                    res[open ? 'sound_close' : 'sound_open'].texture;
+                this.app.option.sound = !open;
+                if (this.app.option.sound) {
+                    sound.unmuteAll();
+                } else {
+                    sound.muteAll();
+                }
+            });
+            this.addChild(image);
+        }
+
         let scene = new CutScenes(this.app, [
             {
                 frames: ['OPENNING-1-1'],
