@@ -21,7 +21,7 @@ export default class Home extends IView {
         {
             let btn = new PIXI.Sprite(res['start_button'].texture);
             btn.x = GAME_WIDTH / 2;
-            btn.y = GAME_HEIGHT / 2 - 150;
+            btn.y = GAME_HEIGHT / 2 - 30;
             btn.anchor.set(0.5);
             btn.interactive = true;
             btn.buttonMode = true;
