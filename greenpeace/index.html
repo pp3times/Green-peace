@@ -1,0 +1,3697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="loading.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        body{
+            overflow: auto;
+            font-family: 'Kanit', sans-serif;
+        }
+        .card{
+            background: rgba( 255, 255, 255, 0.05 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 5.5px );
+            -webkit-backdrop-filter: blur( 5.5px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+        }
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #008CBA;
+            overflow: hidden;
+            width: 100%;
+            height: 0;
+            transition: .5s ease;
+        }
+        .card:hover .overlay {
+            height: 100%;
+        }
+        .psr{
+            position: relative;
+        }
+        .ofh{
+            overflow: hidden;
+        }
+        .tac{
+            text-align: center;
+        }
+        .jcc{
+            justify-content: center;
+        }
+        .aic{
+            align-items: center;
+        }
+        .df{
+            display: flex;
+        }
+        .psa{
+            position: absolute;
+        }
+        .bodymoon{
+            position: relative;
+            background: linear-gradient(rgb(0, 109, 233), rgb(1, 35, 114));
+        }
+        .backgroundmoon{
+            opacity: 0.7;
+            background: black;
+        }
+        .blur{
+            filter: blur(1vw);
+        }
+        .moon {
+            width: 10vw;
+            height: 10vw;
+            background-color: #ff9;
+            border-radius: 50%;
+            position: absolute;
+            top: calc(50% - 5vw);
+            left: calc(50% - 5vw);
+            filter: url(#sketch);
+            box-shadow: 0 0 0 5vw rgba(255, 255, 255, 0.15);
+        }
+        .page{
+            height: 100vh;
+            width: 100%;
+        }
+        .salmon{
+            width: 40vw;
+            height: 20vw;
+            size: 100% auto;
+        }
+        .fisherman{
+            width: 15vw;
+            size: 100% auto;
+            top: 55vh;
+            left: 18vw;
+        }
+        .questionmark{
+            font-size: 6vw;
+            color: white;
+            font-family: 'Freckle Face', cursive;
+            animation: questionmark 2s infinite;
+        }
+        .fadein{
+            animation: fadein 2s ease;
+        }
+        .backgroundblack{
+            background-color: black;
+        }
+        .fadeout{
+            animation: fadeout 2s ease;
+        }
+        .fadeout1{
+            animation: fadeout1 2s ease;
+        }
+        .fadeout2{
+            animation: fadeout2 2s ease;
+        }
+        .hidebox{
+            width: 0;
+            height: 0;
+        }
+        .op0{
+            opacity: 0;
+        }
+        .textpage1{
+            font-size: 4vw;
+            color: white;
+        }
+        .hidetext{
+            font-size: 0;
+            opacity: 0;
+        }
+        .moonbox{
+            width: 30vw;
+            height: 30vw;
+        }
+        .divlongpage{
+            height: 1000vh;
+            background: linear-gradient(rgb(1, 35, 114),#14222F);
+        }
+        .divpage2box{
+            width: 50%;
+            height: 100%;
+        }
+        .leftboxup{
+            width: 50%;
+        }
+        .leftboxup span:nth-child(1){
+            color: #2A6499;
+            font-size: 4vw;
+        }
+        .leftboxup span:nth-child(2){
+            color: #6E9ECA;
+            font-size: 4vw;
+        }
+        .rightboxup{
+            width: 70%;
+        }
+        .rightboxdown{
+            width: 90%;
+        }
+        .rightboxdown.text{
+            margin-top: 30vh;
+            font-size: 2vw;
+             color: white;
+             margin-left: 10%;
+             text-shadow: 5px 5px 8px rgb(130, 206, 231);
+        }
+        .fontpage2{
+            font-size: 1.5vw;
+        }
+        .textbox{
+            width: 60%;
+            height: 40%;
+        }
+        .textbox span{
+            font-size: 12vw;
+        }
+        .textbox span:nth-child(1){
+            color: #3D70D3;
+        }
+        .textbox span:nth-child(2){
+            color: white;
+        }
+        .triangle-topright {
+            width: 0;
+            height: 0;
+            border-top: 51vw solid white;
+            border-left: 49.35vw solid transparent;
+        }
+        .triangle-bottomleft {
+            width: 0;
+            height: 0;
+            border-bottom: 51.5vw solid white;
+            border-right: 49.3vw solid transparent;
+        }
+        .texth1{
+            color: #3D70D3;
+            font-size: 2vw;
+        }
+        .reveal{
+            position: relative;
+            opacity: 0;
+            transition: all 1s ease;
+        }
+        .bottomtotop{
+            transform: translateY(100px);
+        }
+        .righttoleft{
+            transform: translateX(120px);
+        }
+        .lefttoright{
+            transform: translateX(-120px);
+        }
+        .reveal.active{
+            opacity: 1;
+        }
+        .reveal.active.out{
+            transform: translateY(0px);
+        }
+        .reveal.active.out1{
+            transform: translateX(0px);
+        }
+        .backgroundpage4{
+            background: #14222F;
+        }
+        .page4right{
+            background: white;
+            width: 50%;
+            height: 100%;
+        }
+        .page4line{
+            width: 80%;
+            height: 5px;
+            background: #A6A2A2;
+        }
+        .h2page4{
+            color: #B2B2B2;
+            font-size: 1vw;
+        }
+        .ask{
+            bottom: 5vw; 
+            width: 0vw;
+            opacity: 0;
+            position: fixed; 
+            margin-left: 32vw;
+            transition: 1s;
+        }
+        .ask1{
+            bottom: 1vw; 
+            width: 35vw;
+            opacity: 1;
+            position: fixed; 
+            margin-left: 32vw;
+            transition: 1s;
+        }
+        .defult{
+            width: 25vw;
+        }
+        .slidesea{
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(#094d66,#14222f);
+        }
+        .page2text1{
+            left: 12vw;
+             top: 20vh;
+        }
+        .page2text2{
+            color: #3D70D3; 
+            font-size: 3vw; 
+            top: 20vh; 
+            left: 14vw;
+        }
+        .page2text3{
+            color: #0D327B; 
+            font-size: 2vw; 
+            top: 25vh; 
+            left: 8vw;
+        }
+        .page2text4{
+            top: 20vh; 
+            left: 8vw;
+        }
+        .page2text5{
+            top: 5vh;
+        }
+        .page2text6{
+            top: 25vh; 
+            left: 23vw;
+            color: #131313;
+            letter-spacing: .15em;
+            text-shadow: 1px -1px 0 #767676, -1px 2px 1px #737272, -2px 4px 1px #767474, -3px 6px 1px #787777, -4px 8px 1px #7b7a7a, -5px 10px 1px #7f7d7d, -6px 12px 1px #828181, -7px 14px 1px #868585, -8px 16px 1px #8b8a89, -9px 18px 1px #8f8e8d, -10px 20px 1px #949392, -11px 22px 1px #999897, -12px 24px 1px #9e9c9c, -13px 26px 1px #a3a1a1, -14px 28px 1px #a8a6a6, -15px 30px 1px #adabab, -16px 32px 1px #b2b1b0, -17px 34px 1px #b7b6b5, -18px 36px 1px #bcbbba, -19px 38px 1px #c1bfbf, -20px 40px 1px #c6c4c4, -21px 42px 1px #cbc9c8, -22px 44px 1px #cfcdcd, -23px 46px 1px #d4d2d1, -24px 48px 1px #d8d6d5, -25px 50px 1px #dbdad9, -26px 52px 1px #dfdddc, -27px 54px 1px #e2e0df, -28px 56px 1px #e4e3e2;
+        }
+        .page3{
+            width: 100%;
+            height: 100vh;
+            background: #14222F;
+        }
+        .page3img1{
+            margin-top: 25vw; 
+            margin-right: 20vw; 
+            width: 20vw;
+        }
+        .page3img2{
+            left: 47%; 
+            width: 24vw;
+        }
+        .page3img3{
+            left: 48%; 
+            top: 3%; 
+            width: 5.5vw;
+        }
+        .page3img4{
+            left: 61%; 
+            top: 24%; 
+            width: 24vw;
+        }
+        .page3img5{
+            left: 62%; 
+            top: 27%; 
+            width: 5.5vw;
+        }
+        .page3img6{
+            left: 75%; 
+            top: 52%; 
+            width: 24vw;
+        }
+        .page3img7{
+            left: 76%; 
+            top: 55%; 
+            width: 5.5vw;
+        }
+        .page3img8{
+            top: 12% ;
+            left: 1%; 
+            width: 15vw;
+        }
+        .page3img9{
+            top: 15% ;
+            left: 9%; 
+            width: 5.5vw;
+        }
+        .page3img10{
+            top: 38% ;
+            left: 12%; 
+            width: 15vw;
+        }
+        .page3img11{
+            top: 41% ;
+            left: 20%; 
+            width: 5.5vw;
+        }
+        .page3img12{
+            top: 65% ;
+            left: 25%; 
+            width: 15vw;
+        }
+        .page3img13{
+            top: 68% ;
+            left: 33%; 
+            width: 5.5vw;
+        }
+        .page3text1{
+            margin-top: 9%; 
+            margin-left: 19%;
+        }
+        .page3text2{
+            margin-top: 7%; 
+            margin-left: 32%;
+        }
+        .page3text3{
+            margin-top: 7%;
+            margin-left: 45%;
+        }
+        .page3text4{
+            margin-top: 7%; 
+            margin-left: 58%;
+        }
+        .page4{
+            width: 100%;
+            height: 100vh;
+        }
+        .page4text1{
+            margin-top: 25%;
+        }
+        .page4text2{
+            margin-top: 1%;
+        }
+        .page4text3{
+            margin-top: 1%;
+        }
+        .page4text4{
+            margin:auto;
+            margin-top: 5%;
+        }
+        .page4text5{
+            margin-top: 5%;
+        }
+        .page4text6{
+            margin-top: 2.5%;
+        }
+        .page4img1{
+            top: 0; 
+            margin-left: 14vw;
+        }
+        .page4img2{
+            margin-left: 15%; 
+            margin-top: 10%;
+        }
+        .page4img3{
+            right: 50%;
+            margin-top: 20vw;
+        }
+        .page4img10{
+            width: 20vw;
+            top: 0; 
+            margin-left: 14vw;
+        }
+        .page5{
+            background-color: #242C5B;
+            width: 100%;
+            height: 120vh;
+        }
+        .page5top{
+            margin-top: 15vw;
+        }
+        .page5boxtext1{
+            width: 80vw; 
+            height: 20vw; 
+            font-size: 0.8vw; 
+            color: white;
+            top: 10vw;
+        }
+        .page5boxtext2{
+            width: 80vw;
+            height: 10vw;
+            font-size: 0.8vw; 
+            color: white; 
+            top: 25vw;
+        }
+        .page5boxwongre{
+            background-color: #242C5B; 
+            overflow: hidden; 
+            width: 100%; 
+            height: 50vh;
+        }
+        .circledarkblue{
+            width: 18vw; 
+            margin-left: 40.3vw; 
+            bottom: -14.25vw;
+        }
+        .wongreleft{
+            bottom: -7vw; 
+            left: -36vw; 
+            width: 78.5vw;
+        }
+        .wongreright{
+            bottom: -7vw; 
+            right: -36vw; 
+            width: 78.5vw;
+        }
+        .page6{
+            background: #242C5B; 
+            width: 100%; 
+            height: 900vh;
+        }
+        .page6boxtext1{
+            width: 80%; 
+            height: 22vw; 
+            margin-left: 10%;
+            top: 10vw; 
+            font-size: 0.75vw; 
+            color: white;
+        }
+        .page6img1{
+            width: 12vw; 
+            top: -6vw; 
+            margin-left: 43.5vw;
+        }
+        .page6img2{
+            width: 10vw; 
+            top: -5vw;
+            margin-left: 44.5vw;
+        }
+        .page6img3{
+            width: 4vw; 
+            top: -2vw; 
+            margin-left: 47.5vw;
+        }
+        .page6img4{
+            width: 60vw; 
+            right: -2vw; 
+            margin-top: 40vh;
+        }
+        .page6img5{
+            width: 60vw; 
+            left: -2vw; 
+            margin-top: 125vh;
+        }
+        .page6img22{
+            width: 40vw; 
+            left: 5vw; 
+            margin-top: 220vh;
+        }
+        .page6boxtext2{
+            width: 45%; 
+            height: 12vw;
+            right: 5vw;
+            margin-top: 250vh; 
+            font-size: 1vw; 
+            color: white;
+        }
+        .page6boxtext3{
+            width: 80%; 
+            height: 15vw;
+            margin-left: 10vw; 
+            margin-top: 340vh; 
+            font-size: 0.8vw; 
+            color: white; 
+        }
+        .page6boxtext4{
+            width: 80%; 
+            height: 15vw;
+            margin-left: 10vw; 
+            margin-top: 380vh; 
+            font-size: 3vw; 
+            color: red;
+        }
+        .page6img23{
+            width:40%; margin-top: 5vh; left: 5vw;
+        }
+        .page6img24{
+            width:40%; margin-top: 2vh; left: 9vw;
+        }
+        .page6boxtext5{
+            width: 50%; 
+            height: 15vw;
+            margin-left: 10vw
+            ;right: 12vw; 
+            margin-top: 45vh;
+            font-size: 1vw; 
+            color: white;
+        }
+        .page6img25{
+            width: 20%; margin-top: 100vh; right: 10vw;
+        }
+        .page6boxtext6{
+            width: 60%; 
+            height: 15vw;
+            margin-left: 5vw;
+            left: 0; 
+            margin-top: 105vh; 
+            font-size: 1vw; 
+            color: white; 
+            text-align: right;
+        }
+        .page6boxtext7{
+            width: 80%; 
+            height: 15vw; 
+            margin-top: 175vh; 
+            margin-left: 10vw; 
+            color: white; 
+            font-size: 1.2vw;
+        }
+        .page6boxtext8{
+            width: 40%; 
+            height: 15vw;
+            left: -10vw; 
+            margin-top: 220vh; 
+            font-size: 2vw; 
+            color: white; 
+            text-align: right;
+        }
+        .page6img26{
+            width: 2.5vw;
+            margin-top: 222vh; 
+            left: 30vw;
+        }
+        .page6img27{
+            width: 10vw; 
+            margin-top: 224vh; 
+            left: 40vw;
+        }
+        .page6img28{
+            width: 40vw; 
+            margin-top: 230vh; 
+            right: 10vw;
+        }
+        .page6img29{
+            width: 30vw; 
+            margin-top: 280vh; 
+            right: 2vw;
+        }
+        .page6img30{
+            width: 5vw; 
+            margin-top: 170vh; 
+            left: 13vw;
+        }
+        .page6img31{
+            width: 5vw; 
+            margin-top: 185vh; 
+            right: 12vw;
+        }
+        .page6boxtext9{
+            width: 70%; 
+            height: 15vw;
+            margin-left: 5vw;
+            left: 0; 
+            margin-top: 240vh; 
+            font-size: 1vw; 
+            color: white;
+        }
+        .page6boxtext10{
+            width: 80%; 
+            height: 25vw;
+            margin-left: 7vw; 
+            margin-top: 320vh; 
+            font-size: 10vw; 
+            color: white; 
+            text-align: right;
+        }
+        .page6boxtext11{
+            width: 40%; 
+            height: 25vw;
+            right: 20vw; 
+            margin-top: 350vh; 
+            font-size: 4vw; 
+            color: white; 
+            text-align: right;
+        }
+        .page6img32{
+            width: 4vw; 
+            right: 13vw; 
+            margin-top: 350vh;
+        }
+        .page6img33{
+            width: 80%; 
+            margin-left: 10vw; 
+            margin-top: 375vh;
+        }
+        .page7{
+            width: 100%; 
+            height: 110vh; 
+            background: linear-gradient(#242C5B,#000000);
+        }
+        .page7boxtext1{
+            width: 80%; 
+            height: 25vw;
+            margin-left: 10vw; 
+            font-size: 10vw;
+            color: #4CA1A3; 
+        }
+        .page7h1_1{
+            text-shadow: 1vw 0vw #84dddf;
+        }
+        .page7h1_2{
+            font-size:4vw; 
+            color:white;
+        }
+        .page8{
+            width: 100%; 
+            height: 150vh; 
+            background: linear-gradient(black,#313A6F);
+        }
+        .page8img1{
+            width: 16vw;
+             margin-top: 22vw; 
+            left: 7vw;
+        }
+        .page8img2{
+            width: 16vw; 
+            margin-top: 22vw; 
+            left: 30vw;
+        }
+        .page8img3{
+            width: 16vw; 
+            margin-top: 22vw; 
+            left: 53vw;
+        }
+        .page8img4{
+            width: 16vw; 
+            margin-top: 22vw; 
+            left: 76vw;
+        }
+        .page8h1{
+            color: white; 
+            font-size: 4vw;
+        }
+        .cardbox{
+            width: 20%;
+            height: 27.5vw;
+            margin-top: 2vw;
+        }
+        .card1{
+            left: 5vw;
+        }
+        .card2{
+            left: 28vw;
+        }
+        .card3{
+            left: 51vw;
+        }
+        .card4{
+            left: 74vw;
+        }
+        .page8divimg{
+            background-size: 100% auto;
+            cursor: pointer;
+        }
+        .page8divimg1{
+            background-image: url(https://cdn.discordapp.com/attachments/836593151988596756/844561060601790474/5.jpg);
+        }
+        .page8divimg2{
+            background-image: url(https://cdn.discordapp.com/attachments/836593151988596756/844561063907033108/6.jpg);
+        }
+        .page8divimg3{
+            background-image: url(https://cdn.discordapp.com/attachments/836593151988596756/844561064405893160/7.jpg);
+        }
+        .page8divimg4{
+            background-image: url(https://cdn.discordapp.com/attachments/836593151988596756/844561067886510110/8.jpg);
+        }
+        .page9{
+            background: linear-gradient(#313A6F,#F8CDDA); 
+            width: 100%; height: 270vh;
+        }
+        .page9img1{
+            width: 90vw; 
+            margin-left: 5vw;
+        }
+        .page9img2{
+            width: 30vw; 
+            right: 0; 
+            top: 2vw;
+        }
+        .page9boxtext1{
+            font-size: 9vw; 
+            left: 8vw; 
+            top: 7vw; 
+            color: #F0E4D7;
+        }
+        .page9boxtext2{
+            font-size: 4.5vw; 
+            right: 9vw; 
+            top: 65vh; 
+            color: #F0E4D7;
+        }
+        .page9boxtext3{
+            color: #344376; 
+            background: white; 
+            border-radius: 10vw; 
+            font-size: 2vw; 
+            right: 17vw;
+            top: 138vh; 
+            width: 55%; 
+            height: 8vw;
+        }
+        .page9boxtext4{
+            color: #344376; 
+            background: white; 
+            border-radius: 10vw; 
+            font-size: 2vw; 
+            left: 17vw; 
+            top: 178vh; 
+            width: 55%; 
+            height: 8vw;
+        }
+        .page9boxtext5{
+            font-size: 1.5vw; 
+            left: 3vw; 
+            top: 210vh; 
+            color: #242C5B;
+        }
+        .page9boxtext6{
+            color: #344376; 
+            background: white; 
+            border-radius: 10vw;
+            font-size: 2vw; 
+            right: 17vw; 
+            top: 238vh; 
+            width: 55%; 
+            height: 12vw;
+        }
+        .page9boxtext6h1{
+            font-size: 3.5vw;
+        }
+        .page9img3{
+            width: 30vw; 
+            left: 0; 
+            top: 140vh;
+        }
+        .page9img4{
+            width: 30vw; 
+            right: 0; 
+            top: 180vh;
+        }
+        .page9img5{
+            width: 30vw; 
+            left: 0; 
+            top: 245vh;
+        }
+        .page10{
+            width: 100%; 
+            height: 180vh; 
+            background: 
+            linear-gradient(#F8CDDA,#FAF1E6); 
+        }
+        .page10img1{
+            top: 12vh; left: 6vw; width: 5vw;
+        }
+        .page10img2{
+            top: 50vh; right: 6vw; width: 5vw;
+        }
+        .page10boxtext1{
+            font-size:1.5vw; 
+            width: 80%; left: 
+            13vw; top: 20vh;
+        }
+        .page10img3{
+            width: 50vw; left: 5vw; top: 100vh;
+        }
+        .page10img4{
+            width: 100vw;top: 132vh;
+        }
+        .page10img5{
+            width: 100vw; top: 142vh;
+        }
+        .page10img6{
+            width: 100vw; top: 152vh;
+        }
+        .page11{
+            background-color: white; 
+            width: 100%; 
+            height: 300vh;
+        }
+        .page11img1{
+            width: 18vw; 
+            margin-left: 40.4vw; 
+            top: -3.5vw;
+        }
+        .page11img2{
+            width : 12vw; 
+            margin-left: 43.3vw; 
+            top: 0;
+        }
+        .page11img3{
+            width: 8vw; 
+            margin-left: 45.4vw;
+            margin-top: 1vw;
+        }
+        .page11img4{
+            top: -8vw; 
+            left: -36vw; 
+            width: 78.5vw;
+        }
+        .page11img5{
+            top: -8vw; 
+            right: -36vw; 
+            width: 78.5vw;
+        }
+        .page11textbox1{
+            width: 40%; 
+            height: 15vw; 
+            font-size: 2.5vw;
+        }
+        .page11textbox2{
+            width: 40%; 
+            height: 25vw; 
+            right: 5vw; 
+            margin-top: 40vh;
+            font-size: 1vw;
+        }
+        .page11textbox3{
+            width: 40%; 
+            height: 25vw; 
+            left: 5vw; 
+            margin-top: 90vh;
+            font-size: 1vw;
+        }
+        .page11textbox4{
+            width: 40%; 
+            height: 38vw; 
+            right: 5vw; 
+            margin-top: 150vh;
+            font-size: 1vw;
+        }
+        .page11textbox5{
+            width: 40%; 
+            height: 12vw; 
+            left: 5vw; 
+            margin-top: 235vh;
+            font-size: 1vw;
+        }
+        .page11textbox6{
+            width: 40%; 
+            height: 4vw; 
+            right: 5vw; 
+            margin-top: 270vh;
+            font-size: 0.5vw;
+        }
+        .page11img6{
+            right: 25vw; 
+            margin-top: 46vh;
+        }
+        .page11img7{
+            left: 25vw; 
+            margin-top: 96vh;
+        }
+        .page11img8{
+            right: 25vw; 
+            margin-top: 156vh;
+        }
+        .page11img9{
+            left: 25vw; 
+            margin-top: 241vh;
+        }
+        .page11img10{
+            bottom : -7vw; 
+            width: 50vw;
+        }
+        .page11img11{
+            bottom : -7vw; 
+            right: 0; 
+            width: 50vw;
+        }
+        .page11img12{
+            width: 12vw; 
+            bottom: -6vw; 
+            margin-left: 43.5vw;
+        }
+        .page11img13{
+            width: 10vw;
+            bottom: -5vw; 
+            margin-left: 44.5vw;
+        }
+        .page11img14{
+            width: 4vw; 
+            bottom: -3vw; 
+            margin-left: 47.5vw;
+        }
+        @keyframes backgroundblack {
+            0%{
+                opacity: 0.7;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+        @keyframes questionmark {
+            0%{
+                transform: translateY(0);
+            }
+            50%{
+                transform: translateY(10%);
+            }
+            100%{
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadein {
+            0%{
+                opacity: 1;
+            }
+            100%{
+                opacity: 0;
+            }
+        }
+        @keyframes fadeout {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+        @keyframes fadeout1 {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 0.7;
+            }
+        }
+        @keyframes fadeout2 {
+            0%{
+                opacity: 0.7;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+        @media screen and (min-width: 0px) and (max-width: 640px){
+            .fisherman{
+                width: 35vw;
+                size: 100% auto;
+                top: 55vw;
+                left: 9vw;
+            }
+            .leftboxup{
+                width: 60%;
+            }
+            .leftboxup span:nth-child(1){
+                color: #2A6499;
+                font-size: 5vw;
+            }
+            .leftboxup span:nth-child(2){
+                color: #6E9ECA;
+                font-size: 5vw;
+            }
+            .page2text1{
+                top:20vw;
+                left: 10vw;
+            }
+            .page2text2{
+                color: #3D70D3; 
+                font-size: 3.5vw; 
+                top: 22vw; 
+                left: 13vw;
+            }
+            .page2text3{
+                color: #0D327B; 
+                font-size: 2.5vw; 
+                top: 26vw; 
+                left: 4vw;
+            }
+            .page2text4{
+                top:22vw;
+                left: 7vw;
+            }
+            .fontpage2{
+                font-size: 2vw;
+            }
+            .page3img3{
+                left: 48vw; 
+                top: 1.5vw; 
+                width: 5.5vw;
+            }
+            .page3img4{
+                left: 61vw; 
+                top: 14vw; 
+                width: 24vw;
+            }
+            .page3img5{
+                right: 0vw; 
+                top: 15.5vw; 
+                width: 5.5vw;
+            }
+            .page3img6{
+                left: 74vw; 
+                top: 26vw; 
+                width: 24vw;
+            }
+            .page3img7{
+                left: 75vw; 
+                top: 27.5vw; 
+                width: 5.5vw;
+            }
+            .page3img8{
+                left: 3vw; 
+                top: 9vw; 
+                width: 13vw;
+            }
+            .page3img9{
+                left: 9vw; 
+                top: 10vw; 
+                width: 5.5vw;
+            }
+            .page3img10{
+                left: 18vw; 
+                top: 24vw; 
+                width: 13vw;
+            }
+            .page3img11{
+                left: 24vw; 
+                top: 25vw; 
+                width: 5.5vw;
+            }
+            .page3img12{
+                left: 33vw; 
+                top: 38vw; 
+                width: 13vw;
+            }
+            .page3img13{
+                left: 39vw; 
+                top: 39vw; 
+                width: 5.5vw;
+            }
+            .page3{
+                width: 100%;
+                height: 51.5vw;
+            }
+            .page4{
+                width: 100%;
+                height: 50vw;
+            }
+            .page5{
+                background-color: #242C5B;
+                width: 100%;
+                height: 70vw;
+            }
+            .page5boxtext2{
+                width: 80vw;
+                height: 10vw;
+                font-size: 0.8vw; 
+                color: white; 
+                top: 35vw;
+            }
+            .wongreright{
+                bottom: -7vw; 
+                right: -35vw; 
+                width: 78.5vw;
+            }
+            .page5boxwongre{
+                background-color: #242C5B; 
+                overflow: hidden; 
+                width: 100%; 
+                height: 30vh;
+            }
+            .page11{
+                background-color: white; 
+                width: 100%; 
+                height: 240vh;
+            }
+            .page11textbox2{
+                width: 40%; 
+                height: 25vw; 
+                right: 5vw; 
+                margin-top: 20vw;
+                font-size: 1vw;
+            }
+            .page11textbox3{
+                width: 40%; 
+                height: 25vw; 
+                right: 5vw; 
+                margin-top: 52vw;
+                font-size: 1vw;
+            }
+            .page11textbox4{
+                width: 40%; 
+                height: 25vw; 
+                right: 5vw; 
+                margin-top: 87vw;
+                font-size: 1vw;
+            }
+            .page11textbox5{
+                width: 40%; 
+                height: 25vw; 
+                right: 5vw; 
+                margin-top: 137vw;
+                font-size: 1vw;
+            }
+            .page11img6{
+                right: 25vw; 
+                margin-top: 23vw;
+            }
+            .page11img7{
+                right: 25vw; 
+                margin-top: 55vw;
+            }
+            .page11img8{
+                right: 25vw; 
+                margin-top: 90vw;
+            }
+            .page11img9{
+                right: 25vw; 
+                margin-top: 140vw;
+            }
+            .page11textbox6{
+                width: 40%; 
+                height: 4vw; 
+                right: 5vw; 
+                margin-top: 160vw;
+                font-size: 0.5vw;
+            }
+            .page6img22{
+                width: 40vw; 
+                left: 5vw; 
+                margin-top: 100vw;
+            }
+            .page6img4{
+                width: 60vw; 
+                right: -2vw; 
+                margin-top: 20vw;
+            }
+            .page6img5{
+                width: 60vw; 
+                left: -2vw; 
+                margin-top: 60vw;
+            }
+            .page6boxtext2{
+                width: 45%; 
+                height: 12vw;
+                right: 5vw;
+                margin-top: 115vw; 
+                font-size: 1vw; 
+                color: white;
+            }
+            .page6boxtext3{
+                width: 80%; 
+                height: 15vw;
+                margin-left: 10vw; 
+                margin-top: 155vw; 
+                font-size: 0.8vw; 
+                color: white; 
+            }
+            .page6boxtext4{
+                width: 80%; 
+                height: 15vw;
+                margin-left: 10vw; 
+                margin-top: 185vw; 
+                font-size: 3vw; 
+                color: red;
+            }
+            .page6boxtext5{
+                width: 50%; 
+                height: 15vw;
+                margin-left: 10vw
+                ;right: 12vw; 
+                margin-top: 25vw;
+                font-size: 1vw; 
+                color: white;
+            }
+            .page6boxtext6{
+                width: 60%; 
+                height: 15vw;
+                margin-left: 5vw;
+                left: 0; 
+                margin-top: 70vw; 
+                font-size: 1vw; 
+                color: white; 
+                text-align: right;
+            }
+            .page6img25{
+                width: 20%; 
+                margin-top: 68vw; 
+                right: 10vw;
+            }
+            .page6{
+                background: #242C5B; 
+                width: 100%; 
+                height: 680vh;
+            }
+            .page7{
+                width: 100%; 
+                height: 70vw; 
+                background: linear-gradient(#242C5B,#000000);
+            }
+            .page8{
+                width: 100%; 
+                height: 60vw; 
+                background: linear-gradient(black,#313A6F);
+            }
+            .page9boxtext2{
+                font-size: 4.5vw; 
+                right: 9vw; 
+                top: 45vw; 
+                color: #F0E4D7;
+            }
+            .page9boxtext3{
+                color: #344376; 
+                background: white; 
+                border-radius: 10vw; 
+                font-size: 2vw; 
+                right: 17vw;
+                top: 100vw; 
+                width: 55%; 
+                height: 8vw;
+            }
+            .page9boxtext4{
+                color: #344376; 
+                background: white; 
+                border-radius: 10vw; 
+                font-size: 2vw; 
+                left: 17vw; 
+                top: 130vw; 
+                width: 55%; 
+                height: 8vw;
+            }
+            .page9boxtext5{
+                font-size: 1.5vw; 
+                left: 3vw; 
+                top: 145vw; 
+                color: #242C5B;
+            }
+            .page9boxtext6{
+                color: #344376; 
+                background: white; 
+                border-radius: 10vw;
+                font-size: 2vw; 
+                right: 17vw; 
+                top: 160vw; 
+                width: 55%; 
+                height: 12vw;
+            }
+            .page9img3{
+                width: 30vw; 
+                left: 0; 
+                top: 101vw;
+            }
+            .page9img4{
+                width: 30vw; 
+                right: 0; 
+                top: 131vw;
+            }
+            .page9img5{
+                width: 30vw; 
+                left: 0; 
+                top: 163vw;
+            }
+            .page9{
+                background: linear-gradient(#313A6F,#F8CDDA); 
+                width: 100%; 
+                height: 180vw;
+            }
+            .page10img3{
+                width: 50vw; left: 5vw; top: 80vw;
+            }
+            .page10img4{
+                width: 100vw;top: 97vw;
+            }
+            .page10img5{
+                width: 100vw; top: 104vw;
+            }
+            .page10img6{
+                width: 100vw; top: 110vw;
+            }
+            .page10{
+                width: 100%; 
+                height: 120vw; 
+                background: 
+                linear-gradient(#F8CDDA,#FAF1E6); 
+            }
+        }
+        @media screen and (min-width: 641px) and (max-width: 768px){
+            .fisherman{
+                width: 35vw;
+                size: 100% auto;
+                top: 55vw;
+                left: 9vw;
+            }
+            .leftboxup{
+                width: 60%;
+            }
+            .leftboxup span:nth-child(1){
+                color: #2A6499;
+                font-size: 5vw;
+            }
+            .leftboxup span:nth-child(2){
+                color: #6E9ECA;
+                font-size: 5vw;
+            }
+            .page2text1{
+                top:20vw;
+                left: 10vw;
+            }
+            .page2text2{
+                color: #3D70D3; 
+                font-size: 3.5vw; 
+                top: 22vw; 
+                left: 13vw;
+            }
+            .page2text3{
+                color: #0D327B; 
+                font-size: 2.5vw; 
+                top: 26vw; 
+                left: 4vw;
+            }
+            .page2text4{
+                top:22vw;
+                left: 7vw;
+            }
+            .fontpage2{
+                font-size: 2vw;
+            }
+            .page3img3{
+                left: 48vw; 
+                top: 1.5vw; 
+                width: 5.5vw;
+            }
+            .page3img4{
+                left: 61vw; 
+                top: 14vw; 
+                width: 24vw;
+            }
+            .page3img5{
+                right: 0vw; 
+                top: 15.5vw; 
+                width: 5.5vw;
+            }
+            .page3img6{
+                left: 74vw; 
+                top: 26vw; 
+                width: 24vw;
+            }
+            .page3img7{
+                left: 75vw; 
+                top: 27.5vw; 
+                width: 5.5vw;
+            }
+            .page3img8{
+                left: 3vw; 
+                top: 9vw; 
+                width: 13vw;
+            }
+            .page3img9{
+                left: 9vw; 
+                top: 10vw; 
+                width: 5.5vw;
+            }
+            .page3img10{
+                left: 18vw; 
+                top: 24vw; 
+                width: 13vw;
+            }
+            .page3img11{
+                left: 24vw; 
+                top: 25vw; 
+                width: 5.5vw;
+            }
+            .page3img12{
+                left: 33vw; 
+                top: 38vw; 
+                width: 13vw;
+            }
+            .page3img13{
+                left: 39vw; 
+                top: 39vw; 
+                width: 5.5vw;
+            }
+            .page3{
+                width: 100%;
+                height: 51.5vw;
+            }
+            .page4{
+                width: 100%;
+                height: 50vw;
+            }
+            .page5{
+                background-color: #242C5B;
+                width: 100%;
+                height: 70vw;
+            }
+            .page5boxtext2{
+                width: 80vw;
+                height: 10vw;
+                font-size: 0.8vw; 
+                color: white; 
+                top: 35vw;
+            }
+            .wongreright{
+                bottom: -7vw; 
+                right: -35vw; 
+                width: 78.5vw;
+            }
+            .page5boxwongre{
+                background-color: #242C5B; 
+                overflow: hidden; 
+                width: 100%; 
+                height: 30vh;
+            }
+            .page11{
+                background-color: white; 
+                width: 100%; 
+                height: 240vh;
+            }
+            .page11textbox2{
+                width: 40%; 
+                height: 25vw; 
+                right: 5vw; 
+                margin-top: 20vw;
+                font-size: 1vw;
+            }
+            .page11textbox3{
+                width: 40%; 
+                height: 25vw; 
+                right: 5vw; 
+                margin-top: 52vw;
+                font-size: 1vw;
+            }
+            .page11textbox4{
+                width: 40%; 
+                height: 25vw; 
+                right: 5vw; 
+                margin-top: 87vw;
+                font-size: 1vw;
+            }
+            .page11textbox5{
+                width: 40%; 
+                height: 25vw; 
+                right: 5vw; 
+                margin-top: 137vw;
+                font-size: 1vw;
+            }
+            .page11img6{
+                right: 25vw; 
+                margin-top: 23vw;
+            }
+            .page11img7{
+                right: 25vw; 
+                margin-top: 55vw;
+            }
+            .page11img8{
+                right: 25vw; 
+                margin-top: 90vw;
+            }
+            .page11img9{
+                right: 25vw; 
+                margin-top: 140vw;
+            }
+            .page11textbox6{
+                width: 40%; 
+                height: 4vw; 
+                right: 5vw; 
+                margin-top: 160vw;
+                font-size: 0.5vw;
+            }
+            .page6img22{
+                width: 40vw; 
+                left: 5vw; 
+                margin-top: 100vw;
+            }
+            .page6img4{
+                width: 60vw; 
+                right: -2vw; 
+                margin-top: 20vw;
+            }
+            .page6img5{
+                width: 60vw; 
+                left: -2vw; 
+                margin-top: 60vw;
+            }
+            .page6boxtext2{
+                width: 45%; 
+                height: 12vw;
+                right: 5vw;
+                margin-top: 115vw; 
+                font-size: 1vw; 
+                color: white;
+            }
+            .page6boxtext3{
+                width: 80%; 
+                height: 15vw;
+                margin-left: 10vw; 
+                margin-top: 155vw; 
+                font-size: 0.8vw; 
+                color: white; 
+            }
+            .page6boxtext4{
+                width: 80%; 
+                height: 15vw;
+                margin-left: 10vw; 
+                margin-top: 185vw; 
+                font-size: 3vw; 
+                color: red;
+            }
+            .page6boxtext5{
+                width: 50%; 
+                height: 15vw;
+                margin-left: 10vw
+                ;right: 12vw; 
+                margin-top: 25vw;
+                font-size: 1vw; 
+                color: white;
+            }
+            .page6boxtext6{
+                width: 60%; 
+                height: 15vw;
+                margin-left: 5vw;
+                left: 0; 
+                margin-top: 70vw; 
+                font-size: 1vw; 
+                color: white; 
+                text-align: right;
+            }
+            .page6img25{
+                width: 20%; 
+                margin-top: 68vw; 
+                right: 10vw;
+            }
+            .page6{
+                background: #242C5B; 
+                width: 100%; 
+                height: 680vh;
+            }
+            .page7{
+                width: 100%; 
+                height: 70vw; 
+                background: linear-gradient(#242C5B,#000000);
+            }
+            .page8{
+                width: 100%; 
+                height: 60vw; 
+                background: linear-gradient(black,#313A6F);
+            }
+            .page9boxtext2{
+                font-size: 4.5vw; 
+                right: 9vw; 
+                top: 45vw; 
+                color: #F0E4D7;
+            }
+            .page9boxtext3{
+                color: #344376; 
+                background: white; 
+                border-radius: 10vw; 
+                font-size: 2vw; 
+                right: 17vw;
+                top: 100vw; 
+                width: 55%; 
+                height: 8vw;
+            }
+            .page9boxtext4{
+                color: #344376; 
+                background: white; 
+                border-radius: 10vw; 
+                font-size: 2vw; 
+                left: 17vw; 
+                top: 130vw; 
+                width: 55%; 
+                height: 8vw;
+            }
+            .page9boxtext5{
+                font-size: 1.5vw; 
+                left: 3vw; 
+                top: 145vw; 
+                color: #242C5B;
+            }
+            .page9boxtext6{
+                color: #344376; 
+                background: white; 
+                border-radius: 10vw;
+                font-size: 2vw; 
+                right: 17vw; 
+                top: 160vw; 
+                width: 55%; 
+                height: 12vw;
+            }
+            .page9img3{
+                width: 30vw; 
+                left: 0; 
+                top: 101vw;
+            }
+            .page9img4{
+                width: 30vw; 
+                right: 0; 
+                top: 131vw;
+            }
+            .page9img5{
+                width: 30vw; 
+                left: 0; 
+                top: 163vw;
+            }
+            .page9{
+                background: linear-gradient(#313A6F,#F8CDDA); 
+                width: 100%; 
+                height: 180vw;
+            }
+            .page10img3{
+                width: 50vw; left: 5vw; top: 80vw;
+            }
+            .page10img4{
+                width: 100vw;top: 97vw;
+            }
+            .page10img5{
+                width: 100vw; top: 104vw;
+            }
+            .page10img6{
+                width: 100vw; top: 110vw;
+            }
+            .page10{
+                width: 100%; 
+                height: 120vw; 
+                background: 
+                linear-gradient(#F8CDDA,#FAF1E6); 
+            }
+        }
+        @media screen and (min-width: 769px) and (max-width: 1024px){
+            .fisherman{
+                width: 35vw;
+                size: 100% auto;
+                top: 55vw;
+                left: 9vw;
+            }
+            .leftboxup{
+                width: 60%;
+            }
+            .leftboxup span:nth-child(1){
+                color: #2A6499;
+                font-size: 5vw;
+            }
+            .leftboxup span:nth-child(2){
+                color: #6E9ECA;
+                font-size: 5vw;
+            }
+            .page2text1{
+                top:20vw;
+                left: 10vw;
+            }
+            .page2text2{
+                color: #3D70D3; 
+                font-size: 3.5vw; 
+                top: 22vw; 
+                left: 13vw;
+            }
+            .page2text3{
+                color: #0D327B; 
+                font-size: 2.5vw; 
+                top: 26vw; 
+                left: 4vw;
+            }
+            .page2text4{
+                top:22vw;
+                left: 7vw;
+            }
+            .fontpage2{
+                font-size: 2vw;
+            }
+            .page3img3{
+                left: 48vw; 
+                top: 1.5vw; 
+                width: 5.5vw;
+            }
+            .page3img4{
+                left: 61vw; 
+                top: 14vw; 
+                width: 24vw;
+            }
+            .page3img5{
+                right: 0vw; 
+                top: 15.5vw; 
+                width: 5.5vw;
+            }
+            .page3img6{
+                left: 74vw; 
+                top: 26vw; 
+                width: 24vw;
+            }
+            .page3img7{
+                left: 75vw; 
+                top: 27.5vw; 
+                width: 5.5vw;
+            }
+            .page3img8{
+                left: 3vw; 
+                top: 9vw; 
+                width: 13vw;
+            }
+            .page3img9{
+                left: 9vw; 
+                top: 10vw; 
+                width: 5.5vw;
+            }
+            .page3img10{
+                left: 18vw; 
+                top: 24vw; 
+                width: 13vw;
+            }
+            .page3img11{
+                left: 24vw; 
+                top: 25vw; 
+                width: 5.5vw;
+            }
+            .page3img12{
+                left: 33vw; 
+                top: 38vw; 
+                width: 13vw;
+            }
+            .page3img13{
+                left: 39vw; 
+                top: 39vw; 
+                width: 5.5vw;
+            }
+            .page3{
+                width: 100%;
+                height: 51.5vw;
+            }
+            .page4{
+                width: 100%;
+                height: 50vw;
+            }
+            .page5{
+                background-color: #242C5B;
+                width: 100%;
+                height: 70vw;
+            }
+            .page5boxtext2{
+                width: 80vw;
+                height: 10vw;
+                font-size: 0.8vw; 
+                color: white; 
+                top: 35vw;
+            }
+            .wongreright{
+                bottom: -7vw; 
+                right: -35vw; 
+                width: 78.5vw;
+            }
+            .page5boxwongre{
+                background-color: #242C5B; 
+                overflow: hidden; 
+                width: 100%; 
+                height: 30vh;
+            }
+            .page11{
+                background-color: white; 
+                width: 100%; 
+                height: 240vh;
+            }
+            .page11textbox2{
+                width: 40%; 
+                height: 25vw; 
+                right: 5vw; 
+                margin-top: 20vw;
+                font-size: 1vw;
+            }
+            .page11textbox3{
+                width: 40%; 
+                height: 25vw; 
+                right: 5vw; 
+                margin-top: 52vw;
+                font-size: 1vw;
+            }
+            .page11textbox4{
+                width: 40%; 
+                height: 25vw; 
+                right: 5vw; 
+                margin-top: 87vw;
+                font-size: 1vw;
+            }
+            .page11textbox5{
+                width: 40%; 
+                height: 25vw; 
+                right: 5vw; 
+                margin-top: 137vw;
+                font-size: 1vw;
+            }
+            .page11img6{
+                right: 25vw; 
+                margin-top: 23vw;
+            }
+            .page11img7{
+                right: 25vw; 
+                margin-top: 55vw;
+            }
+            .page11img8{
+                right: 25vw; 
+                margin-top: 90vw;
+            }
+            .page11img9{
+                right: 25vw; 
+                margin-top: 140vw;
+            }
+            .page11textbox6{
+                width: 40%; 
+                height: 4vw; 
+                right: 5vw; 
+                margin-top: 160vw;
+                font-size: 0.5vw;
+            }
+            .page6img22{
+                width: 40vw; 
+                left: 5vw; 
+                margin-top: 100vw;
+            }
+            .page6img4{
+                width: 60vw; 
+                right: -2vw; 
+                margin-top: 20vw;
+            }
+            .page6img5{
+                width: 60vw; 
+                left: -2vw; 
+                margin-top: 60vw;
+            }
+            .page6boxtext2{
+                width: 45%; 
+                height: 12vw;
+                right: 5vw;
+                margin-top: 115vw; 
+                font-size: 1vw; 
+                color: white;
+            }
+            .page6boxtext3{
+                width: 80%; 
+                height: 15vw;
+                margin-left: 10vw; 
+                margin-top: 155vw; 
+                font-size: 0.8vw; 
+                color: white; 
+            }
+            .page6boxtext4{
+                width: 80%; 
+                height: 15vw;
+                margin-left: 10vw; 
+                margin-top: 185vw; 
+                font-size: 3vw; 
+                color: red;
+            }
+            .page6boxtext5{
+                width: 50%; 
+                height: 15vw;
+                margin-left: 10vw
+                ;right: 12vw; 
+                margin-top: 25vw;
+                font-size: 1vw; 
+                color: white;
+            }
+            .page6boxtext6{
+                width: 60%; 
+                height: 15vw;
+                margin-left: 5vw;
+                left: 0; 
+                margin-top: 70vw; 
+                font-size: 1vw; 
+                color: white; 
+                text-align: right;
+            }
+            .page6img25{
+                width: 20%; 
+                margin-top: 68vw; 
+                right: 10vw;
+            }
+            .page6{
+                background: #242C5B; 
+                width: 100%; 
+                height: 680vh;
+            }
+            .page7{
+                width: 100%; 
+                height: 70vw; 
+                background: linear-gradient(#242C5B,#000000);
+            }
+            .page8{
+                width: 100%; 
+                height: 60vw; 
+                background: linear-gradient(black,#313A6F);
+            }
+            .page9{
+                background: linear-gradient(#313A6F,#F8CDDA); 
+                width: 100%; height: 270vw;
+            }
+            .page9boxtext2{
+                font-size: 4.5vw; 
+                right: 9vw; 
+                top: 45vw; 
+                color: #F0E4D7;
+            }
+            .page9boxtext3{
+                color: #344376; 
+                background: white; 
+                border-radius: 10vw; 
+                font-size: 2vw; 
+                right: 17vw;
+                top: 100vw; 
+                width: 55%; 
+                height: 8vw;
+            }
+            .page9boxtext4{
+                color: #344376; 
+                background: white; 
+                border-radius: 10vw; 
+                font-size: 2vw; 
+                left: 17vw; 
+                top: 130vw; 
+                width: 55%; 
+                height: 8vw;
+            }
+            .page9boxtext5{
+                font-size: 1.5vw; 
+                left: 3vw; 
+                top: 145vw; 
+                color: #242C5B;
+            }
+            .page9boxtext6{
+                color: #344376; 
+                background: white; 
+                border-radius: 10vw;
+                font-size: 2vw; 
+                right: 17vw; 
+                top: 160vw; 
+                width: 55%; 
+                height: 12vw;
+            }
+            .page9img3{
+                width: 30vw; 
+                left: 0; 
+                top: 101vw;
+            }
+            .page9img4{
+                width: 30vw; 
+                right: 0; 
+                top: 131vw;
+            }
+            .page9img5{
+                width: 30vw; 
+                left: 0; 
+                top: 163vw;
+            }
+            .page9{
+                background: linear-gradient(#313A6F,#F8CDDA); 
+                width: 100%; 
+                height: 180vw;
+            }
+            .page10img3{
+                width: 50vw; left: 5vw; top: 80vw;
+            }
+            .page10img4{
+                width: 100vw;top: 97vw;
+            }
+            .page10img5{
+                width: 100vw; top: 104vw;
+            }
+            .page10img6{
+                width: 100vw; top: 110vw;
+            }
+            .page10{
+                width: 100%; 
+                height: 120vw; 
+                background: 
+                linear-gradient(#F8CDDA,#FAF1E6); 
+            }
+        }
+        @media screen and (min-width: 1025px) and (max-width: 1279px){
+            .fisherman{
+                width: 35vw;
+                size: 100% auto;
+                top: 55vw;
+                left: 9vw;
+            }
+            .leftboxup{
+                width: 60%;
+            }
+            .leftboxup span:nth-child(1){
+                color: #2A6499;
+                font-size: 5vw;
+            }
+            .leftboxup span:nth-child(2){
+                color: #6E9ECA;
+                font-size: 5vw;
+            }
+            .page2text1{
+                top:20vw;
+                left: 10vw;
+            }
+            .page2text2{
+                color: #3D70D3; 
+                font-size: 3.5vw; 
+                top: 22vw; 
+                left: 13vw;
+            }
+            .page2text3{
+                color: #0D327B; 
+                font-size: 2.5vw; 
+                top: 26vw; 
+                left: 4vw;
+            }
+            .page2text4{
+                top:22vw;
+                left: 7vw;
+            }
+            .fontpage2{
+                font-size: 2vw;
+            }
+            .page3img3{
+                left: 48vw; 
+                top: 1.5vw; 
+                width: 5.5vw;
+            }
+            .page3img4{
+                left: 61vw; 
+                top: 14vw; 
+                width: 24vw;
+            }
+            .page3img5{
+                right: 0vw; 
+                top: 15.5vw; 
+                width: 5.5vw;
+            }
+            .page3img6{
+                left: 74vw; 
+                top: 26vw; 
+                width: 24vw;
+            }
+            .page3img7{
+                left: 75vw; 
+                top: 27.5vw; 
+                width: 5.5vw;
+            }
+            .page3img8{
+                left: 3vw; 
+                top: 9vw; 
+                width: 13vw;
+            }
+            .page3img9{
+                left: 9vw; 
+                top: 10vw; 
+                width: 5.5vw;
+            }
+            .page3img10{
+                left: 18vw; 
+                top: 24vw; 
+                width: 13vw;
+            }
+            .page3img11{
+                left: 24vw; 
+                top: 25vw; 
+                width: 5.5vw;
+            }
+            .page3img12{
+                left: 33vw; 
+                top: 38vw; 
+                width: 13vw;
+            }
+            .page3img13{
+                left: 39vw; 
+                top: 39vw; 
+                width: 5.5vw;
+            }
+            .page3{
+                width: 100%;
+                height: 51.5vw;
+            }
+            .page4{
+                width: 100%;
+                height: 50vw;
+            }
+            .page5{
+                background-color: #242C5B;
+                width: 100%;
+                height: 70vw;
+            }
+            .page5boxtext2{
+                width: 80vw;
+                height: 10vw;
+                font-size: 0.8vw; 
+                color: white; 
+                top: 35vw;
+            }
+            .wongreright{
+                bottom: -7vw; 
+                right: -35vw; 
+                width: 78.5vw;
+            }
+            .page5boxwongre{
+                background-color: #242C5B; 
+                overflow: hidden; 
+                width: 100%; 
+                height: 30vh;
+            }
+            .page11{
+                background-color: white; 
+                width: 100%; 
+                height: 240vh;
+            }
+            .page11textbox2{
+                width: 40%; 
+                height: 25vw; 
+                right: 5vw; 
+                margin-top: 20vw;
+                font-size: 1vw;
+            }
+            .page11textbox3{
+                width: 40%; 
+                height: 25vw; 
+                right: 5vw; 
+                margin-top: 52vw;
+                font-size: 1vw;
+            }
+            .page11textbox4{
+                width: 40%; 
+                height: 25vw; 
+                right: 5vw; 
+                margin-top: 87vw;
+                font-size: 1vw;
+            }
+            .page11textbox5{
+                width: 40%; 
+                height: 25vw; 
+                right: 5vw; 
+                margin-top: 137vw;
+                font-size: 1vw;
+            }
+            .page11img6{
+                right: 25vw; 
+                margin-top: 23vw;
+            }
+            .page11img7{
+                right: 25vw; 
+                margin-top: 55vw;
+            }
+            .page11img8{
+                right: 25vw; 
+                margin-top: 90vw;
+            }
+            .page11img9{
+                right: 25vw; 
+                margin-top: 140vw;
+            }
+            .page11textbox6{
+                width: 40%; 
+                height: 4vw; 
+                right: 5vw; 
+                margin-top: 160vw;
+                font-size: 0.5vw;
+            }
+            .page6img22{
+                width: 40vw; 
+                left: 5vw; 
+                margin-top: 100vw;
+            }
+            .page6img4{
+                width: 60vw; 
+                right: -2vw; 
+                margin-top: 20vw;
+            }
+            .page6img5{
+                width: 60vw; 
+                left: -2vw; 
+                margin-top: 60vw;
+            }
+            .page6boxtext2{
+                width: 45%; 
+                height: 12vw;
+                right: 5vw;
+                margin-top: 115vw; 
+                font-size: 1vw; 
+                color: white;
+            }
+            .page6boxtext3{
+                width: 80%; 
+                height: 15vw;
+                margin-left: 10vw; 
+                margin-top: 155vw; 
+                font-size: 0.8vw; 
+                color: white; 
+            }
+            .page6boxtext4{
+                width: 80%; 
+                height: 15vw;
+                margin-left: 10vw; 
+                margin-top: 185vw; 
+                font-size: 3vw; 
+                color: red;
+            }
+            .page6boxtext5{
+                width: 50%; 
+                height: 15vw;
+                margin-left: 10vw
+                ;right: 12vw; 
+                margin-top: 25vw;
+                font-size: 1vw; 
+                color: white;
+            }
+            .page6boxtext6{
+                width: 60%; 
+                height: 15vw;
+                margin-left: 5vw;
+                left: 0; 
+                margin-top: 70vw; 
+                font-size: 1vw; 
+                color: white; 
+                text-align: right;
+            }
+            .page6img25{
+                width: 20%; 
+                margin-top: 68vw; 
+                right: 10vw;
+            }
+            .page6{
+                background: #242C5B; 
+                width: 100%; 
+                height: 680vh;
+            }
+            .page7{
+                width: 100%; 
+                height: 70vw; 
+                background: linear-gradient(#242C5B,#000000);
+            }
+            .page8{
+                width: 100%; 
+                height: 60vw; 
+                background: linear-gradient(black,#313A6F);
+            }
+            .page9{
+                background: linear-gradient(#313A6F,#F8CDDA); 
+                width: 100%; height: 270vw;
+            }
+            .page9boxtext2{
+                font-size: 4.5vw; 
+                right: 9vw; 
+                top: 45vw; 
+                color: #F0E4D7;
+            }
+            .page9boxtext3{
+                color: #344376; 
+                background: white; 
+                border-radius: 10vw; 
+                font-size: 2vw; 
+                right: 17vw;
+                top: 100vw; 
+                width: 55%; 
+                height: 8vw;
+            }
+            .page9boxtext4{
+                color: #344376; 
+                background: white; 
+                border-radius: 10vw; 
+                font-size: 2vw; 
+                left: 17vw; 
+                top: 130vw; 
+                width: 55%; 
+                height: 8vw;
+            }
+            .page9boxtext5{
+                font-size: 1.5vw; 
+                left: 3vw; 
+                top: 145vw; 
+                color: #242C5B;
+            }
+            .page9boxtext6{
+                color: #344376; 
+                background: white; 
+                border-radius: 10vw;
+                font-size: 2vw; 
+                right: 17vw; 
+                top: 160vw; 
+                width: 55%; 
+                height: 12vw;
+            }
+            .page9img3{
+                width: 30vw; 
+                left: 0; 
+                top: 101vw;
+            }
+            .page9img4{
+                width: 30vw; 
+                right: 0; 
+                top: 131vw;
+            }
+            .page9img5{
+                width: 30vw; 
+                left: 0; 
+                top: 163vw;
+            }
+            .page9{
+                background: linear-gradient(#313A6F,#F8CDDA); 
+                width: 100%; 
+                height: 180vw;
+            }
+            .page10img3{
+                width: 50vw; left: 5vw; top: 80vw;
+            }
+            .page10img4{
+                width: 100vw;top: 97vw;
+            }
+            .page10img5{
+                width: 100vw; top: 104vw;
+            }
+            .page10img6{
+                width: 100vw; top: 110vw;
+            }
+            .page10{
+                width: 100%; 
+                height: 120vw; 
+                background: 
+                linear-gradient(#F8CDDA,#FAF1E6); 
+            }
+        }
+        @media screen and (min-width: 1280px){
+            .page2text1{
+            left: 12vw;
+             top: 20vh;
+        }
+        .page2text2{
+            color: #3D70D3; 
+            font-size: 3vw; 
+            top: 20vh; 
+            left: 14vw;
+        }
+        .page2text3{
+            color: #0D327B; 
+            font-size: 2vw; 
+            top: 25vh; 
+            left: 8vw;
+        }
+        .page2text4{
+            top: 20vh; 
+            left: 8vw;
+        }
+        .page2text5{
+            top: 5vh;
+        }
+        .page2text6{
+            top: 25vh; 
+            left: 23vw;
+            color: #131313;
+            letter-spacing: .15em;
+            text-shadow: 1px -1px 0 #767676, -1px 2px 1px #737272, -2px 4px 1px #767474, -3px 6px 1px #787777, -4px 8px 1px #7b7a7a, -5px 10px 1px #7f7d7d, -6px 12px 1px #828181, -7px 14px 1px #868585, -8px 16px 1px #8b8a89, -9px 18px 1px #8f8e8d, -10px 20px 1px #949392, -11px 22px 1px #999897, -12px 24px 1px #9e9c9c, -13px 26px 1px #a3a1a1, -14px 28px 1px #a8a6a6, -15px 30px 1px #adabab, -16px 32px 1px #b2b1b0, -17px 34px 1px #b7b6b5, -18px 36px 1px #bcbbba, -19px 38px 1px #c1bfbf, -20px 40px 1px #c6c4c4, -21px 42px 1px #cbc9c8, -22px 44px 1px #cfcdcd, -23px 46px 1px #d4d2d1, -24px 48px 1px #d8d6d5, -25px 50px 1px #dbdad9, -26px 52px 1px #dfdddc, -27px 54px 1px #e2e0df, -28px 56px 1px #e4e3e2;
+        }
+        .page3{
+            width: 100%;
+            height: 100vh;
+            background: #14222F;
+        }
+        .page3img3{
+            left: 48vw; 
+            top: 1.5vw; 
+            width: 5.5vw;
+        }
+        .page3img4{
+            left: 61vw; 
+            top: 14vw; 
+            width: 24vw;
+        }
+        .page3img5{
+            right: 0vw; 
+            top: 15.5vw; 
+            width: 5.5vw;
+        }
+        .page3img6{
+            left: 74vw; 
+            top: 26vw; 
+            width: 24vw;
+        }
+        .page3img7{
+            left: 75vw; 
+            top: 27.5vw; 
+            width: 5.5vw;
+        }
+        .page3img8{
+            left: 3vw; 
+            top: 9vw; 
+            width: 13vw;
+        }
+        .page3img9{
+            left: 9vw; 
+            top: 10vw; 
+            width: 5.5vw;
+        }
+        .page3img10{
+            left: 18vw; 
+            top: 24vw; 
+            width: 13vw;
+        }
+        .page3img11{
+            left: 24vw; 
+            top: 25vw; 
+            width: 5.5vw;
+        }
+        .page3img12{
+            left: 33vw; 
+            top: 38vw; 
+            width: 13vw;
+        }
+        .page3img13{
+            left: 39vw; 
+            top: 39vw; 
+            width: 5.5vw;
+        }
+        .page3text1{
+            margin-top: 9%; 
+            margin-left: 19%;
+        }
+        .page3text2{
+            margin-top: 7%; 
+            margin-left: 32%;
+        }
+        .page3text3{
+            margin-top: 7%;
+            margin-left: 45%;
+        }
+        .page3text4{
+            margin-top: 7%; 
+            margin-left: 58%;
+        }
+        .page4{
+            width: 100%;
+            height: 100vh;
+        }
+        .page4text1{
+            margin-top: 25%;
+        }
+        .page4text2{
+            margin-top: 1%;
+        }
+        .page4text3{
+            margin-top: 1%;
+        }
+        .page4text4{
+            margin:auto;
+            margin-top: 5%;
+        }
+        .page4text5{
+            margin-top: 5%;
+        }
+        .page4text6{
+            margin-top: 2.5%;
+        }
+        .page4img1{
+            top: 0; 
+            margin-left: 14vw;
+        }
+        .page4img2{
+            margin-left: 15%; 
+            margin-top: 10%;
+        }
+        .page4img3{
+            right: 50%;
+            margin-top: 20vw;
+        }
+        .page4img10{
+            width: 20vw;
+            top: 0; 
+            margin-left: 14vw;
+        }
+        .page5{
+            background-color: #242C5B;
+            width: 100%;
+            height: 120vh;
+        }
+        .page5top{
+            margin-top: 15vw;
+        }
+        .page5boxtext1{
+            width: 80vw; 
+            height: 20vw; 
+            font-size: 0.8vw; 
+            color: white;
+            top: 10vw;
+        }
+        .page5boxtext2{
+            width: 80vw;
+            height: 10vw;
+            font-size: 0.8vw; 
+            color: white; 
+            top: 25vw;
+        }
+        .page5boxwongre{
+            background-color: #242C5B; 
+            overflow: hidden; 
+            width: 100%; 
+            height: 50vh;
+        }
+        .circledarkblue{
+            width: 18vw; 
+            margin-left: 40.3vw; 
+            bottom: -14.25vw;
+        }
+        .wongreleft{
+            bottom: -7vw; 
+            left: -36vw; 
+            width: 78.5vw;
+        }
+        .wongreright{
+            bottom: -7vw; 
+            right: -36vw; 
+            width: 78.5vw;
+        }
+        .page6{
+            background: #242C5B; 
+            width: 100%; 
+            height: 900vh;
+        }
+        .page6boxtext1{
+            width: 80%; 
+            height: 22vw; 
+            margin-left: 10%;
+            top: 10vw; 
+            font-size: 0.75vw; 
+            color: white;
+        }
+        .page6img1{
+            width: 12vw; 
+            top: -6vw; 
+            margin-left: 43.5vw;
+        }
+        .page6img2{
+            width: 10vw; 
+            top: -5vw;
+            margin-left: 44.5vw;
+        }
+        .page6img3{
+            width: 4vw; 
+            top: -2vw; 
+            margin-left: 47.5vw;
+        }
+        .page6img4{
+            width: 60vw; 
+            right: -2vw; 
+            margin-top: 40vh;
+        }
+        .page6img5{
+            width: 60vw; 
+            left: -2vw; 
+            margin-top: 125vh;
+        }
+        .page6img22{
+            width: 40vw; 
+            left: 5vw; 
+            margin-top: 220vh;
+        }
+        .page6boxtext2{
+            width: 45%; 
+            height: 12vw;
+            right: 5vw;
+            margin-top: 250vh; 
+            font-size: 1vw; 
+            color: white;
+        }
+        .page6boxtext3{
+            width: 80%; 
+            height: 15vw;
+            margin-left: 10vw; 
+            margin-top: 340vh; 
+            font-size: 0.8vw; 
+            color: white; 
+        }
+        .page6boxtext4{
+            width: 80%; 
+            height: 15vw;
+            margin-left: 10vw; 
+            margin-top: 380vh; 
+            font-size: 3vw; 
+            color: red;
+        }
+        .page6img23{
+            width:40%; margin-top: 5vh; left: 5vw;
+        }
+        .page6img24{
+            width:40%; margin-top: 2vh; left: 9vw;
+        }
+        .page6boxtext5{
+            width: 50%; 
+            height: 15vw;
+            margin-left: 10vw
+            ;right: 12vw; 
+            margin-top: 45vh;
+            font-size: 1vw; 
+            color: white;
+        }
+        .page6img25{
+            width: 20%; margin-top: 100vh; right: 10vw;
+        }
+        .page6boxtext6{
+            width: 60%; 
+            height: 15vw;
+            margin-left: 5vw;
+            left: 0; 
+            margin-top: 105vh; 
+            font-size: 1vw; 
+            color: white; 
+            text-align: right;
+        }
+        .page6boxtext7{
+            width: 80%; 
+            height: 15vw; 
+            margin-top: 175vh; 
+            margin-left: 10vw; 
+            color: white; 
+            font-size: 1.2vw;
+        }
+        .page6boxtext8{
+            width: 40%; 
+            height: 15vw;
+            left: -10vw; 
+            margin-top: 220vh; 
+            font-size: 2vw; 
+            color: white; 
+            text-align: right;
+        }
+        .page6img26{
+            width: 2.5vw;
+            margin-top: 222vh; 
+            left: 30vw;
+        }
+        .page6img27{
+            width: 10vw; 
+            margin-top: 224vh; 
+            left: 40vw;
+        }
+        .page6img28{
+            width: 40vw; 
+            margin-top: 230vh; 
+            right: 10vw;
+        }
+        .page6img29{
+            width: 30vw; 
+            margin-top: 280vh; 
+            right: 2vw;
+        }
+        .page6img30{
+            width: 5vw; 
+            margin-top: 170vh; 
+            left: 13vw;
+        }
+        .page6img31{
+            width: 5vw; 
+            margin-top: 185vh; 
+            right: 12vw;
+        }
+        .page6boxtext9{
+            width: 70%; 
+            height: 15vw;
+            margin-left: 5vw;
+            left: 0; 
+            margin-top: 240vh; 
+            font-size: 1vw; 
+            color: white;
+        }
+        .page6boxtext10{
+            width: 80%; 
+            height: 25vw;
+            margin-left: 7vw; 
+            margin-top: 320vh; 
+            font-size: 10vw; 
+            color: white; 
+            text-align: right;
+        }
+        .page6boxtext11{
+            width: 40%; 
+            height: 25vw;
+            right: 20vw; 
+            margin-top: 350vh; 
+            font-size: 4vw; 
+            color: white; 
+            text-align: right;
+        }
+        .page6img32{
+            width: 4vw; 
+            right: 13vw; 
+            margin-top: 350vh;
+        }
+        .page6img33{
+            width: 80%; 
+            margin-left: 10vw; 
+            margin-top: 375vh;
+        }
+        .page7{
+            width: 100%; 
+            height: 110vh; 
+            background: linear-gradient(#242C5B,#000000);
+        }
+        .page7boxtext1{
+            width: 80%; 
+            height: 25vw;
+            margin-left: 10vw; 
+            font-size: 10vw;
+            color: #4CA1A3; 
+        }
+        .page7h1_1{
+            text-shadow: 1vw 0vw #84dddf;
+        }
+        .page7h1_2{
+            font-size:4vw; 
+            color:white;
+        }
+        .page8{
+            width: 100%; 
+            height: 150vh; 
+            background: linear-gradient(black,#313A6F);
+        }
+        .page8img1{
+            width: 16vw;
+             margin-top: 22vw; 
+            left: 7vw;
+        }
+        .page8img2{
+            width: 16vw; 
+            margin-top: 22vw; 
+            left: 30vw;
+        }
+        .page8img3{
+            width: 16vw; 
+            margin-top: 22vw; 
+            left: 53vw;
+        }
+        .page8img4{
+            width: 16vw; 
+            margin-top: 22vw; 
+            left: 76vw;
+        }
+        .page8h1{
+            color: white; 
+            font-size: 4vw;
+        }
+        .cardbox{
+            width: 20%;
+            height: 27.5vw;
+            margin-top: 2vw;
+        }
+        .card1{
+            left: 5vw;
+        }
+        .card2{
+            left: 28vw;
+        }
+        .card3{
+            left: 51vw;
+        }
+        .card4{
+            left: 74vw;
+        }
+        .page8divimg{
+            background-size: 100% auto;
+            cursor: pointer;
+        }
+        .page8divimg1{
+            background-image: url(https://cdn.discordapp.com/attachments/836593151988596756/844561060601790474/5.jpg);
+        }
+        .page8divimg2{
+            background-image: url(https://cdn.discordapp.com/attachments/836593151988596756/844561063907033108/6.jpg);
+        }
+        .page8divimg3{
+            background-image: url(https://cdn.discordapp.com/attachments/836593151988596756/844561064405893160/7.jpg);
+        }
+        .page8divimg4{
+            background-image: url(https://cdn.discordapp.com/attachments/836593151988596756/844561067886510110/8.jpg);
+        }
+        .page9{
+            background: linear-gradient(#313A6F,#F8CDDA); 
+            width: 100%; height: 270vh;
+        }
+        .page9img1{
+            width: 90vw; 
+            margin-left: 5vw;
+        }
+        .page9img2{
+            width: 30vw; 
+            right: 0; 
+            top: 2vw;
+        }
+        .page9boxtext1{
+            font-size: 9vw; 
+            left: 8vw; 
+            top: 7vw; 
+            color: #F0E4D7;
+        }
+        .page9boxtext2{
+            font-size: 4.5vw; 
+            right: 9vw; 
+            top: 65vh; 
+            color: #F0E4D7;
+        }
+        .page9boxtext3{
+            color: #344376; 
+            background: white; 
+            border-radius: 10vw; 
+            font-size: 2vw; 
+            right: 17vw;
+            top: 138vh; 
+            width: 55%; 
+            height: 8vw;
+        }
+        .page9boxtext4{
+            color: #344376; 
+            background: white; 
+            border-radius: 10vw; 
+            font-size: 2vw; 
+            left: 17vw; 
+            top: 178vh; 
+            width: 55%; 
+            height: 8vw;
+        }
+        .page9boxtext5{
+            font-size: 1.5vw; 
+            left: 3vw; 
+            top: 210vh; 
+            color: #242C5B;
+        }
+        .page9boxtext6{
+            color: #344376; 
+            background: white; 
+            border-radius: 10vw;
+            font-size: 2vw; 
+            right: 17vw; 
+            top: 238vh; 
+            width: 55%; 
+            height: 12vw;
+        }
+        .page9boxtext6h1{
+            font-size: 3.5vw;
+        }
+        .page9img3{
+            width: 30vw; 
+            left: 0; 
+            top: 140vh;
+        }
+        .page9img4{
+            width: 30vw; 
+            right: 0; 
+            top: 180vh;
+        }
+        .page9img5{
+            width: 30vw; 
+            left: 0; 
+            top: 245vh;
+        }
+        .page10{
+            width: 100%; 
+            height: 180vh; 
+            background: 
+            linear-gradient(#F8CDDA,#FAF1E6); 
+        }
+        .page10img1{
+            top: 12vh; left: 6vw; width: 5vw;
+        }
+        .page10img2{
+            top: 50vh; right: 6vw; width: 5vw;
+        }
+        .page10boxtext1{
+            font-size:1.5vw; 
+            width: 80%; left: 
+            13vw; top: 20vh;
+        }
+        .page10img3{
+            width: 50vw; left: 5vw; top: 100vh;
+        }
+        .page10img4{
+            width: 100vw;top: 132vh;
+        }
+        .page10img5{
+            width: 100vw; top: 142vh;
+        }
+        .page10img6{
+            width: 100vw; top: 152vh;
+        }
+        .page11{
+            background-color: white; 
+            width: 100%; 
+            height: 300vh;
+        }
+        .page11img1{
+            width: 18vw; 
+            margin-left: 40.4vw; 
+            top: -3.5vw;
+        }
+        .page11img2{
+            width : 12vw; 
+            margin-left: 43.3vw; 
+            top: 0;
+        }
+        .page11img3{
+            width: 8vw; 
+            margin-left: 45.4vw;
+            margin-top: 1vw;
+        }
+        .page11img4{
+            top: -8vw; 
+            left: -36vw; 
+            width: 78.5vw;
+        }
+        .page11img5{
+            top: -8vw; 
+            right: -36vw; 
+            width: 78.5vw;
+        }
+        .page11textbox1{
+            width: 40%; 
+            height: 15vw; 
+            font-size: 2.5vw;
+        }
+        .page11textbox2{
+            width: 40%; 
+            height: 25vw; 
+            right: 5vw; 
+            margin-top: 40vh;
+            font-size: 1vw;
+        }
+        .page11textbox3{
+            width: 40%; 
+            height: 25vw; 
+            left: 5vw; 
+            margin-top: 90vh;
+            font-size: 1vw;
+        }
+        .page11textbox4{
+            width: 40%; 
+            height: 38vw; 
+            right: 5vw; 
+            margin-top: 150vh;
+            font-size: 1vw;
+        }
+        .page11textbox5{
+            width: 40%; 
+            height: 12vw; 
+            left: 5vw; 
+            margin-top: 235vh;
+            font-size: 1vw;
+        }
+        .page11textbox6{
+            width: 40%; 
+            height: 4vw; 
+            right: 5vw; 
+            margin-top: 270vh;
+            font-size: 0.5vw;
+        }
+        .page11img6{
+            right: 25vw; 
+            margin-top: 46vh;
+        }
+        .page11img7{
+            left: 25vw; 
+            margin-top: 96vh;
+        }
+        .page11img8{
+            right: 25vw; 
+            margin-top: 156vh;
+        }
+        .page11img9{
+            left: 25vw; 
+            margin-top: 241vh;
+        }
+        .page11img10{
+            bottom : -7vw; 
+            width: 50vw;
+        }
+        .page11img11{
+            bottom : -7vw; 
+            right: 0; 
+            width: 50vw;
+        }
+        .page11img12{
+            width: 12vw; 
+            bottom: -6vw; 
+            margin-left: 43.5vw;
+        }
+        .page11img13{
+            width: 10vw;
+            bottom: -5vw; 
+            margin-left: 44.5vw;
+        }
+        .page11img14{
+            width: 4vw; 
+            bottom: -3vw; 
+            margin-left: 47.5vw;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div id="black1" class="page hidebox op0" style="background: black;"></div>
+    <div id="firstpage" class="page bodymoon df jcc aic">
+        <div id="moon" class="moon" style="z-index: 0;"></div>
+        <div id="backgroundblack" class="page psa"></div>
+        <div id="black" class="page psa op0" style="background: black;"></div>
+        <div id="first" class="page psa df jcc aic op0">
+            <img style="z-index: 10;" id="salmon" onclick="fadeinsalmon()" class="salmon" src="/img/salmon.svg" alt="salmon">
+            <h1 onclick="fadeintext1()" id="text1" class="psa textpage1 hidetext">รู้ไหมว่าอาหารทะเลหามาได้ยังไง?</h1>
+            <h1 onclick="fadeintext2()" id="text2" class="psa textpage1 hidetext">กว่าจะมาเป็นอาหารทะเลทุกวันนี้</h1>
+            <h1 onclick="fadeintext2()" id="text3" class="psa textpage1 hidetext" style="margin-top: 10%;">ต้องผ่านอะไรมาบ้าง</h1>
+            <h1 class="questionmark psa" style="margin-right: 55vw;transform: rotateY(30deg) rotateZ(-40deg);">?</h1>
+            <h1 class="questionmark psa" style="margin-right: 40vw; margin-bottom: 30vw;transform: rotateY(30deg) rotateZ(-25deg);">?</h1>
+            <h1 class="questionmark psa" style="margin-right: 15vw; margin-bottom: 35vw;transform: rotateY(30deg) rotateZ(-15deg);">?</h1>
+            <h1 class="questionmark psa" style="margin-left: 5vw; margin-bottom: 30vw;">?</h1>
+            <h1 class="questionmark psa" style="margin-left: 30vw; margin-bottom: 35vw;">?</h1>
+            <h1 class="questionmark psa" style="margin-left: 45vw; margin-bottom: 15vw;transform: rotateY(30deg) rotateZ(20deg);">?</h1>
+            <h1 class="questionmark psa" style="margin-left: 55vw; margin-top: 15vw;transform: rotateY(30deg) rotateZ( 40deg);">?</h1>
+        </div>
+        <svg width="0" height="0"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <filter id="sketch">
+                <feTurbulence type="fractalNoise" baseFrequency=".05 .5" numOctaves="3" result="noise1"></feTurbulence>
+                <feColorMatrix in="noise1" type="hueRotate" values="0" result="noise2">
+                <animate attributeName="values" from="0" to="360" dur="1.5s" repeatCount="indefinite"/>
+                </feColorMatrix>
+                <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="60" in="SourceGraphic" in2="noise2" />
+            </filter>
+        </svg>
+    </div>
+    <!-- <div class='loader df aic jcc'>
+        <div>
+            <div class="boat">
+                <div class="wrap">
+                    <div class="main">
+                        <div class="boat-top-layer">
+                            <div class="top">
+                                <div class="pole"></div>
+                                <div class="help"><span></span></div>
+                            </div>
+                            <div class="bottom"></div>
+                        </div>
+                        <div class="boat-mid-layer">
+                            <div class="top"></div>
+                            <div class="bottom"></div>
+                        </div>
+                        <div class="boat-bot-layer">
+                            <div class="top"></div>
+                            <div class="bottom"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="water">
+                    <div class="drops clearfix drops-1">
+                        <span class="drop drop-a"></span>
+                        <span class="drop drop-b"></span>
+                        <span class="drop drop-c"></span>
+                        <span class="drop drop-d"></span>
+                        <span class="drop drop-e"></span>
+                        <span class="drop drop-f"></span>
+                        <span class="drop drop-g"></span>
+                        <span class="drop drop-h"></span>
+                    </div>
+                    <div class="drops clearfix drops-2">
+                        <span class="drop drop-a"></span>
+                        <span class="drop drop-b"></span>
+                        <span class="drop drop-c"></span>
+                        <span class="drop drop-d"></span>
+                        <span class="drop drop-e"></span>
+                        <span class="drop drop-f"></span>
+                        <span class="drop drop-g"></span>
+                        <span class="drop drop-h"></span>
+                    </div>
+                </div>
+            </div>
+            <h1 style="margin-top: 4rem;">Loading</h1>
+            <h2 style="margin-left: 4rem;" class='loader--text'>0%</h2>
+        </div>
+    </div>
+    <div id="mm" class='demo-wrapper'>
+        <header class='df aic jcc' style="padding: 10vw;">
+            <div>
+                <h1>"อาหารทะเลที่กินมันไม่ได้หามาง่ายๆนะครับ"</h1>
+                <h2>น้ำเสียงชาวประมง</h2>
+            </div>
+        </header>
+        <section class='demo-text'>
+            <div class='wrapper text'>
+                SHARKLOBSTERTUNASALMON
+            </div>
+        </section>
+        <section class='demo-gallery'>
+            <ul class='wrapper'>
+                <li>
+                    <img height='874' src='https://source.unsplash.com/i7xe_go6z0A/1240x874' width='1240'>
+                </li>
+                <li>
+                    <img height='874' src='https://source.unsplash.com/LX_bGSCrHKA/1240x874' width='1240'>
+                </li>
+                <li>
+                    <img height='874' src='https://source.unsplash.com/FpJ1zGDinNw/1240x874' width='1240'>
+                </li>
+            </ul>
+        </section>
+        <section class='demo-gallery'>
+            <ul class='wrapper'>
+                <li>
+                    <img height='874' src='https://source.unsplash.com/_KbLfVZwd9s/1240x874' width='1240'>
+                </li>
+                <li>
+                    <img height='874' src='https://source.unsplash.com/Yhb2BC1vAgo/1240x874' width='1240'>
+                </li>
+                <li>
+                    <img height='874' src='https://source.unsplash.com/Mwfo3LryqGk/1240x874' width='1240'>
+                </li>
+            </ul>
+        </section>
+        <section class='demo-gallery'>
+            <ul class='wrapper'>
+                <li>
+                    <img height='874'
+                        src='https://www.thaihealth.or.th/data/content/2018/05/42610/cms/newscms_thaihealth_c_acdhkmrtvy14.jpg'
+                        width='1240'>
+                </li>
+                <li>
+                    <img height='874' src='https://source.unsplash.com/random/1240x874?sig=71' width='1240'>
+                </li>
+                <li>
+                    <img height='874' src='https://source.unsplash.com/random/1240x874?sig=195' width='1240'>
+                </li>
+                <li>
+                    <img height='874' src='https://source.unsplash.com/random/1240x874?sig=130' width='1240'>
+                </li>
+            </ul>
+        </section>
+        <section class='demo-text'>
+            <div class='wrapper text'>
+                CRABOCTOPUSQSUIDSCALLOPS
+            </div>
+        </section>
+        <footer class='df aic jcc'>
+            <p>Images from <a href="https://unsplash.com/">Unsplash</a></p>
+        </footer>
+    </div> -->
+    <div id="boat" class="page psa op0" style="overflow: hidden;">
+        <header class="headeres">
+            <!-- <a href="#" class="logo">Greenpeace</a> -->
+            <a href="#" class="logo"><img src="/img/logo.svg" alt="logo"></a>
+            <ul>
+                <li><a href="#" class="active">หน้าหลัก</a></li>
+                <!-- <li><a href="#">About</a></li>
+                <li><a href="#">Test</a></li>
+                <li><a href="#">Test</a></li> -->
+            </ul>
+        </header>
+        <section class="section">
+            <h2 id="text"><span>หนึ่งช่วงชีวิต</span><br>ชาวประมง</h2>
+            <img src="/img/bird1.png" id="bird1">
+            <img src="/img/bird2.png" id="bird2">
+            <img src="/img/background.png" id="background">
+            <a href="#page2" id="btn">welcome aboard</a>
+            <!-- <img src="/img/rocks.png" id="rocks"> -->
+            <img src="/img/water.png" id="water">
+        </section>
+    </div>
+    <div class="slidesea"></div>
+    <div id="page2" class="page">
+        <div id="page2box1" class="psa divpage2box ">
+            <div class="leftboxup psa reveal out bottomtotop page2text1">
+                <span>สิทธิ</span><span>ชาวประมง</span>
+            </div>
+            <h1 class="psa reveal out bottomtotop page2text2">Did you know?</h1>
+            <h1 class="psa reveal out bottomtotop page2text3">อาหารทะเลที่คุณทานอยู่นั้น มาได้อย่างไร</h1>
+            <img class="fisherman psa" src="/img/fisherman.svg" alt="fisherman">
+        </div>
+        <div id="page2box2" class="divpage2box psa" style="background: #14222F; margin-left: 50%;">
+            <div class="rightboxup psa reveal out bottomtotop page2text4">
+                <p class="fontpage2" style="color: white;">ใช่เเล้ว!! คุณคงนึกถึง “ชาวประมง” ในปัจจุบันอุตสาหกรรมอาหารทะเลของไทย
+                    มีการขยายตัวจากอดีตเพิ่มมากขึ้น ไม่ใช่เฉพาะอุตสาหกรรมอาหารทะเล
+                    เเต่รวมถึงอุสาหกรรมเเรงงานชาวประมงด้วย เเต่การที่มีแรงงานประมงเพิ่มมากขึ้นนั้น
+                    การดูเเลเเละควบคุมของภาครัฐก็มีความไม่ทั่วถึงตามมา 
+                    และปัญหาส่วนใหญ่ที่ชาวประมงต้องเจอคือ
+                    </p>
+            </div>
+            <div class="rightboxdown text psa reveal out bottomtotop page2text5">
+                <p>ปัญหาเกี่ยวกับสิทธิและการใช้แรงงานของนายจ้าง</p>
+            </div>
+        </div>
+    </div>
+    <div class="page psr">
+        <div class="psa" style="right: 0; width: 50%; height: 100%; background-color:#14222F ;"></div>
+        <div id="page2box3" class="textbox psa aic jcc df reveal out bottomtotop page2text6">
+            <span>ไม่ว่า</span><span>จะเป็น</span>
+        </div>
+    </div>
+    <div id="12" class="page3 df psr ofh">
+        <img class="psa page3img2" src="/img/longright.svg" alt="">
+        <img class="psa page3img3" src="/img/circle.svg" alt="">
+        <img class="psa page3img4" src="/img/longright.svg" alt="">
+        <img class="psa page3img5" src="/img/circle.svg" alt="">
+        <img class="psa page3img6" src="/img/longright.svg" alt="">
+        <img class="psa page3img7" src="/img/circle.svg" alt="">
+        <img class="psa page3img8" src="/img/longleft.svg" alt="">
+        <img class="psa page3img9" src="/img/circle.svg" alt="">
+        <img class="psa page3img10" src="/img/longleft.svg" alt="">
+        <img class="psa page3img11" src="/img/circle.svg" alt="">
+        <img class="psa page3img12" src="/img/longleft.svg" alt="">
+        <img class="psa page3img13" src="/img/circle.svg" alt="">
+        <div class="triangle-topright"></div>
+        <div class="triangle-bottomleft"></div>
+        <img class="psa" style="width: 15vw; right: -8vw; bottom: 0;" src="/img/leaf1.svg" alt="">
+        <img class="psa" style="width: 15vw; right: -8.5vw; bottom: 0;" src="/img/grasstop.svg" alt="">
+        <img class="psa" style="width: 20vw; z-index: 9; bottom: -13vw; left: -6vw;" src="/img/pakarang.svg" alt="">
+        <div class="page psa ofh">
+            <h1 class="texth1 reveal out bottomtotop page3text1">ปัญหาค่าแรงสวนทางกับงานที่ทำ</h1>
+            <h1 class="texth1 reveal out bottomtotop page3text2">ปัญหาด้านสาธารณสุขบนเรือ</h1>
+            <h1 class="texth1 reveal out bottomtotop page3text3">ปัญหาด้านสัญญาจ้าง</h1>
+            <h1 class="texth1 reveal out bottomtotop page3text4">ปัญหาด้านการพักผ่อน</h1>
+        </div>
+    </div>
+    <div class="page4 backgroundpage4 psr ofh">
+        <img class="psa page4img2" src="/img/fisherman1.svg" width="15%" alt="">
+        <img class="psa page4img3" src="/img/grass.svg" width="55%" alt="">
+        <img class="psa" style="width: 20vw; z-index: 9; top: -13vw; left: -6vw;" src="/img/pakarang.svg" alt="">
+        <div class="page4right psa tac" style="margin-left: 50%; overflow: hidden;">
+            <h1 class="texth1 reveal out bottomtotop page4text1 page5top">ซึ่งปัญหาต่างๆนั้น</h1>
+            <h1 class="texth1 reveal out bottomtotop page4text2">ล้วนแล้วแต่ไม่แปรผันไปตามคุ้มครองแรงงาน</h1>
+            <h1 class="texth1 reveal out bottomtotop page4text3">ในงานประมงทะเล พ.ศ.2557</h1>
+            <div class="page4line reveal out bottomtotop page4text4"></div>
+            <h2 class="h2page4 reveal out bottomtotop page4text5">อ้างอิงจาก</h2>
+            <h2 class="h2page4 reveal out bottomtotop page4text6">https://www.mol.go.th/wp-content/uploads/sites/2/2019/03/kh77-2b-2557-a0002.pdf</h2>
+            <img class="psa page4img10" src="/img/grassbottom.svg" alt="">
+        </div>
+    </div>
+    <div class="page5 psr df jcc ofh">
+        <img class="psa" style="bottom: 0; width: 20vw;left: 0;" src="/img/rock1.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw;left: 10vw;" src="/img/rock2.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw;left: 20vw;" src="/img/rock3.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw; left: 30vw;" src="/img/rock1.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw; left: 40vw;" src="/img/rock3.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw; left: 50vw;" src="/img/rock2.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw; left: 60vw;" src="/img/rock3.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw; left: 70vw;" src="/img/rock1.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw; left: 80vw;" src="/img/rock2.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw; left: 90vw;" src="/img/rock3.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw; left: 15vw;" src="/img/rock3.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw; left: 25vw;" src="/img/rock2.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw; left: 35vw;" src="/img/rock3.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw; left: 45vw;" src="/img/rock1.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw; left: 55vw;" src="/img/rock2.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw; left: 65vw;" src="/img/rock3.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw; left: 20vw;" src="/img/rock2.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw; left: 30vw;" src="/img/rock3.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw; left: -10vw;" src="/img/rock3.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw; left: -5vw;" src="/img/rock2.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw; left: 5vw;" src="/img/rock3.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw; left: 50vw;" src="/img/rock1.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw; left: 40vw;" src="/img/rock2.svg" alt="">
+        <img class="psa" style="bottom: 0; width: 20vw; left: 80vw;" src="/img/rock3.svg" alt="">
+        <img class="psa" style="top: 0;right: 0; width: 10vw;" src="/img/seaweed.svg" alt="">
+        <div class="psa page5boxtext1">
+            <h1 class="reveal out bottomtotop tac" >การที่คนในปัจจุบันส่วนใหญ่ไม่ได้มีการให้ความสำคัญเกี่ยวกับเเรงงานประมงนั้น</h1>
+            <h1 class="reveal out bottomtotop tac" >เนื่องจากว่าทุกคนมองว่าเป็นเรื่องที่ไกลตัว อีกทั้งในสื่อหรือในพื้นที่สาธารณะนั้น</h1>
+            <h1 class="reveal out bottomtotop tac" >ไม่ได้มีการนำเสนอเนื้อเรื่องดังกล่าวเท่าไหร่หรือไม่มีเลยก็ตาม</h1>
+            <h1 class="reveal out bottomtotop tac" >เนื่องจากในอุตสาหกรรมประมงนั้นเป็นอุตสาหกรรมที่มีขนาดใหญ่เเละมีผลประโยชน์ทับซ้อนกันหลายทบมาก</h1>
+            <h1 class="reveal out bottomtotop tac" >ซึ่งเป็นเรื่องที่ยากมากที่สื่อหรือบุคคลภายนอกจะเข้าไปนำเสนอเรื่องราวหรือถ่ายทอดปัญหาที่เเรงงานประมงนั้นต้องพบเจอ</h1>
+        </div>
+        <div class="psa page5boxtext2">
+            <h1 class="reveal out bottomtotop tac" >“เมื่อเราก้าวข้ามเข้าไปในเรือเเล้ว จะเป็นจะตายอย่างไรก็ไม่รู้”</h1>
+            <h1 class="reveal out bottomtotop tac" >เสียงเสียงหนึ่งจากอดีตเเรงงานประมง จากข้อความดังกล่าวจะเห็นได้ว่า </h1>
+            <h1 class="reveal out bottomtotop tac" >ชีวิตเเรงงานประมงนั้นไม่มีความเเน่นอนในการประกอบอาชีพหรือขึ้นอยู่กับโชคชะตาเมื่อได้ก้าวเข้าไปในเรือเเล้ว</h1>
+        </div>
+    </div>
+    <div class="psr page5boxwongre">
+        <img class="psa circledarkblue" src="/img/circledarkblue.svg" alt="">
+        <img class="psa wongreleft" src="/img/wongre.svg" alt="">
+        <img class="psa wongreright" src="/img/wongre.svg" alt="">
+    </div>
+    <div class="psr ofh page11">
+        <div class="psa" style="width: 5%; height: 100%; background-color: #242C5B;margin-left: 47vw;"></div>
+        <img class="psa page11img1" src="/img/circledarkblue.svg" alt="">
+        <img class="psa page11img2" src="/img/circlewhite.svg" alt="">
+        <img class="psa page11img3" src="/img/smo.svg" alt="">
+        <img class="psa page11img4" src="/img/wongre.svg" alt="">
+        <img class="psa page11img5" src="/img/wongre.svg" alt="">
+        <div class="psa page11textbox1">
+            <h1 class="reveal out bottomtotop" style="text-align: center; color: #242C5B;">การบังคับใช้</h1>
+            <h1 class="reveal out bottomtotop" style="text-align: center; color: #242C5B;">กฏหมาย</h1>
+        </div>
+        <div class="psa page11textbox2">
+            <h1 class="reveal out bottomtotop" style="color: #242C5B;">เวลาพัก</h1><br>
+            <h1 class="reveal out bottomtotop">มีเวลาพักไม่น้อยกว่า 10 ชั่วโมง</h1>
+            <h1 class="reveal out bottomtotop">ในระยะเวลาการทำงาน 24 ชั่วโมง</h1>
+            <h1 class="reveal out bottomtotop">และไม่น้อยกว่า 77 ชั่วโมง</h1>
+            <h1 class="reveal out bottomtotop">ในระยะเวลาการทำงาน 7 วัน</h1>
+            <h1 class="reveal out bottomtotop">และมีการจัดทำหลักฐานเวลาพัก</h1>
+            <h1 class="reveal out bottomtotop">ไว้ตรวจสอบได้ภายหลัง</h1>
+        </div>
+        <div class="psa page11textbox3">
+            <h1 class="reveal out bottomtotop" style="color: #242C5B; text-align: right;">สัญญาจ้าง</h1><br>
+            <h1 class="reveal out bottomtotop" style="text-align: right;">ให้นายจ้างจัดทำสัญญาจ้าง</h1>
+            <h1 class="reveal out bottomtotop" style="text-align: right;">เป็นหนังสือที่มีข้อความถูกต้องตรงกัน</h1>
+            <h1 class="reveal out bottomtotop" style="text-align: right;">(ตามแบบที่อธิบดีประกาศกำหนด)</h1>
+            <h1 class="reveal out bottomtotop" style="text-align: right;">จำนวน 2 ฉบับโดยมอบให้ลูกจ้างเก็บไว้ 1 ฉบับ</h1>
+            <h1 class="reveal out bottomtotop" style="text-align: right;">และให้นายจ้างนำลูกจ้างไปรายงานตัว</h1>
+            <h1 class="reveal out bottomtotop" style="text-align: right;">ต่อพนักงานตรวจแรงงานปีละหนึ่งครั้ง</h1>
+            <h1 class="reveal out bottomtotop" style="text-align: right;">นับแต่วันทำสัญญาจ้าง</h1>
+        </div>
+        <div class="psa page11textbox4">
+            <h1 class="reveal out bottomtotop" style="color: #242C5B;">สวัสดิการ</h1><br>
+            <h1 class="reveal out bottomtotop">จัดให้มีอาหารและน้ำดื่มที่</h1>
+            <h1 class="reveal out bottomtotop">สะอาดถูกสุขลักษณะ </h1>
+            <h1 class="reveal out bottomtotop">ห้องส้วม เวชภัณฑ์</h1>
+            <h1 class="reveal out bottomtotop">และยาเพื่อใช้ปฐมพยาบาลเบื้องต้น </h1>
+            <h1 class="reveal out bottomtotop">ในจำนวนที่เพียงพอ </h1>
+            <h1 class="reveal out bottomtotop">เพื่อให้เหมาะสมกับการทำงาน</h1>
+            <h1 class="reveal out bottomtotop">และระยะเวลาการใช้ชีวิตบนเรือ</h1>
+            <h1 class="reveal out bottomtotop">ให้ความรู้แก่ลูกจ้าง</h1>
+            <h1 class="reveal out bottomtotop">เกี่ยวกับสภาพการทำงาน</h1>
+            <h1 class="reveal out bottomtotop">การใช้เครื่องมือ</h1>
+            <h1 class="reveal out bottomtotop">และอุปกรณ์ความปลอดภัยบนเรือ</h1>
+            <h1 class="reveal out bottomtotop">ก่อนการทำงาน</h1>
+        </div>
+        <div class="psa page11textbox5">
+            <h1 class="reveal out bottomtotop" style="text-align: right; color: #242C5B;">การจ่ายค่าจ้าง</h1><br>
+            <h1 class="reveal out bottomtotop" style="text-align: right;">มีการจ่ายค่าจ้างและค่าทำงาน</h1>
+            <h1 class="reveal out bottomtotop" style="text-align: right;">ในวันหยุดให้ถูกต้องตามกำหนดเวลา</h1>
+        </div>
+        <div class="psa page11textbox6">
+            <h1 class="reveal out bottomtotop" style="text-align: center;">อ่านเพิ่มเติม</h1>
+            <h1 class="reveal out bottomtotop" style="text-align: center;">แรงงานในงานประมงทะเล - กระทรวงแรงงาน (mol.go.th)</h1>
+        </div>
+        <img class="psa page11img6 defult" src="/img/stick.svg" alt="">
+        <img class="psa page11img7 defult" src="/img/stick.svg" alt="">
+        <img class="psa page11img8 defult" src="/img/stick.svg" alt="">
+        <img class="psa page11img9 defult" src="/img/stick.svg" alt="">
+        <img class="psa page11img10"  src="/img/wongredarkblue.svg" alt="">
+        <img class="psa page11img11"  src="/img/wongredarkblue.svg" alt="">
+        <img class="psa page11img12"  src="/img/circlewhite.svg" alt="">
+        <img class="psa page11img13"  src="/img/circledarkblue.svg" alt="">
+        <img class="psa page11img14"  src="/img/lightblub.svg" alt="">
+        
+    </div>
+    <div class="psr page6 ofh">
+        <img class="psa page6img4" src="https://cdn.discordapp.com/attachments/836593151988596756/846064103160283176/cfa331e9b6171abc.png" alt="">
+        <img class="psa page6img5" src="https://cdn.discordapp.com/attachments/836593151988596756/846064081323556874/d9a686870ac4c2a4.png" alt="">
+        <div class="psa page6boxtext1">
+            <h1 class="reveal out bottomtotop tac">รู้หรือไม่?</h1>
+            <h1 class="reveal out bottomtotop tac">ประเทศไทยเคยได้ใบเหลืองจาก IUU Fishing </h1>
+            <h1 class="reveal out bottomtotop tac">ในปี 2558 ประเทศไทยถูกสหภาพยุโรปกล่าวหาว่ามีการทำประมงผิดกฎหมาย ขาดการรายงานและไร้การควบคุม</h1>
+            <h1 class="reveal out bottomtotop tac">ซึ่งสาเหตุมากฎหมายของประเทศไทยที่ล้าสมัยและยิ่งไม่ตอบสนองต่อการประมงแบบ IUU </h1>
+            <h1 class="reveal out bottomtotop tac">ไม่มีแผนการจัดการทรัพยากรสัตว์น้ำและการประมงที่ดี และยังไม่มีระบบการตรวจสอบที่มีประสิทธิภาพมากพอ</h1>
+            <h1 class="reveal out bottomtotop tac">รัฐบาลไทยแก้ไขปัญหานี้โดยการปรับปปรุง พ.ร.บการประมงและกฎหมายที่เกี่ยวข้อง</h1>
+            <h1 class="reveal out bottomtotop tac">การจัดทำแผนการปฏิบัติแห่งชาติให้สอดคล้องกับ IUU Fishing และมีการตรวจสอบ ควบคุม และเฟ้าระวัง กองเรือประมงไทย</h1>
+            <h1 class="reveal out bottomtotop tac">และมีการบังคับใช้-มาตรการใหม่ ที่กำหนดมาอย่างเคร่งครัด</h1>
+            <h1 class="reveal out bottomtotop tac">ซึ่งประเทศไทยถูกยกปลดใบเหลือง ณ เดือน มกราคม 2562</h1>
+        </div>
+        <img class="psa page6img1" src="/img/circlewhite.svg" alt="">
+        <img class="psa page6img2" src="/img/circledarkblue.svg" alt="">
+        <img class="psa page6img3" src="/img/lightblub.svg" alt="">
+        <img class="psa page6img22" src="https://cdn.discordapp.com/attachments/836593151988596756/844554566899859456/removal.ai_tmp-60a506af09a51.png" alt="">
+        <div class="psa page6boxtext2">
+            <h1 class="reveal out bottomtotop">พบคนไทยอย่างน้อย 8 คน ที่ยังตกค้างอยู่ที่เกาะตวล </h1>
+            <h1 class="reveal out bottomtotop">บางคนถูกหลอกและต้องหลบซ่อนอยู่ถึง 16 ปี</h1>
+            <h1 class="reveal out bottomtotop">โดยแรงงานที่ถูกหลอกเหล่านี้ไม่มีบัตรประชาชนและ</h1>
+            <h1 class="reveal out bottomtotop">เลข 13 หลัก จึงไม่ได้รับความช่วยเหลือจากทางการไทย</h1>
+        </div>
+        <div class="psa tac page6boxtext3">
+            <h1 class="reveal out bottomtotop">การทำประมงนอกน่านน้ำ โดยเฉพาะใน พื้นที่ทะเลหลวง นั้นมีช่องโหว่ทางกฎหมาย เปิดโอกาสให้เกิดการละเมิดสิทธิแรงงานได้</h1>
+            <h1 class="reveal out bottomtotop">บริษัทเรือประมงจำนวนหนึ่งใช้วิธีลดต้นทุน ด้วยการไม่จ่ายหรือกดค่าจ้างแรงงานบนเรือ</h1>
+            <h1 class="reveal out bottomtotop">และยังบังคับให้ทำงานต่อเนื่องเป็นเวลายาวนาน รวมถึงใช้วิธี ขนถ่ายสินค้ากลางทะเล เพื่อให้ไม่ต้องกลับเข้าฝั่ง</h1>
+            <h1 class="reveal out bottomtotop">กลายเป็นปัจจัยเสี่ยงต่อความปลอดภัยของแรงงาน</h1>
+        </div>
+        <div class="psa reveal out bottomtotop tac page6boxtext4">
+            <h1>จากเหตุการณ์</h1>
+        </div>
+        <img class="psa" style="width: 50vw; top:245vw; right: -15vw;" src="/img/seacloude.svg" alt="">
+        <img class="psa" style="width: 50vw; top:260vw; left: -15vw;" src="/img/seacloude.svg" alt="">
+        <img class="psa page6img23" src="/img/fisherpic1.svg" alt="">
+        <img class="psa page6img24" src="/img/fisherpic.svg" alt="">
+        <div class="psa page6boxtext5">
+            <h1 class="reveal out bottomtotop">ปี 2558 มีการตรวจค้นสถานประกอบการแกะกุ้ง</h1>
+            <h1 class="reveal out bottomtotop">พบว่านายจ้างฝ่าฝืนหรือไม่ปฏิบัติตาม</h1>
+            <h1 class="reveal out bottomtotop">พ.ร.บ.คุ้มครองแรงงาน พ.ศ. 2541</h1>
+            <h1 class="reveal out bottomtotop">จึงดำเนินการร้องทุกข์กล่าวโทษต่อพนักงานสอบสวน</h1>
+            <h1 class="reveal out bottomtotop">ให้ดำเนินคดีตามมาตราต่างๆ รวม 13 ข้อ</h1>
+        </div>
+        <img class="psa page6img25" src="/img/man.svg" alt="">
+        <div class="psa page6boxtext6">
+            <h1 class="reveal out bottomtotop" style="font-size: 3vw;">ปี 2562</h1>
+            <h1 class="reveal out bottomtotop">ผู้ประสานงานมูลนิธิเครือข่ายส่งเสริมคุณภาพชีวิตแรงงาน (แอลพีเอ็น)</h1>
+            <h1 class="reveal out bottomtotop">ให้สัมภาษณ์ทางโทรศัพท์ระหว่างการลงพื้นที่เกาะตวล ประเทศอินโดนีเซีย</h1>
+            <h1 class="reveal out bottomtotop">พบคนไทยอย่างน้อย 8 คนที่ยังตกค้างอยู่ที่เกาะตวล</h1>
+            <h1 class="reveal out bottomtotop">บางคนถูกหลอกและต้องหลบซ่อนอยู่ถึง 16 ปี</h1>
+            <h1 class="reveal out bottomtotop">โดยแรงงานที่ถูกหลอกเหล่านี้ไม่มีบัตรประชาชนและเลข 13 หลัก</h1>
+            <h1 class="reveal out bottomtotop">จึงไม่ได้รับความช่วยเหลือจากทางการไทย</h1>
+        </div>
+        <div class="psa page6boxtext7">
+            <h1 class="reveal out bottomtotop" style="text-align: right;">แรงงานเหล่านี้เขาไม่มีสิทธิ์แม้แต่จะเลือกด้วยซ้ำว่าเขาต้องการจะพักผ่อน</h1>
+            <h1 class="reveal out bottomtotop">หรือไม่เขาเพียงได้แต่ทำงานตามที่นายจ้างสั่งไปจนกว่าชีวิตของเขาจบลง</h1>
+        </div>
+        <div class="psa page6boxtext8">
+            <h1 class="reveal out bottomtotop">OVER FISHING</h1>
+        </div>
+        <img class="psa page6img26" src="/img/question.svg" alt="">
+        <img class="psa page6img27" src="/img/fish.svg" alt="">
+        <img class="psa page6img28" src="/img/shadowfisher.svg" alt="">
+        <img class="psa page6img29" src="/img/fish2.svg" alt="">
+        <img class="psa page6img30" src="/img/comma.svg" alt="">
+        <img class="psa page6img31" src="/img/comma1.svg" alt="">
+        <div class="psa page6boxtext9">
+            <h1 class="reveal out bottomtotop">จากข้อมูลกรมประมง (สิงหาคม 2558) ระบุว่า ไทยจำนวนเรือประมงทั้งสิ้น 42,512 ลํา</h1>
+            <h1 class="reveal out bottomtotop">ต่อพื้นที่420,280 ตร.กม. ทำให้ไทยเกิดปัญหาการทำประมงเกินขีดความสามารถการผลิตของทรัพยากร</h1>
+            <h1 class="reveal out bottomtotop">หรือOver Fishing</h1>
+            <h1 class="reveal out bottomtotop">เรือประมงใช้อุปกรณ์จับปลาที่ผลกระทบต่อแนวปะการัง ดอกไม้ทะเลหรือสัตว์หน้าดิน</h1>
+            <h1 class="reveal out bottomtotop">ทำให้เกิดทำลายระบบนิเวศเกินกว่าที่ธรรมชาติจะฟื้นฟูทรัพยากรสัตว์น้ำได้</h1>
+        </div>
+        <div class="psa page6boxtext10">
+            <span style="color: red;">Fish </span><span>Population</span>
+        </div>
+        <div class="psa page6boxtext11">
+            <span style="color: red;">in </span><span style="color: #FFE600;">recent year</span>
+        </div>
+            <img class="psa page6img32" src="/img/location.svg" alt="">
+            <img class="psa page6img33" src="/img/graph.svg" alt="">
+        </div>
+    <div class="psr page7">
+        <div class="psa tac page7boxtext1">
+            <h1 class="page7h1_1">เหตุผล</h1>
+            <h1 class="page7h1_2">ที่เราไม่ควรปล่อยให้อุตสาหกรรมครองมหาสมุทร</h1>
+        </div>
+    </div>
+    <div class="psr page8">
+        <img class="psa page8img1" src="/img/circleorange.svg" alt="">
+        <img class="psa page8img2" src="/img/circleblue.svg" alt="">
+        <img class="psa page8img3" src="/img/circlegreen.svg" alt="">
+        <img class="psa page8img4" src="/img/circlepurple.svg" alt="">
+        <div class="psa card df jcc aic cardbox card1 ofh">
+            <h1 class="page8h1">1</h1>
+            <div onclick="ask1()" class="overlay page8divimg1 page8divimg df jcc aic">
+            </div>
+        </div>
+        <div class="psa card df jcc aic cardbox card2 ofh">
+            <h1 class="page8h1">2</h1>
+            <div onclick="ask2()" class="overlay page8divimg2 page8divimg df jcc aic">
+            </div>
+        </div>
+        <div class="psa card df jcc aic cardbox card3 ofh">
+            <h1 class="page8h1">3</h1>
+            <div onclick="ask3()" class="overlay page8divimg3 page8divimg df jcc aic">
+            </div>
+        </div>
+        <div class="psa card df jcc aic cardbox card4 ofh">
+            <h1 class="page8h1">4</h1>
+            <div onclick="ask4()" class="overlay page8divimg4 page8divimg df jcc aic">
+            </div>
+        </div>
+        <img onclick="hideimg1()" style="cursor: pointer;" id="ask1" class="ask" src="https://media.discordapp.net/attachments/836593151988596756/844561051097497620/1.jpg?width=698&height=987" alt="">
+        <img onclick="hideimg2()" style="cursor: pointer;" id="ask2" class="ask" src="https://cdn.discordapp.com/attachments/836593151988596756/844561057372307476/2.jpg" alt="">
+        <img onclick="hideimg3()" style="cursor: pointer;" id="ask3" class="ask" src="https://cdn.discordapp.com/attachments/836593151988596756/844561056839106590/3.jpg" alt="">
+        <img onclick="hideimg4()" style="cursor: pointer;" id="ask4" class="ask" src="https://cdn.discordapp.com/attachments/836593151988596756/844561058634661968/4.jpg" alt="">
+    </div>
+    <div class="psr page9 ofh">
+        <img class="psa page9img1" src="/img/star.svg" alt="">
+        <img class="psa page9img2" src="/img/coconuttree.svg" alt="">
+        <div class="psa page9boxtext1">
+            <h1 class="reveal out1 lefttoright">เรา</h1>
+        </div>
+        <div class="psa page9boxtext2">
+            <h1 class="reveal out1 righttoleft">สามารถทำอะไรได้บ้าง</h1>
+        </div>
+        <div class="psa df jcc aic page9boxtext3">
+            <h1 class="reveal out1 lefttoright">ลงชื่อแคมเปญต่าง ๆ</h1>
+        </div>
+        <img class="psa page9img3" src="/img/stickpink.svg" alt="">
+        <div class="psa df jcc aic page9boxtext4">
+            <h1 class="reveal out1 righttoleft">แบนหรือไม่สนับสนุน สินค้า</h1>
+        </div>
+        <img class="psa page9img4" src="/img/stickpurple.svg" alt="">
+        <div class="psa page9boxtext5">
+            <h1 class="reveal out1 lefttoright">สินค้าที่ไม่เปิดเผยข้อมูล เช่น แหล่งจับปลา พันธุ์ปลา วิธีจับปลา</h1>
+            <h1 class="tac reveal out1 lefttoright">บริษัทที่ไม่มีนโยบายคุ้มครองแรงงาน</h1>
+        </div>
+        <div class="psa page9boxtext6">
+            <h1 class="tac page9boxtext6h1 reveal out1 righttoleft">แชร์(infographic,web)</h1>
+            <h1 class="tac reveal out1 righttoleft">เพื่อให้คนอื่น ๆ ตระหนัก</h1>
+        </div>
+        <img class="psa page9img5" src="/img/stickpurple1.svg" alt="">
+    </div>
+    <div class="psr ofh page10">
+        <img class="psa page10img1" src="/img/commapink.svg" alt="">
+        <img class="psa page10img2 " src="/img/commapink1.svg" alt="">
+        <div class="psa page10boxtext1 ofh">
+            <h1 class="tac reveal out bottomtotop">ถึงเวลาแล้วหรือยังที่ต้องตระหนักถึงปัญหา แล้วร่วมเปล่ง</h1>
+            <h1 class="reveal out bottomtotop">เสียงของเราแทนแรงงานประมงหลาย ๆ คนที่ไม่สามารถเรียกร้อง</h1>
+            <h1 class="reveal out bottomtotop">อะไรได้ และสร้างพลังด้วยวิธีที่เราทุกคนสามารถทำได้ เพื่อทำให้</h1>
+            <h1 class="reveal out bottomtotop">คุณภาพชีวิตของแรงงานประมงหลายชีวิตนั้นดีขึ้น</h1>
+        </div>
+        <img class="psa page10img3" src="/img/boatgame.svg" alt="">
+        <img class="psa page10img4" src="/img/sea1.svg" alt="">
+        <img class="psa page10img5" src="/img/sea2.svg" alt="">
+        <img class="psa page10img6" src="/img/sea3.svg" alt="">
+    </div>
+    <script>
+        setTimeout(function(){
+          document.getElementById('first').classList.add('fadeout');
+          document.getElementById('first').classList.remove('op0');
+        },2000);
+        function fadeinsalmon(){
+            var questionmark = document.querySelectorAll('.questionmark');
+            document.getElementById('salmon').classList.add('fadein');
+            document.getElementById('backgroundblack').classList.add('backgroundmoon');
+            document.getElementById('backgroundblack').classList.add('fadeout1');
+            for(var i = 0; i < questionmark.length ;i++){
+                questionmark[i].classList.add('fadein');
+            }
+            function remove(){
+                document.getElementById('salmon').remove();
+                for(var i = 0; i < questionmark.length ;i++){
+                questionmark[i].remove();
+                }
+                document.getElementById('text1').classList.add('fadeout');
+                document.getElementById('text1').classList.remove('hidetext');
+            }
+            setTimeout(remove,2000);
+        }
+        function fadeintext1(){
+            document.getElementById('text1').classList.add('fadein');
+            document.getElementById('text1').classList.remove('fadeout');
+            function remove(){
+                document.getElementById('text1').remove();
+                document.getElementById('text2').classList.add('fadeout');
+                document.getElementById('text3').classList.add('fadeout');
+                document.getElementById('text2').classList.remove('hidetext');
+                document.getElementById('text3').classList.remove('hidetext');
+            }
+            setTimeout(remove,2000);
+        }
+        function fadeintext2(){
+            document.getElementById('text2').classList.add('fadein');
+            document.getElementById('text2').classList.remove('fadeout');
+            document.getElementById('text3').classList.add('fadein');
+            document.getElementById('text3').classList.remove('fadeout');
+            function remove(){
+                document.getElementById('text2').remove();
+                document.getElementById('text3').remove();
+                document.getElementById('moon').classList.add('fadein');
+                document.getElementById('moon').classList.add('op0');
+                document.getElementById('greenpeace').classList.add('fadein');
+                document.getElementById('greenpeace').classList.add('op0');
+                document.getElementById('backgroundblack').classList.remove('backgroundmoon');
+                document.getElementById('black').classList.add('fadeout2');
+                document.getElementById('black').classList.remove('op0');
+
+            }
+            setTimeout(remove,2000);
+            function fadeoutboat(){
+                document.getElementById('black').remove();
+                document.getElementById('black1').classList.remove('op0');
+                document.getElementById('boat').classList.remove('psa');
+                document.getElementById('boat').classList.add('fadeout');
+                document.getElementById('boat').classList.add('psr');
+                document.getElementById('boat').classList.remove('op0');
+                document.getElementById('firstpage').remove();
+                document.body.style.overflow = 'auto';
+
+            }
+            setTimeout(fadeoutboat,5000);
+        }
+        function ask1(){
+            document.getElementById('ask1').classList.remove('ask');
+            document.getElementById('ask1').classList.add('ask1');
+        }
+        function ask2(){
+            document.getElementById('ask2').classList.remove('ask');
+            document.getElementById('ask2').classList.add('ask1');
+        }
+        function ask3(){
+            document.getElementById('ask3').classList.remove('ask');
+            document.getElementById('ask3').classList.add('ask1');
+        }
+        function ask4(){
+            document.getElementById('ask4').classList.remove('ask');
+            document.getElementById('ask4').classList.add('ask1');
+        }
+        function hideimg1(){
+            document.getElementById('ask1').classList.remove('ask1');
+            document.getElementById('ask1').classList.add('ask');
+        }
+        function hideimg2(){
+            document.getElementById('ask2').classList.remove('ask1');
+            document.getElementById('ask2').classList.add('ask');
+        }
+        function hideimg3(){
+            document.getElementById('ask3').classList.remove('ask1');
+            document.getElementById('ask3').classList.add('ask');
+        }
+        function hideimg4(){
+            document.getElementById('ask4').classList.remove('ask1');
+            document.getElementById('ask4').classList.add('ask');
+        }
+    </script>
+    <script type="text/javascript">
+        window.addEventListener('scroll',reveal);
+        function reveal(){
+            var reveals = document.querySelectorAll('.reveal');
+            for(var i = 0 ; i < reveals.length; i++){
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 140;
+                if(revealtop <  windowheight - revealpoint){
+                    reveals[i].classList.add('active');
+                }
+                else{
+                    reveals[i].classList.remove('active');
+                    
+                }
+            }
+        }
+    </script>
+    <script>
+    let text = document.getElementById('text');
+    let bird1 = document.getElementById('bird1');
+    let bird2 = document.getElementById('bird2');
+    let btn = document.getElementById('btn');
+    let rocks = document.getElementById('rocks');
+    let background = document.getElementById('background');
+    let water = document.getElementById('water');
+    let header = document.getElementById('header');
+
+    window.addEventListener('scroll', function(){
+        let value = window.scrollY;
+
+        text.style.top = 50 + value * -0.5 + '%';
+        bird1.style.top = value * -1.5 + 'px';
+        bird1.style.left = value * 2 + 'px';
+        bird2.style.top = value * -1.5 + 'px';
+        bird2.style.left = value * -5 + 'px';
+        btn.style.marginTop = value * 1.5 + 'px';
+        rocks.style.top = value * -0.12 + 'px';
+        forest.style.top = value * 0.25 + 'px';
+        header.style.top = value * -0.5 + 'px';
+    })
+</script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
+    <script src="boat.js"></script>
+</body>
+</html>
