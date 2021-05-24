@@ -211,4 +211,14 @@ export default [
         name: 'trash',
         path: 'trash.png',
     },
+
+    {
+        name: 'next',
+        path: 'next.png',
+    },
+
+    {
+        name: 'info',
+        path: 'info.png',
+    },
 ];
