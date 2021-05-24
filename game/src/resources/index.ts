@@ -36,6 +36,10 @@ export default [
         path: 'music_game.mp3',
     },
     {
+        name: 'tutorial',
+        path: 'tutorial.png',
+    },
+    {
         name: 'frame_1_1',
         path: 'frame_1_1.png',
     },

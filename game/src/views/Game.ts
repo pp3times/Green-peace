@@ -154,6 +154,11 @@ export default class Game extends IView {
                 dpf: 1000,
                 duration: 4000,
             },
+            {
+                frames: ['tutorial'],
+                dpf: 1000,
+                duration: 4000,
+            },
         ]);
         await scene.start();
     }
