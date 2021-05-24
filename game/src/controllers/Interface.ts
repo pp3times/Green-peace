@@ -47,6 +47,7 @@ export default class Interface extends PIXI.Container {
             fontFamily: 'Arial',
             fontSize: texture.height,
             fontWeight: 'bold',
+            fill: '#ffffff',
         });
         const text = new PIXI.Text(`${point}`, style);
         text.x += texture.width + 5;
