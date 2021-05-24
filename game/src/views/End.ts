@@ -83,18 +83,28 @@ export default class End extends IView {
                     [
                         {
                             frames: ['ENDING1-1-1'],
+                            dpf: 1000,
+                            duration: 4000,
                         },
                         {
                             frames: ['ENDING1-1-2'],
+                            dpf: 1000,
+                            duration: 4000,
                         },
                         {
                             frames: ['ENDING1-2-1'],
+                            dpf: 1000,
+                            duration: 4000,
                         },
                         {
                             frames: ['ENDING2-1-1'],
+                            dpf: 1000,
+                            duration: 4000,
                         },
                         {
                             frames: ['ENDING2-2-1'],
+                            dpf: 1000,
+                            duration: 4000,
                         },
                     ],
                     true
