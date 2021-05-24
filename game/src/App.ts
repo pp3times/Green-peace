@@ -24,6 +24,7 @@ export default class App extends PIXI.Application {
         super({
             width: w,
             height: h,
+            resolution: window.devicePixelRatio,
         });
 
         this.option = {
