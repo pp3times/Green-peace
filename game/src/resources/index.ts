@@ -211,4 +211,38 @@ export default [
         name: 'trash',
         path: 'trash.png',
     },
+
+    {
+        name: 'next',
+        path: 'next.png',
+    },
+
+    {
+        name: 'info',
+        path: 'info.png',
+    },
+    {
+        name: 'ENDING1-1-1',
+        path: 'ENDING1-1-1.png',
+    },
+    {
+        name: 'ENDING1-1-2',
+        path: 'ENDING1-1-2.png',
+    },
+    {
+        name: 'ENDING1-2-1',
+        path: 'ENDING1-2-1.png',
+    },
+    {
+        name: 'ENDING2-1-1',
+        path: 'ENDING2-1-1.png',
+    },
+    {
+        name: 'ENDING2-2-1',
+        path: 'ENDING2-2-1.png',
+    },
+    {
+        name: 'END',
+        path: 'END.png',
+    },
 ];

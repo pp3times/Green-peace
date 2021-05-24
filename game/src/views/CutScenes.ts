@@ -7,14 +7,13 @@ import { TweenMax } from 'gsap';
 
 interface IScene {
     frames: string[];
-    duration: number;
-    dpf: number;
+    duration?: number;
+    dpf?: number;
 }
 
 export default class CutScenes extends IView {
     scenes: IScene[];
     background: PIXI.Sprite;
-    fade: boolean;
 
     constructor(app: App, scenes: IScene[], fade?: boolean) {
         super(app);
@@ -56,7 +55,7 @@ export default class CutScenes extends IView {
                     sprite = new PIXI.AnimatedSprite(textureArray);
                     sprite.width = GAME_WIDTH;
                     sprite.height = GAME_HEIGHT;
-                    sprite.animationSpeed = 20 / scene.dpf;
+                    sprite.animationSpeed = 20 / (scene.dpf || 1000);
                     sprite.alpha = 0;
                     this.addChild(sprite);
 
@@ -74,7 +73,7 @@ export default class CutScenes extends IView {
                                 this.removeChild(sprite);
                                 resolve1(0);
                             });
-                        }, scene.duration);
+                        }, scene.duration || 1000);
                     });
                 });
             }

@@ -3,7 +3,7 @@ import GameScroller from '../components/GameScroller';
 import IView from './IView';
 import App from '../App';
 import CutScenes from './CutScenes';
-import { fadeIn } from '../lib/sound';
+import { fadeIn, fadeOut } from '../lib/sound';
 import { GAME_HEIGHT, GAME_WIDTH } from 'config';
 import Fish from '../entities/passive/Fish';
 import TWEEN, { Easing } from '@tweenjs/tween.js';
@@ -11,6 +11,8 @@ import Boat from '../entities/passive/Boat';
 import { rectsIntersect } from '../lib/helper';
 import Interface from '../controllers/Interface';
 import Player from '../Player';
+import End from './End';
+import { sound } from '@pixi/sound';
 
 export default class Game extends IView {
     hook: PIXI.Graphics;
@@ -33,7 +35,7 @@ export default class Game extends IView {
         this.running = true;
         this.interface.setHealth(5);
         this.interface.setPoint(0);
-        fadeIn('bg2', 0.05, 2000, {
+        fadeIn('bg1', 0.05, 2000, {
             loop: true,
         });
         let res = this.app.loader.resources;
@@ -98,6 +100,28 @@ export default class Game extends IView {
             }
         });
         this.addChild(new Boat(this));
+
+        {
+            let image = new PIXI.Sprite(res['sound_open'].texture);
+            image.x = GAME_WIDTH;
+            image.y = GAME_HEIGHT;
+            image.anchor.set(1.2);
+            image.interactive = true;
+            image.buttonMode = true;
+            // @ts-ignore
+            image.on('pointerdown', () => {
+                let open = this.app.option.sound;
+                image.texture =
+                    res[open ? 'sound_close' : 'sound_open'].texture;
+                this.app.option.sound = !open;
+                if (this.app.option.sound) {
+                    sound.unmuteAll();
+                } else {
+                    sound.muteAll();
+                }
+            });
+            this.addChild(image);
+        }
 
         let scene = new CutScenes(this.app, [
             {
@@ -229,21 +253,17 @@ export default class Game extends IView {
                 let scene = new CutScenes(this.app, [
                     {
                         frames: ['SCENE5-1'],
-                        dpf: 1000,
-                        duration: 2000,
                     },
                     {
                         frames: ['SCENE5-2'],
-                        dpf: 1000,
-                        duration: 2000,
                     },
                     {
                         frames: ['SCENE5-3-1'],
-                        dpf: 1000,
-                        duration: 2000,
                     },
                 ]);
-                scene.start();
+                scene.start().then(() => {
+                    this.app.changeScenes(new End(this.app, this.player));
+                });
             }, 1000);
         }
     }
@@ -268,6 +288,7 @@ export default class Game extends IView {
 
     beforeDestroy() {
         super.beforeDestroy();
+        fadeOut('bg1');
         this.running = false;
     }
 
