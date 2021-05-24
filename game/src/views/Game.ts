@@ -3,7 +3,7 @@ import GameScroller from '../components/GameScroller';
 import IView from './IView';
 import App from '../App';
 import CutScenes from './CutScenes';
-import { fadeIn } from '../lib/sound';
+import { fadeIn, fadeOut } from '../lib/sound';
 import { GAME_HEIGHT, GAME_WIDTH } from 'config';
 import Fish from '../entities/passive/Fish';
 import TWEEN, { Easing } from '@tweenjs/tween.js';
@@ -11,6 +11,8 @@ import Boat from '../entities/passive/Boat';
 import { rectsIntersect } from '../lib/helper';
 import Interface from '../controllers/Interface';
 import Player from '../Player';
+import End from './End';
+import { sound } from '@pixi/sound';
 
 export default class Game extends IView {
     hook: PIXI.Graphics;
@@ -251,21 +253,17 @@ export default class Game extends IView {
                 let scene = new CutScenes(this.app, [
                     {
                         frames: ['SCENE5-1'],
-                        dpf: 1000,
-                        duration: 2000,
                     },
                     {
                         frames: ['SCENE5-2'],
-                        dpf: 1000,
-                        duration: 2000,
                     },
                     {
                         frames: ['SCENE5-3-1'],
-                        dpf: 1000,
-                        duration: 2000,
                     },
                 ]);
-                scene.start();
+                scene.start().then(() => {
+                    this.app.changeScenes(new End(this.app, this.player));
+                });
             }, 1000);
         }
     }
