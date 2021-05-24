@@ -199,4 +199,8 @@ export default [
         name: 'heart',
         path: 'heart.png',
     },
+    {
+        name: 'trash',
+        path: 'trash.png',
+    },
 ];

@@ -381,6 +381,9 @@ export default class Game extends IView {
         if (this.player.health > 2) {
             if (this.entities.length < 10) {
                 this.spawnEntity(
+                    new Fish(res['trash'].texture, this, 0, 0.3, 'D')
+                );
+                this.spawnEntity(
                     new Fish(res['fish1'].texture, this, 100, 0.5, 'A')
                 );
                 this.spawnEntity(
@@ -392,6 +395,9 @@ export default class Game extends IView {
             }
         } else {
             if (this.entities.length < 5) {
+                this.spawnEntity(
+                    new Fish(res['trash'].texture, this, 0, 0.5, 'D')
+                );
                 this.spawnEntity(
                     new Fish(res['fish1'].texture, this, 100, 1, 'A')
                 );
