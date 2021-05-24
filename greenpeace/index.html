@@ -582,7 +582,7 @@
         }
         .page6img26{
             width: 2.5vw;
-            margin-top: 222vh; 
+            margin-top: 217vh; 
             left: 30vw;
         }
         .page6img27{
@@ -825,7 +825,7 @@
             13vw; top: 20vh;
         }
         .page10img3{
-            width: 50vw; left: 5vw; top: 100vh;
+            width: 50vw; left: 5vw; top: 93.5vh;
         }
         .page10img4{
             width: 100vw;top: 132vh;
@@ -946,6 +946,27 @@
             bottom: -3vw; 
             margin-left: 47.5vw;
         }
+        .dugdick{
+            animation: questionsea 2s infinite;
+        }
+        .button{
+            width: 25vw;
+            height: 10vw;
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            background-image: url(https://cdn.discordapp.com/attachments/836593151988596756/846370680479809556/038f88efaa7ff4dd.png);
+        }
+        .button:active{
+            width: 25vw;
+            height: 10vw;
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-image: url(https://cdn.discordapp.com/attachments/836593151988596756/846371126320955431/2.png);
+        }
+        .buttonposition{
+            top: 65vh;
+            left: 37vw;
+        }
         @keyframes backgroundblack {
             0%{
                 opacity: 0.7;
@@ -997,7 +1018,22 @@
                 opacity: 1;
             }
         }
+        @keyframes questionsea {
+            0%{
+                transform: rotateZ(20deg);
+            }
+            50%{
+                transform: rotateZ(-20deg);
+            }
+            100%{
+                transform: rotateZ(20deg);
+            }
+        }
         @media screen and (min-width: 0px) and (max-width: 640px){
+            .buttonposition{
+                top: 50vw;
+                left: 37vw;
+            }
             .fisherman{
                 width: 35vw;
                 size: 100% auto;
@@ -1320,8 +1356,11 @@
                 width: 100%; 
                 height: 180vw;
             }
+            .page10img2{
+                top: 40vh; right: 6vw; width: 5vw;
+            }
             .page10img3{
-                width: 50vw; left: 5vw; top: 80vw;
+                width: 50vw; left: 5vw; top: 77vw;
             }
             .page10img4{
                 width: 100vw;top: 97vw;
@@ -1340,6 +1379,10 @@
             }
         }
         @media screen and (min-width: 641px) and (max-width: 768px){
+            .buttonposition{
+                top: 50vw;
+                left: 37vw;
+            }
             .fisherman{
                 width: 35vw;
                 size: 100% auto;
@@ -1662,8 +1705,11 @@
                 width: 100%; 
                 height: 180vw;
             }
+            .page10img2{
+                top: 40vh; right: 6vw; width: 5vw;
+            }
             .page10img3{
-                width: 50vw; left: 5vw; top: 80vw;
+                width: 50vw; left: 5vw; top: 77vw;
             }
             .page10img4{
                 width: 100vw;top: 97vw;
@@ -1682,6 +1728,10 @@
             }
         }
         @media screen and (min-width: 769px) and (max-width: 1024px){
+            .buttonposition{
+                top: 50vw;
+                left: 37vw;
+            }
             .fisherman{
                 width: 35vw;
                 size: 100% auto;
@@ -2008,8 +2058,11 @@
                 width: 100%; 
                 height: 180vw;
             }
+            .page10img2{
+                top: 40vh; right: 6vw; width: 5vw;
+            }
             .page10img3{
-                width: 50vw; left: 5vw; top: 80vw;
+                width: 50vw; left: 5vw; top: 77vw;
             }
             .page10img4{
                 width: 100vw;top: 97vw;
@@ -2028,6 +2081,10 @@
             }
         }
         @media screen and (min-width: 1025px) and (max-width: 1279px){
+            .buttonposition{
+                top: 50vw;
+                left: 37vw;
+            }
             .fisherman{
                 width: 35vw;
                 size: 100% auto;
@@ -2354,8 +2411,11 @@
                 width: 100%; 
                 height: 180vw;
             }
+            .page10img2{
+            top: 40vh; right: 6vw; width: 5vw;
+        }
             .page10img3{
-                width: 50vw; left: 5vw; top: 80vw;
+                width: 50vw; left: 5vw; top: 77vw;
             }
             .page10img4{
                 width: 100vw;top: 97vw;
@@ -3050,10 +3110,10 @@
         <div id="backgroundblack" class="page psa"></div>
         <div id="black" class="page psa op0" style="background: black;"></div>
         <div id="first" class="page psa df jcc aic op0">
-            <img style="z-index: 10;" id="salmon" onclick="fadeinsalmon()" class="salmon" src="/img/salmon.svg" alt="salmon">
-            <h1 onclick="fadeintext1()" id="text1" class="psa textpage1 hidetext">รู้ไหมว่าอาหารทะเลหามาได้ยังไง?</h1>
-            <h1 onclick="fadeintext2()" id="text2" class="psa textpage1 hidetext">กว่าจะมาเป็นอาหารทะเลทุกวันนี้</h1>
-            <h1 onclick="fadeintext2()" id="text3" class="psa textpage1 hidetext" style="margin-top: 10%;">ต้องผ่านอะไรมาบ้าง</h1>
+            <img style="z-index: 10; cursor: pointer;" id="salmon" onclick="fadeinsalmon()" class="salmon" src="/img/salmon.svg" alt="salmon">
+            <h1 onclick="fadeintext1()" id="text1" class="psa textpage1 hidetext" style="cursor: pointer;">รู้ไหมว่าอาหารทะเลหามาได้ยังไง?</h1>
+            <h1 onclick="fadeintext2()" id="text2" class="psa textpage1 hidetext" style="cursor: pointer;">กว่าจะมาเป็นอาหารทะเลทุกวันนี้</h1>
+            <h1 onclick="fadeintext2()" id="text3" class="psa textpage1 hidetext" style="margin-top: 10%; cursor: pointer;">ต้องผ่านอะไรมาบ้าง</h1>
             <h1 class="questionmark psa" style="margin-right: 55vw;transform: rotateY(30deg) rotateZ(-40deg);">?</h1>
             <h1 class="questionmark psa" style="margin-right: 40vw; margin-bottom: 30vw;transform: rotateY(30deg) rotateZ(-25deg);">?</h1>
             <h1 class="questionmark psa" style="margin-right: 15vw; margin-bottom: 35vw;transform: rotateY(30deg) rotateZ(-15deg);">?</h1>
@@ -3074,7 +3134,7 @@
             </filter>
         </svg>
     </div>
-    <div class='loader df aic jcc'>
+    <!-- <div class='loader df aic jcc'>
         <div>
             <div class="boat">
                 <div class="wrap">
@@ -3187,7 +3247,7 @@
         <footer class='df aic jcc'>
             <p>Images from <a href="https://unsplash.com/">Unsplash</a></p>
         </footer>
-    </div>
+    </div> -->
     <div id="boat" class="page psa op0" style="overflow: hidden;">
         <header class="headeres">
             <!-- <a href="#" class="logo">Greenpeace</a> -->
@@ -3254,7 +3314,7 @@
         <img class="psa page3img13" src="/img/circle.svg" alt="">
         <div class="triangle-topright"></div>
         <div class="triangle-bottomleft"></div>
-        <img class="psa" style="width: 15vw; right: -8vw; bottom: 0;" src="/img/leaf1.svg" alt="">
+        <img class="psa" style="width: 15vw; right: -8vw; bottom: 0;" src="https://media.discordapp.net/attachments/836593151988596756/846322687118147634/9da5a6c9438ec0a0.png" alt="">
         <img class="psa" style="width: 15vw; right: -8.5vw; bottom: 0;" src="/img/grasstop.svg" alt="">
         <img class="psa" style="width: 20vw; z-index: 9; bottom: -13vw; left: -6vw;" src="/img/pakarang.svg" alt="">
         <div class="page psa ofh">
@@ -3269,40 +3329,17 @@
         <img class="psa page4img3" src="/img/grass.svg" width="55%" alt="">
         <img class="psa" style="width: 20vw; z-index: 9; top: -13vw; left: -6vw;" src="/img/pakarang.svg" alt="">
         <div class="page4right psa tac" style="margin-left: 50%; overflow: hidden;">
+            <img class="psa page4img10" src="/img/grassbottom.svg" alt="">
             <h1 class="texth1 reveal out bottomtotop page4text1 page5top">ซึ่งปัญหาต่างๆนั้น</h1>
             <h1 class="texth1 reveal out bottomtotop page4text2">ล้วนแล้วแต่ไม่แปรผันไปตามคุ้มครองแรงงาน</h1>
             <h1 class="texth1 reveal out bottomtotop page4text3">ในงานประมงทะเล พ.ศ.2557</h1>
             <div class="page4line reveal out bottomtotop page4text4"></div>
             <h2 class="h2page4 reveal out bottomtotop page4text5">อ้างอิงจาก</h2>
             <h2 class="h2page4 reveal out bottomtotop page4text6">https://www.mol.go.th/wp-content/uploads/sites/2/2019/03/kh77-2b-2557-a0002.pdf</h2>
-            <img class="psa page4img10" src="/img/grassbottom.svg" alt="">
         </div>
     </div>
     <div class="page5 psr df jcc ofh">
-        <img class="psa" style="bottom: 0; width: 20vw;left: 0;" src="/img/rock1.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw;left: 10vw;" src="/img/rock2.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw;left: 20vw;" src="/img/rock3.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw; left: 30vw;" src="/img/rock1.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw; left: 40vw;" src="/img/rock3.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw; left: 50vw;" src="/img/rock2.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw; left: 60vw;" src="/img/rock3.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw; left: 70vw;" src="/img/rock1.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw; left: 80vw;" src="/img/rock2.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw; left: 90vw;" src="/img/rock3.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw; left: 15vw;" src="/img/rock3.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw; left: 25vw;" src="/img/rock2.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw; left: 35vw;" src="/img/rock3.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw; left: 45vw;" src="/img/rock1.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw; left: 55vw;" src="/img/rock2.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw; left: 65vw;" src="/img/rock3.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw; left: 20vw;" src="/img/rock2.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw; left: 30vw;" src="/img/rock3.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw; left: -10vw;" src="/img/rock3.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw; left: -5vw;" src="/img/rock2.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw; left: 5vw;" src="/img/rock3.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw; left: 50vw;" src="/img/rock1.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw; left: 40vw;" src="/img/rock2.svg" alt="">
-        <img class="psa" style="bottom: 0; width: 20vw; left: 80vw;" src="/img/rock3.svg" alt="">
+        
         <img class="psa" style="top: 0;right: 0; width: 10vw;" src="/img/seaweed.svg" alt="">
         <div class="psa page5boxtext1">
             <h1 class="reveal out bottomtotop tac" >การที่คนในปัจจุบันส่วนใหญ่ไม่ได้มีการให้ความสำคัญเกี่ยวกับเเรงงานประมงนั้น</h1>
@@ -3316,6 +3353,7 @@
             <h1 class="reveal out bottomtotop tac" >เสียงเสียงหนึ่งจากอดีตเเรงงานประมง จากข้อความดังกล่าวจะเห็นได้ว่า </h1>
             <h1 class="reveal out bottomtotop tac" >ชีวิตเเรงงานประมงนั้นไม่มีความเเน่นอนในการประกอบอาชีพหรือขึ้นอยู่กับโชคชะตาเมื่อได้ก้าวเข้าไปในเรือเเล้ว</h1>
         </div>
+        <img class="psa" style="bottom: 0vw; left: 0; width: 100vw;" src="/img/rockkk.svg" alt="">    
     </div>
     <div class="psr page5boxwongre">
         <img class="psa circledarkblue" src="/img/circledarkblue.svg" alt="">
@@ -3404,7 +3442,7 @@
         <img class="psa page6img1" src="/img/circlewhite.svg" alt="">
         <img class="psa page6img2" src="/img/circledarkblue.svg" alt="">
         <img class="psa page6img3" src="/img/lightblub.svg" alt="">
-        <img class="psa page6img22" src="https://cdn.discordapp.com/attachments/836593151988596756/844554566899859456/removal.ai_tmp-60a506af09a51.png" alt="">
+        <img class="psa page6img22 reveal out1 righttoleft" style="position: absolute;" src="https://cdn.discordapp.com/attachments/836593151988596756/844554566899859456/removal.ai_tmp-60a506af09a51.png" alt="">
         <div class="psa page6boxtext2">
             <h1 class="reveal out bottomtotop">พบคนไทยอย่างน้อย 8 คน ที่ยังตกค้างอยู่ที่เกาะตวล </h1>
             <h1 class="reveal out bottomtotop">บางคนถูกหลอกและต้องหลบซ่อนอยู่ถึง 16 ปี</h1>
@@ -3448,10 +3486,10 @@
         <div class="psa page6boxtext8">
             <h1 class="reveal out bottomtotop">OVER FISHING</h1>
         </div>
-        <img class="psa page6img26" src="/img/question.svg" alt="">
-        <img class="psa page6img27" src="/img/fish.svg" alt="">
-        <img class="psa page6img28" src="/img/shadowfisher.svg" alt="">
-        <img class="psa page6img29" src="/img/fish2.svg" alt="">
+        <img class="psa page6img26 dugdick" src="/img/question.svg" alt="">
+        <img class="psa page6img27 reveal out1 lefttoright" style="position: absolute;" src="/img/fish.svg" alt="">
+        <img class="psa page6img28" src="https://cdn.discordapp.com/attachments/836593151988596756/846336160674480148/boat1.png" alt="">
+        <img class="psa page6img29 reveal out1 righttoleft" style="position: absolute;" src="/img/fish2.svg" alt="">
         <img class="psa page6img30" src="/img/comma.svg" alt="">
         <img class="psa page6img31" src="/img/comma1.svg" alt="">
         <div class="psa page6boxtext9">
@@ -3534,15 +3572,16 @@
         <img class="psa page9img5" src="/img/stickpurple1.svg" alt="">
     </div>
     <div class="psr ofh page10">
-        <img class="psa page10img1" src="/img/commapink.svg" alt="">
-        <img class="psa page10img2 " src="/img/commapink1.svg" alt="">
+        <img class="psa page10img1 reveal out1 lefttoright" style="position: absolute;" src="/img/commapink.svg" alt="">
+        <img class="psa page10img2 reveal out1 righttoleft" style="position: absolute;" src="/img/commapink1.svg" alt="">
         <div class="psa page10boxtext1 ofh">
             <h1 class="tac reveal out bottomtotop">ถึงเวลาแล้วหรือยังที่ต้องตระหนักถึงปัญหา แล้วร่วมเปล่ง</h1>
             <h1 class="reveal out bottomtotop">เสียงของเราแทนแรงงานประมงหลาย ๆ คนที่ไม่สามารถเรียกร้อง</h1>
             <h1 class="reveal out bottomtotop">อะไรได้ และสร้างพลังด้วยวิธีที่เราทุกคนสามารถทำได้ เพื่อทำให้</h1>
             <h1 class="reveal out bottomtotop">คุณภาพชีวิตของแรงงานประมงหลายชีวิตนั้นดีขึ้น</h1>
         </div>
-        <img class="psa page10img3" src="/img/boatgame.svg" alt="">
+        <a class="button psa buttonposition reveal out bottomtotop" style="position: absolute;" href="https://seabound.greenpeace.org/"></a>
+        <img class="psa page10img3" src="https://cdn.discordapp.com/attachments/836593151988596756/846356680874655804/image0_1.png" alt="">
         <img class="psa page10img4" src="/img/sea1.svg" alt="">
         <img class="psa page10img5" src="/img/sea2.svg" alt="">
         <img class="psa page10img6" src="/img/sea3.svg" alt="">
