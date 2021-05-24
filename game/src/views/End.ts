@@ -119,7 +119,8 @@ export default class End extends IView {
                     this.end.alpha = 1;
                 });
             } else {
-                window.location.href = 'https://google.com';
+                window.location.href =
+                    'https://epic-babbage-f8cce2.netlify.app/#page2';
             }
         });
         this.addChild(action);
