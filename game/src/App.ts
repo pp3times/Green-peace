@@ -24,12 +24,27 @@ export default class App extends PIXI.Application {
         super({
             width: w,
             height: h,
-            resolution: window.devicePixelRatio,
         });
 
         this.option = {
             sound: true,
         };
+
+        const style = new PIXI.TextStyle({
+            fontFamily: 'Arial',
+            fontSize: 35,
+            fontWeight: 'bold',
+            fill: '#ffffff',
+        });
+
+        const loading = new PIXI.Text(`Loading 0%`, style);
+
+        loading.x = w / 2;
+        loading.y = h / 2;
+
+        this.stage.addChild(loading);
+
+        loading.anchor.set(0.5, 0.5);
 
         this.mask = new PIXI.Sprite(
             this.renderer.generateTexture(
@@ -44,6 +59,7 @@ export default class App extends PIXI.Application {
         this.mask.alpha = 0;
 
         this.loader.onComplete.add(() => {
+            this.stage.removeChild(loading);
             this.inital();
         });
 
@@ -51,7 +67,8 @@ export default class App extends PIXI.Application {
             console.log(`Loading...`);
         });
         this.loader.onProgress.add((data) => {
-            console.log(`Progress load ${data.progress}%`);
+            loading.text = `Loading ${data.progress.toFixed(2)}%`;
+            console.log(`Progress load ${data.progress.toFixed(2)}%`);
         });
         this.loader.onError.add((err) => {
             console.log('ERROR LOAD', err);
