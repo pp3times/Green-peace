@@ -16,7 +16,6 @@ export default class Game extends IView {
     hook: PIXI.Graphics;
     running: boolean = false;
     fishing: boolean = false;
-    show: boolean = false;
     player: Player;
     interface: Interface;
 
@@ -38,375 +37,232 @@ export default class Game extends IView {
             loop: true,
         });
         let res = this.app.loader.resources;
-        {
-            {
-                this.hook = new PIXI.Graphics();
-                this.addChild(this.hook);
+        this.hook = new PIXI.Graphics();
+        this.addChild(this.hook);
 
-                this.hook.position.set(GAME_WIDTH / 2, GAME_HEIGHT / 2 + 20);
-                this.hook.rotation = Math.PI * 0.1;
-                this.hook.lineStyle(2, 0x000000).lineTo(50, 0);
+        this.hook.position.set(GAME_WIDTH / 2, GAME_HEIGHT / 2 + 20);
+        this.hook.rotation = Math.PI * 0.1;
+        this.hook.lineStyle(2, 0x000000).lineTo(50, 0);
 
-                let tip = new PIXI.Sprite(res['hook'].texture);
-                tip.x = 50;
-                tip.anchor.set(0.5, 0);
-                tip.rotation = -Math.PI / 2;
-                this.hook.addChild(tip);
+        let tip = new PIXI.Sprite(res['hook'].texture);
+        tip.x = 50;
+        tip.anchor.set(0.5, 0);
+        tip.rotation = -Math.PI / 2;
+        this.hook.addChild(tip);
 
-                let animation = new TWEEN.Tween(this.hook)
-                    .to({ rotation: Math.PI * 0.9 }, 2000)
-                    .easing(Easing.Cubic.InOut)
-                    .repeat(Infinity)
-                    .yoyo(true)
-                    .start();
+        let animation = new TWEEN.Tween(this.hook)
+            .to({ rotation: Math.PI * 0.9 }, 2000)
+            .easing(Easing.Cubic.InOut)
+            .repeat(Infinity)
+            .yoyo(true)
+            .start();
 
-                addEventListener('keypress', (e) => {
-                    if (e.code == 'Space' && !this.fishing) {
-                        this.fishing = true;
-                        animation.pause();
-                        let repeat = false;
-                        let move = new TWEEN.Tween({ x: 50 })
-                            .to({ x: 300 }, 1000)
-                            .onUpdate((data) => {
-                                this.hook.clear();
-                                this.hook
-                                    .lineStyle(2, 0x000000)
-                                    .lineTo(data.x, 0);
-                                tip.x = data.x;
-                                if (!repeat) {
-                                    this.entities.forEach((e) => {
-                                        if (e instanceof Fish) {
-                                            if (rectsIntersect(tip, e)) {
-                                                console.log('GOT', e.point);
-                                                this.interface.addPoint(
-                                                    e.point
-                                                );
-
-                                                this.player.got_fish++;
-                                                console.log(this.player);
-                                                e.deSpawn();
-                                                move.pause();
-                                                setTimeout(() => {
-                                                    move.to(
-                                                        { x: data.x },
-                                                        1000
-                                                    );
-                                                    move.resume(1);
-                                                    {
-                                                        this.running = true;
-                                                    }
-                                                }, 1);
-                                            }
-                                        }
-                                    });
-
-                                    if (
-                                        this.player.got_fish == 8 &&
-                                        this.player.check != 1
-                                    ) {
-                                        {
-                                            this.interface.setHealth(
-                                                this.player.health - 1
-                                            );
-                                            this.player.check++;
-                                            setTimeout(() => {
-                                                move.to({ x: data.x }, 1000);
-                                                move.resume(1);
-                                                {
-                                                    let scene = new CutScenes(
-                                                        this.app,
-                                                        [
-                                                            {
-                                                                frames: [
-                                                                    'SCENE1-1',
-                                                                ],
-                                                                dpf: 1000,
-                                                                duration: 5000,
-                                                            },
-                                                            {
-                                                                frames: [
-                                                                    'SCENE1-2',
-                                                                ],
-                                                                dpf: 1000,
-                                                                duration: 5000,
-                                                            },
-                                                        ]
-                                                    );
-                                                    scene.start().then(() => {
-                                                        this.running = true;
-                                                    });
-                                                    this.running = true;
-                                                }
-                                            }, 1000);
-                                        }
-                                    } else if (
-                                        this.player.got_fish == 16 &&
-                                        this.player.check != 2
-                                    ) {
-                                        {
-                                            this.interface.setHealth(
-                                                this.player.health - 1
-                                            );
-                                            this.player.check++;
-                                            setTimeout(() => {
-                                                move.to({ x: data.x }, 1000);
-                                                move.resume(1);
-                                                {
-                                                    let scene = new CutScenes(
-                                                        this.app,
-                                                        [
-                                                            {
-                                                                frames: [
-                                                                    'SCENE2-1-1',
-                                                                ],
-                                                                dpf: 1000,
-                                                                duration: 4000,
-                                                            },
-                                                            {
-                                                                frames: [
-                                                                    'SCENE2-2-1',
-                                                                ],
-                                                                dpf: 1000,
-                                                                duration: 4000,
-                                                            },
-                                                            {
-                                                                frames: [
-                                                                    'SCENE2-2-2',
-                                                                ],
-                                                                dpf: 1000,
-                                                                duration: 4000,
-                                                            },
-                                                        ]
-                                                    );
-                                                    scene.start().then(() => {
-                                                        this.running = true;
-                                                    });
-                                                    this.running = true;
-                                                }
-                                            }, 1000);
-                                        }
-                                    } else if (
-                                        this.player.got_fish == 24 &&
-                                        this.player.check != 3
-                                    ) {
-                                        {
-                                            this.interface.setHealth(
-                                                this.player.health - 1
-                                            );
-                                            this.player.check++;
-                                            setTimeout(() => {
-                                                move.to({ x: data.x }, 1000);
-                                                move.resume(1);
-                                                {
-                                                    let scene = new CutScenes(
-                                                        this.app,
-                                                        [
-                                                            {
-                                                                frames: [
-                                                                    'SCENE3-1',
-                                                                ],
-                                                                dpf: 1000,
-                                                                duration: 4000,
-                                                            },
-                                                            {
-                                                                frames: [
-                                                                    'SCENE3-2-1',
-                                                                ],
-                                                                dpf: 1000,
-                                                                duration: 4000,
-                                                            },
-                                                            {
-                                                                frames: [
-                                                                    'SCENE3-2-2',
-                                                                ],
-                                                                dpf: 1000,
-                                                                duration: 4000,
-                                                            },
-                                                        ]
-                                                    );
-                                                    scene.start().then(() => {
-                                                        this.running = true;
-                                                        this.scroller.texture =
-                                                            res[
-                                                                'dark_sea'
-                                                            ].texture;
-                                                    });
-                                                    this.running = true;
-                                                }
-                                            }, 1000);
-                                        }
-                                    } else if (
-                                        this.player.got_fish == 34 &&
-                                        this.player.check != 4
-                                    ) {
-                                        {
-                                            this.interface.setHealth(
-                                                this.player.health - 1
-                                            );
-                                            this.player.check++;
-                                            setTimeout(() => {
-                                                move.to({ x: data.x }, 1000);
-                                                move.resume(1);
-                                                {
-                                                    let scene = new CutScenes(
-                                                        this.app,
-                                                        [
-                                                            {
-                                                                frames: [
-                                                                    'SCENE4-1-1',
-                                                                ],
-                                                                dpf: 1000,
-                                                                duration: 4000,
-                                                            },
-                                                            {
-                                                                frames: [
-                                                                    'SCENE4-2-1',
-                                                                ],
-                                                                dpf: 1000,
-                                                                duration: 4000,
-                                                            },
-                                                        ]
-                                                    );
-                                                    scene.start().then(() => {
-                                                        this.running = true;
-                                                    });
-                                                    this.running = true;
-                                                }
-                                            }, 1000);
-                                        }
-                                    } else if (
-                                        this.player.got_fish == 44 &&
-                                        this.player.check != 5
-                                    ) {
-                                        {
-                                            this.interface.setHealth(
-                                                this.player.health - 1
-                                            );
-                                            this.player.check++;
-                                            setTimeout(() => {
-                                                move.to({ x: data.x }, 1000);
-                                                move.resume(1);
-                                                {
-                                                    let scene = new CutScenes(
-                                                        this.app,
-                                                        [
-                                                            {
-                                                                frames: [
-                                                                    'SCENE5-1',
-                                                                ],
-                                                                dpf: 1000,
-                                                                duration: 2000,
-                                                            },
-                                                            {
-                                                                frames: [
-                                                                    'SCENE5-2',
-                                                                ],
-                                                                dpf: 1000,
-                                                                duration: 2000,
-                                                            },
-                                                            {
-                                                                frames: [
-                                                                    'SCENE5-3-1',
-                                                                ],
-                                                                dpf: 1000,
-                                                                duration: 2000,
-                                                            },
-                                                        ]
-                                                    );
-                                                    scene.start().then(() => {
-                                                        this.running = true;
-                                                    });
-                                                    this.running = true;
-                                                }
-                                            }, 1000);
-                                        }
+        addEventListener('keypress', (e) => {
+            if (e.code == 'Space' && !this.fishing) {
+                this.fishing = true;
+                animation.pause();
+                let repeat = false;
+                let move = new TWEEN.Tween({ x: 50 })
+                    .to({ x: 300 }, 1000)
+                    .onUpdate((data) => {
+                        this.hook.clear();
+                        this.hook.lineStyle(2, 0x000000).lineTo(data.x, 0);
+                        tip.x = data.x;
+                        if (!repeat) {
+                            for (let e of this.entities) {
+                                if (e instanceof Fish) {
+                                    if (rectsIntersect(tip, e)) {
+                                        this.interface.addPoint(e.point);
+                                        this.player.got_fish++;
+                                        e.deSpawn();
+                                        move.pause();
+                                        move.to({ x: data.x }, 1000);
+                                        move.resume(1);
+                                        this.onGotFish(e);
+                                        break;
                                     }
                                 }
-                            })
-                            .onRepeat((data) => {
-                                repeat = true;
-                            })
-                            .yoyo(true)
-                            .repeat(1)
-                            .onComplete(() => {
-                                animation.resume();
-                                this.fishing = false;
-                            })
-                            .start();
-                    }
-                });
+                            }
+                        }
+                    })
+                    .onRepeat((data) => {
+                        repeat = true;
+                    })
+                    .yoyo(true)
+                    .repeat(1)
+                    .onComplete(() => {
+                        animation.resume();
+                        this.fishing = false;
+                    })
+                    .start();
             }
-            this.addChild(new Boat(this));
-        }
+        });
+        this.addChild(new Boat(this));
 
-        {
-            let scene = new CutScenes(this.app, [
-                {
-                    frames: ['OPENNING-1-1'],
-                    dpf: 1000,
-                    duration: 4000,
-                },
-                {
-                    frames: ['OPENNING-1-2'],
-                    dpf: 1000,
-                    duration: 4000,
-                },
-                {
-                    frames: ['OPENNING-1-3'],
-                    dpf: 1000,
-                    duration: 4000,
-                },
-                {
-                    frames: ['OPENNING-2-1'],
-                    dpf: 1000,
-                    duration: 4000,
-                },
-                {
-                    frames: ['OPENNING-2-2'],
-                    dpf: 1000,
-                    duration: 4000,
-                },
-                {
-                    frames: ['OPENNING-3'],
-                    dpf: 1000,
-                    duration: 4000,
-                },
-            ]);
-            await scene.start();
-        }
+        let scene = new CutScenes(this.app, [
+            {
+                frames: ['OPENNING-1-1'],
+                dpf: 1000,
+                duration: 4000,
+            },
+            {
+                frames: ['OPENNING-1-2'],
+                dpf: 1000,
+                duration: 4000,
+            },
+            {
+                frames: ['OPENNING-1-3'],
+                dpf: 1000,
+                duration: 4000,
+            },
+            {
+                frames: ['OPENNING-2-1'],
+                dpf: 1000,
+                duration: 4000,
+            },
+            {
+                frames: ['OPENNING-2-2'],
+                dpf: 1000,
+                duration: 4000,
+            },
+            {
+                frames: ['OPENNING-3'],
+                dpf: 1000,
+                duration: 4000,
+            },
+        ]);
+        await scene.start();
+    }
 
-        //this.scroller.texture = res['SCENE4-2'].texture;
+    onGotFish(fish: Fish) {
+        if (this.player.got_fish == 8 && this.player.check != 1) {
+            this.interface.setHealth(this.player.health - 1);
+            this.player.check++;
+            setTimeout(() => {
+                let scene = new CutScenes(this.app, [
+                    {
+                        frames: ['SCENE1-1'],
+                        dpf: 1000,
+                        duration: 5000,
+                    },
+                    {
+                        frames: ['SCENE1-2'],
+                        dpf: 1000,
+                        duration: 5000,
+                    },
+                ]);
+                scene.start();
+            }, 1000);
+        } else if (this.player.got_fish == 16 && this.player.check != 2) {
+            this.interface.setHealth(this.player.health - 1);
+            this.player.check++;
+            setTimeout(() => {
+                let scene = new CutScenes(this.app, [
+                    {
+                        frames: ['SCENE2-1-1'],
+                        dpf: 1000,
+                        duration: 4000,
+                    },
+                    {
+                        frames: ['SCENE2-2-1'],
+                        dpf: 1000,
+                        duration: 4000,
+                    },
+                    {
+                        frames: ['SCENE2-2-2'],
+                        dpf: 1000,
+                        duration: 4000,
+                    },
+                ]);
+                scene.start();
+            }, 1000);
+        } else if (this.player.got_fish == 24 && this.player.check != 3) {
+            this.interface.setHealth(this.player.health - 1);
+            this.player.check++;
+            setTimeout(() => {
+                let scene = new CutScenes(this.app, [
+                    {
+                        frames: ['SCENE3-1'],
+                        dpf: 1000,
+                        duration: 4000,
+                    },
+                    {
+                        frames: ['SCENE3-2-1'],
+                        dpf: 1000,
+                        duration: 4000,
+                    },
+                    {
+                        frames: ['SCENE3-2-2'],
+                        dpf: 1000,
+                        duration: 4000,
+                    },
+                ]);
+                scene.start().then(() => {
+                    this.running = true;
+                    this.scroller.texture = this.app.loader.resources[
+                        'dark_sea'
+                    ].texture;
+                });
+            }, 1000);
+        } else if (this.player.got_fish == 34 && this.player.check != 4) {
+            this.interface.setHealth(this.player.health - 1);
+            this.player.check++;
+            setTimeout(() => {
+                let scene = new CutScenes(this.app, [
+                    {
+                        frames: ['SCENE4-1-1'],
+                        dpf: 1000,
+                        duration: 4000,
+                    },
+                    {
+                        frames: ['SCENE4-2-1'],
+                        dpf: 1000,
+                        duration: 4000,
+                    },
+                ]);
+                scene.start();
+            }, 1000);
+        } else if (this.player.got_fish == 44 && this.player.check != 5) {
+            this.interface.setHealth(this.player.health - 1);
+            this.player.check++;
+            setTimeout(() => {
+                let scene = new CutScenes(this.app, [
+                    {
+                        frames: ['SCENE5-1'],
+                        dpf: 1000,
+                        duration: 2000,
+                    },
+                    {
+                        frames: ['SCENE5-2'],
+                        dpf: 1000,
+                        duration: 2000,
+                    },
+                    {
+                        frames: ['SCENE5-3-1'],
+                        dpf: 1000,
+                        duration: 2000,
+                    },
+                ]);
+                scene.start();
+            }, 1000);
+        }
     }
 
     randomSpawn() {
         let res = this.app.loader.resources;
-        if (this.player.health > 2) {
-            if (this.entities.length < 10) {
-                this.spawnEntity(
-                    new Fish(res['trash'].texture, this, 0, 0.3, 'D')
-                );
-                this.spawnEntity(
-                    new Fish(res['fish1'].texture, this, 100, 0.5, 'A')
-                );
-                this.spawnEntity(
-                    new Fish(res['fish2'].texture, this, 200, 1, 'B')
-                );
-                this.spawnEntity(
-                    new Fish(res['fish3'].texture, this, 500, 2, 'C')
-                );
-            }
-        } else {
-            if (this.entities.length < 5) {
-                this.spawnEntity(
-                    new Fish(res['trash'].texture, this, 0, 0.5, 'D')
-                );
-                this.spawnEntity(
-                    new Fish(res['fish1'].texture, this, 100, 1, 'A')
-                );
-                this.spawnEntity(
-                    new Fish(res['fish2'].texture, this, 200, 1.75, 'B')
-                );
-            }
+        if (this.player.health > 2 && this.entities.length < 10) {
+            this.spawnEntity(new Fish(res['trash'].texture, this, 0, 0.3, 'D'));
+            this.spawnEntity(
+                new Fish(res['fish1'].texture, this, 100, 0.5, 'A')
+            );
+            this.spawnEntity(new Fish(res['fish2'].texture, this, 200, 1, 'B'));
+            this.spawnEntity(new Fish(res['fish3'].texture, this, 500, 2, 'C'));
+        } else if (this.entities.length < 5) {
+            this.spawnEntity(new Fish(res['trash'].texture, this, 0, 0.5, 'D'));
+            this.spawnEntity(new Fish(res['fish1'].texture, this, 100, 1, 'A'));
+            this.spawnEntity(
+                new Fish(res['fish2'].texture, this, 200, 1.75, 'B')
+            );
         }
     }
 
