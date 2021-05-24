@@ -21,10 +21,21 @@ module.exports = {
           200: '#007edd',
         }
       },
+      spacing: {
+        101: '55rem',
+        100: '50rem',
+        94: '25rem',
+        95: '29.5rem',
+        96: '30rem',
+        97: '34rem',
+        98: '39.5rem',
+        99: '45rem',
+      },
       fontFamily: {
         quicksand: ['quicksand'],
         noto: ['Noto Sans'],
-        kanit: ['Kanit']
+        kanit: ['Kanit'],
+        fredoka: ['Fredoka One'],
       },
       fontSize: {
         '10xl': ['10rem', { lineHeight: '1' }],
