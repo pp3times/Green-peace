@@ -64,6 +64,7 @@
 }
 
 .boat .main {
+    top: 40px;
     bottom: -3px;
     position: relative;
     -webkit-animation: boat-start 1s infinite;
