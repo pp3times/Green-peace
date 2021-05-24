@@ -98,8 +98,8 @@ export default class App extends PIXI.Application {
 
     private changeSize() {
         let ratio = Math.min(
-            (window.innerWidth * 0.9) / GAME_WIDTH,
-            (window.innerHeight * 0.9) / GAME_HEIGHT
+            window.innerWidth / GAME_WIDTH,
+            window.innerHeight / GAME_HEIGHT
         );
         this.stage.scale.x = this.stage.scale.y = ratio;
         this.stage.width = Math.ceil(GAME_WIDTH * ratio);
