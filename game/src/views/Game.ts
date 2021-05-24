@@ -277,7 +277,7 @@ export default class Game extends IView {
             );
             this.spawnEntity(new Fish(res['fish2'].texture, this, 200, 1, 'B'));
             this.spawnEntity(new Fish(res['fish3'].texture, this, 500, 2, 'C'));
-        } else if (this.entities.length < 5) {
+        } else if (this.entities.length < 7) {
             this.spawnEntity(new Fish(res['trash'].texture, this, 0, 0.5, 'D'));
             this.spawnEntity(new Fish(res['fish1'].texture, this, 100, 1, 'A'));
             this.spawnEntity(
