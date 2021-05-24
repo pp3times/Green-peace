@@ -1,5 +1,5 @@
-export const GAME_WIDTH = 1920;
-export const GAME_HEIGHT = 1080;
+export const GAME_WIDTH = 960;
+export const GAME_HEIGHT = 540;
 export const GAME_SIZE = () => {
     let aspect = 16 / 9;
     let w = window.innerWidth;
