@@ -66,13 +66,13 @@ export default class Home extends IView {
             });
             this.addChild(image);
         }
-        fadeIn('sound-start', 0.3, 2000, {
+        fadeIn('sound-start2', 0.3, 2000, {
             loop: true,
         });
     }
 
     beforeDestroy() {
         super.beforeDestroy();
-        fadeOut('sound-start', 2000);
+        fadeOut('sound-start2', 2000);
     }
 }
