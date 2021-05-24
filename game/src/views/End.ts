@@ -119,8 +119,7 @@ export default class End extends IView {
                     this.end.alpha = 1;
                 });
             } else {
-                window.location.href =
-                    'https://epic-babbage-f8cce2.netlify.app/#page2';
+                window.location.href = 'https://fisherman-gp.netlify.app/';
             }
         });
         this.addChild(action);
