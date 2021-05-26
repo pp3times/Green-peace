@@ -20,7 +20,7 @@
             scroll-behavior: smooth;
         }
         body{
-            overflow: auto;
+            overflow: hidden;
             font-family: 'Kanit', sans-serif;
         }
         .card{
@@ -271,7 +271,7 @@
         }
         .ask1{
             bottom: 1vw; 
-            width: 35vw;
+            width: 68vh;
             opacity: 1;
             position: fixed; 
             margin-left: 32vw;
@@ -3539,8 +3539,6 @@
         <div class="psa reveal out bottomtotop tac page6boxtext4">
             <h1>จากเหตุการณ์</h1>
         </div>
-        <img class="psa cloudleft" src="/img/seacloude.svg" alt="">
-        <img class="psa cloudright" src="/img/seacloude.svg" alt="">
         <img class="psa page6img23" src="/img/fisherpic1.svg" alt="">
         <img class="psa page6img24" src="/img/fisherpic.svg" alt="">
         <div class="psa page6boxtext5" style="color: #fdf6e3;">
@@ -3599,6 +3597,10 @@
             <h1 class="page7h1_1">เหตุผล</h1>
             <h1 class="page7h1_2" style="color: #fdf6e3;">ที่เราไม่ควรปล่อยให้อุตสาหกรรมครองมหาสมุทร</h1>
         </div>
+        <div id="page71" onclick="hideimg1()" class="psa hidebox" style="cursor: pointer;"></div>
+        <div id="page72" onclick="hideimg2()" class="psa hidebox" style="cursor: pointer;"></div>
+        <div id="page73" onclick="hideimg3()" class="psa hidebox" style="cursor: pointer;"></div>
+        <div id="page74" onclick="hideimg4()" class="psa hidebox" style="cursor: pointer;"></div>
     </div>
     <div class="psr page8">
         <img class="psa page8img1" src="/img/circleorange.svg" alt="">
@@ -3740,15 +3742,21 @@
         }
         function ask1(){
             document.getElementById('card1').style.backgroundColor='rgba(0,0,0,0.8)';
+            document.getElementById('page71').style.backgroundColor='rgba(0,0,0,0.8)';
             document.body.style.overflow='hidden';
             document.getElementById('card1').classList.remove('hidebox');
             document.getElementById('card1').classList.add('opencard');
+            document.getElementById('page71').classList.remove('hidebox');
+            document.getElementById('page71').classList.add('opencard');
             document.getElementById('ask1').classList.remove('ask');
             document.getElementById('ask1').classList.add('ask1');
         }
         function ask2(){
             document.getElementById('card2').style.backgroundColor='rgba(0,0,0,0.8)';
+            document.getElementById('page72').style.backgroundColor='rgba(0,0,0,0.8)';
             document.body.style.overflow='hidden';
+            document.getElementById('page72').classList.remove('hidebox');
+            document.getElementById('page72').classList.add('opencard');
             document.getElementById('card2').classList.remove('hidebox');
             document.getElementById('card2').classList.add('opencard');
             document.getElementById('ask2').classList.remove('ask');
@@ -3756,7 +3764,10 @@
         }
         function ask3(){
             document.getElementById('card3').style.backgroundColor='rgba(0,0,0,0.8)';
+            document.getElementById('page73').style.backgroundColor='rgba(0,0,0,0.8)';
             document.body.style.overflow='hidden';
+            document.getElementById('page73').classList.remove('hidebox');
+            document.getElementById('page73').classList.add('opencard');
             document.getElementById('card3').classList.remove('hidebox');
             document.getElementById('card3').classList.add('opencard');
             document.getElementById('ask3').classList.remove('ask');
@@ -3764,37 +3775,52 @@
         }
         function ask4(){
             document.getElementById('card4').style.backgroundColor='rgba(0,0,0,0.8)';
+            document.getElementById('page74').style.backgroundColor='rgba(0,0,0,0.8)';
             document.body.style.overflow='hidden';
+            document.getElementById('page74').classList.remove('hidebox');
+            document.getElementById('page74').classList.add('opencard');
             document.getElementById('card4').classList.remove('hidebox');
             document.getElementById('card4').classList.add('opencard');
             document.getElementById('ask4').classList.remove('ask');
             document.getElementById('ask4').classList.add('ask1');
         }
         function hideimg1(){
+            document.getElementById('page71').style.backgroundColor='';
             document.body.style.overflow='auto';
             document.getElementById('card1').classList.remove('opencard');
             document.getElementById('card1').classList.add('hidebox');
+            document.getElementById('page71').classList.remove('opencard');
+            document.getElementById('page71').classList.add('hidebox');
             document.getElementById('ask1').classList.remove('ask1');
             document.getElementById('ask1').classList.add('ask');
         }
         function hideimg2(){
             document.body.style.overflow='auto';
+            document.getElementById('page72').style.backgroundColor='';
             document.getElementById('card2').classList.remove('opencard');
             document.getElementById('card2').classList.add('hidebox');
+            document.getElementById('page72').classList.remove('opencard');
+            document.getElementById('page72').classList.add('hidebox');
             document.getElementById('ask2').classList.remove('ask1');
             document.getElementById('ask2').classList.add('ask');
         }
         function hideimg3(){
             document.body.style.overflow='auto';
+            document.getElementById('page73').style.backgroundColor='';
             document.getElementById('card3').classList.remove('opencard');
             document.getElementById('card3').classList.add('hidebox');
+            document.getElementById('page73').classList.remove('opencard');
+            document.getElementById('page73').classList.add('hidebox');
             document.getElementById('ask3').classList.remove('ask1');
             document.getElementById('ask3').classList.add('ask');
         }
         function hideimg4(){
             document.body.style.overflow='auto';
+            document.getElementById('page74').style.backgroundColor='';
             document.getElementById('card4').classList.remove('opencard');
             document.getElementById('card4').classList.add('hidebox');
+            document.getElementById('page74').classList.remove('opencard');
+            document.getElementById('page74').classList.add('hidebox');
             document.getElementById('ask4').classList.remove('ask1');
             document.getElementById('ask4').classList.add('ask');
         }
