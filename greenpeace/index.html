@@ -114,10 +114,14 @@
             left: 18vw;
         }
         .questionmark{
-            font-size: 6vw;
+            font-size: 14vw;
             color: white;
             font-family: 'Freckle Face', cursive;
             animation: questionmark 2s infinite;
+        }
+        .questionmarkanimation{
+            top: 5vw;
+            right: 24vw;
         }
         .fadein{
             animation: fadein 2s ease;
@@ -216,6 +220,24 @@
             height: 0;
             border-bottom: 51.5vw solid #e6eeff;;
             border-right: 49.3vw solid transparent;
+        }
+        .divlink{
+            width: 20%;
+            border-radius: 10vw;
+            transition: 0.5s;
+        }
+        .link{
+            font-size: 1.5vw;
+            text-decoration: none; 
+            color: #fdf6e3; 
+            cursor: pointer;
+        }
+        .divlink:hover{
+            font-size: 1.5vw;
+            text-decoration: none; 
+            color: #b3e6ff; 
+            cursor: pointer;
+            background: #34656d;
         }
         .texth1{
             color: #3D70D3;
@@ -1007,6 +1029,26 @@
             top:190vw; 
             left: -15vw;
         }
+        .bound{
+            animation: bound 2s infinite;
+        }
+        @keyframes bound {
+            0%{
+                width: 70vw;
+            }
+            25%{
+                width: 40vw;
+            }
+            50%{
+                width: 70vw;
+            }
+            75%{
+                width:40vw;
+            }
+            100%{
+                width: 40vw;
+            }
+        }
         @keyframes backgroundblack {
             0%{
                 opacity: 0.7;
@@ -1070,6 +1112,18 @@
             }
         }
         @media screen and (min-width: 0px) and (max-width: 640px){
+            .triangle-topright {
+                width: 0;
+                height: 0;
+                border-top: 51vw solid #e6eeff;;
+                border-left: 50vw solid transparent;
+            }
+            .triangle-bottomleft {
+                width: 0;
+                height: 0;
+                border-bottom: 51.5vw solid #e6eeff;;
+                border-right: 50vw solid transparent;
+            }
             .cloudleft{
                 width: 50vw; 
                 top:140vw; 
@@ -1430,6 +1484,18 @@
             }
         }
         @media screen and (min-width: 641px) and (max-width: 768px){
+            .triangle-topright {
+                width: 0;
+                height: 0;
+                border-top: 51vw solid #e6eeff;;
+                border-left: 50vw solid transparent;
+            }
+            .triangle-bottomleft {
+                width: 0;
+                height: 0;
+                border-bottom: 51.5vw solid #e6eeff;;
+                border-right: 50vw solid transparent;
+            }
             .cloudleft{
                 width: 50vw; 
                 top:140vw; 
@@ -1790,6 +1856,18 @@
             }
         }
         @media screen and (min-width: 769px) and (max-width: 1024px){
+            .triangle-topright {
+                width: 0;
+                height: 0;
+                border-top: 51vw solid #e6eeff;;
+                border-left: 50vw solid transparent;
+            }
+            .triangle-bottomleft {
+                width: 0;
+                height: 0;
+                border-bottom: 51.5vw solid #e6eeff;;
+                border-right: 50vw solid transparent;
+            }
             .cloudleft{
                 width: 50vw; 
                 top:140vw; 
@@ -2154,6 +2232,18 @@
             }
         }
         @media screen and (min-width: 1025px) and (max-width: 1279px){
+            .triangle-topright {
+                width: 0;
+                height: 0;
+                border-top: 51vw solid #e6eeff;;
+                border-left: 50vw solid transparent;
+            }
+            .triangle-bottomleft {
+                width: 0;
+                height: 0;
+                border-bottom: 51.5vw solid #e6eeff;;
+                border-right: 50vw solid transparent;
+            }
             .cloudleft{
                 width: 50vw; 
                 top:140vw; 
@@ -3190,21 +3280,15 @@
 <div>
     <div id="black1" class="page hidebox op0" style="background: black;"></div>
     <div id="firstpage" class="page bodymoon df jcc aic">
-        <div id="moon" class="moon" style="z-index: 0;"></div>
+        <div id="moon" class="moon" style="z-index: 0; opacity: 0;"></div>
         <div id="backgroundblack" class="page psa"></div>
         <div id="black" class="page psa op0" style="background: black;"></div>
         <div id="first" class="page psa df jcc aic op0">
-            <img style="z-index: 10; cursor: pointer;" id="salmon" onclick="fadeinsalmon()" class="salmon" src="/img/salmon.svg" alt="salmon">
+            <h1 class="questionmark questionmarkanimation psa">?</h1>
+            <img style="z-index: 10; cursor: pointer;" id="salmon" onclick="fadeinsalmon()" class="salmon bound" src="/img/salmon.svg" alt="salmon">
             <h1 onclick="fadeintext1()" id="text1" class="psa textpage1 hidetext" style="cursor: pointer;color: #fdf6e3;" >รู้ไหมอาหารทะเลมาจากใคร?</h1>
             <h1 onclick="fadeintext2()" id="text2" class="psa textpage1 hidetext" style="cursor: pointer;color: #fdf6e3;">กว่าจะมาเป็นอาหารทะเลทุกวันนี้</h1>
             <h1 onclick="fadeintext2()" id="text3" class="psa textpage1 hidetext" style="margin-top: 10%; cursor: pointer;color: #fdf6e3;">ต้องผ่านอะไรมาบ้าง</h1>
-            <h1 class="questionmark psa" style="margin-right: 55vw;transform: rotateY(30deg) rotateZ(-40deg);">?</h1>
-            <h1 class="questionmark psa" style="margin-right: 40vw; margin-bottom: 30vw;transform: rotateY(30deg) rotateZ(-25deg);">?</h1>
-            <h1 class="questionmark psa" style="margin-right: 15vw; margin-bottom: 35vw;transform: rotateY(30deg) rotateZ(-15deg);">?</h1>
-            <h1 class="questionmark psa" style="margin-left: 5vw; margin-bottom: 30vw;">?</h1>
-            <h1 class="questionmark psa" style="margin-left: 30vw; margin-bottom: 35vw;">?</h1>
-            <h1 class="questionmark psa" style="margin-left: 45vw; margin-bottom: 15vw;transform: rotateY(30deg) rotateZ(20deg);">?</h1>
-            <h1 class="questionmark psa" style="margin-left: 55vw; margin-top: 15vw;transform: rotateY(30deg) rotateZ( 40deg);">?</h1>
         </div>
         <svg width="0" height="0"
             xmlns="http://www.w3.org/2000/svg"
@@ -3333,16 +3417,16 @@
         </footer>
     </div>
     <div id="boat" class="page psa op0" style="overflow: hidden;">
-        <header class="headeres">
-            <!-- <a href="#" class="logo">Greenpeace</a> -->
+        <!-- <header class="headeres">
+            <a href="#" class="logo">Greenpeace</a>
             <a href="#" class="logo"><img src="/img/logo.svg" alt="logo"></a>
             <ul>
                 <li><a href="#" class="active">หน้าหลัก</a></li>
-                <!-- <li><a href="#">About</a></li>
+                <li><a href="#">About</a></li>
                 <li><a href="#">Test</a></li>
-                <li><a href="#">Test</a></li> -->
+                <li><a href="#">Test</a></li>
             </ul>
-        </header>
+        </header> -->
         <section class="section">
             <h2 id="text"><span>หนึ่งช่วงชีวิต</span><br>ชาวประมง</h2>
             <img src="/img/bird1.png" id="bird1">
@@ -3405,7 +3489,7 @@
         <div class="page psa ofh">
             <h1 class="texth1 reveal out bottomtotop page3text1">ปัญหาค่าแรงสวนทางกับงานที่ทำ</h1>
             <h1 class="texth1 reveal out bottomtotop page3text2">ปัญหาด้านสาธารณสุขบนเรือ</h1>
-            <h1 class="texth1 reveal out bottomtotop page3text3">ปัญหาด้านสัญญาจ้าง</h1>
+            <h1 class="texth1 reveal out bottomtotop page3text3">ปัญหาด้านสัญญาจ้างที่ไม่เป็นธรรม</h1>
             <h1 class="texth1 reveal out bottomtotop page3text4">ปัญหาด้านการพักผ่อน</h1>
         </div>
     </div>
@@ -3546,7 +3630,10 @@
             <h1 class="reveal out bottomtotop">พบว่านายจ้างฝ่าฝืนหรือไม่ปฏิบัติตาม</h1>
             <h1 class="reveal out bottomtotop">พ.ร.บ.คุ้มครองแรงงาน พ.ศ. 2541</h1>
             <h1 class="reveal out bottomtotop">จึงดำเนินการร้องทุกข์กล่าวโทษต่อพนักงานสอบสวน</h1>
-            <h1 class="reveal out bottomtotop">ให้ดำเนินคดีตามมาตราต่างๆ รวม 13 ข้อ</h1>
+            <h1 class="reveal out bottomtotop">ให้ดำเนินคดีตามมาตราต่างๆ รวม 13 ข้อ</h1><br>
+            <div class="divlink df jcc aic">
+                <h1 onclick="link()"  class="reveal out bottomtotop link">อ่านเพิ่มเติม</h1>
+            </div>
         </div>
         <img class="psa page6img25" src="/img/man.svg" alt="">
         <div class="psa page6boxtext6" style="color: #fdf6e3;">
@@ -3556,7 +3643,10 @@
             <h1 class="reveal out bottomtotop">พบคนไทยอย่างน้อย 8 คนที่ยังตกค้างอยู่ที่เกาะตวล</h1>
             <h1 class="reveal out bottomtotop">บางคนถูกหลอกและต้องหลบซ่อนอยู่ถึง 16 ปี</h1>
             <h1 class="reveal out bottomtotop">โดยแรงงานที่ถูกหลอกเหล่านี้ไม่มีบัตรประชาชนและเลข 13 หลัก</h1>
-            <h1 class="reveal out bottomtotop">จึงไม่ได้รับความช่วยเหลือจากทางการไทย</h1>
+            <h1 class="reveal out bottomtotop">จึงไม่ได้รับความช่วยเหลือจากทางการไทย</h1><br> 
+            <div class="divlink jcc aic df psa" style="right: 0;">
+                <h1 onclick="link1()"  class="reveal out bottomtotop link">อ่านเพิ่มเติม</h1>
+            </div>
         </div>
         <div class="psa page6boxtext7" style="color: #fdf6e3;">
             <h1 class="reveal out bottomtotop" style="text-align: right;">แรงงานเหล่านี้เขาไม่มีสิทธิ์แม้แต่จะเลือกด้วยซ้ำว่าเขาต้องการจะพักผ่อน</h1>
@@ -3679,9 +3769,16 @@
           document.getElementById('first').classList.add('fadeout');
           document.getElementById('first').classList.remove('op0');
         },2000);
+        function link1(){
+            location.href = "https://siamrath.co.th/n/112330";
+        }
+        function link(){
+            location.href = "https://www.thairath.co.th/content/550962";
+        }
         function fadeinsalmon(){
             var questionmark = document.querySelectorAll('.questionmark');
             document.getElementById('salmon').classList.add('fadein');
+            document.getElementById('salmon').classList.remove('bound');
             document.getElementById('backgroundblack').classList.add('backgroundmoon');
             document.getElementById('backgroundblack').classList.add('fadeout1');
             for(var i = 0; i < questionmark.length ;i++){
@@ -3692,6 +3789,8 @@
                 for(var i = 0; i < questionmark.length ;i++){
                 questionmark[i].remove();
                 }
+                document.getElementById('moon').style.opacity='1';
+                document.getElementById('moon').classList.add('fadeout');
                 document.getElementById('text1').classList.add('fadeout');
                 document.getElementById('text1').classList.remove('hidetext');
             }
