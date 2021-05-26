@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f6203bd2-57b5-498f-a3a4-37207da2e875" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/game/js/SliceType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/js/WallSlice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/js/WallSpritesPool.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/js/Walls.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/game/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/js/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/game/js/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/js/Scroller.js" beforeDir="false" afterPath="$PROJECT_DIR$/game/js/Scroller.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1rTCf9dhG3gUaxX5trRFeKagHpB" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Gitlab/payment-gateway-frontend" />
+    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Github\Green-peace\game\resource" />
+      <recent name="D:\Github\Green-peace\game\assets\texture\background" />
+      <recent name="D:\Github\Green-peace\game\assets\texture" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f6203bd2-57b5-498f-a3a4-37207da2e875" name="Default Changelist" comment="" />
+      <created>1618990792838</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1618990792838</updated>
+      <workItem from="1618990794010" duration="32000" />
+      <workItem from="1618990850189" duration="101000" />
+      <workItem from="1618990966907" duration="25673000" />
+      <workItem from="1619100280848" duration="594000" />
+      <workItem from="1619343626791" duration="1717000" />
+      <workItem from="1619389223459" duration="591000" />
+      <workItem from="1619435162468" duration="595000" />
+      <workItem from="1619526416638" duration="253000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
