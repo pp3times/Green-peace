@@ -111,8 +111,8 @@ export default class End extends IView {
                 );
                 scene.start().then(() => {
                     action.texture = res['info'].texture;
-                    action.x = GAME_WIDTH / 4;
-                    action.y = GAME_HEIGHT - action.height / 2 - 100;
+                    action.x = GAME_WIDTH / 4.5;
+                    action.y = GAME_HEIGHT - action.height / 2 - 60;
                     this.removeChild(text);
                     this.removeChild(this.scroller);
                     this.scroller = null;
