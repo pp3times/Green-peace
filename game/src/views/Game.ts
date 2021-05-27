@@ -35,6 +35,7 @@ export default class Game extends IView {
         this.running = true;
         this.interface.setHealth(5);
         this.interface.setPoint(0);
+        this.interface.setfish(8);
         fadeIn('bg1', 0.05, 2000, {
             loop: true,
         });
@@ -76,6 +77,7 @@ export default class Game extends IView {
                                     if (rectsIntersect(tip, e)) {
                                         fadeIn('get_fish', 4, 2000);
                                         this.interface.addPoint(e.point);
+                                        this.interface.LowFish();
                                         this.player.got_fish++;
                                         e.deSpawn();
                                         move.pause();
@@ -184,6 +186,7 @@ export default class Game extends IView {
                     },
                 ]);
                 scene.start();
+                this.interface.setfish(8);
             }, 1000);
         } else if (this.player.got_fish == 16 && this.player.check != 2) {
             this.interface.setHealth(this.player.health - 1);
@@ -208,6 +211,7 @@ export default class Game extends IView {
                     },
                 ]);
                 scene.start();
+                this.interface.setfish(8);
             }, 1000);
         } else if (this.player.got_fish == 24 && this.player.check != 3) {
             this.interface.setHealth(this.player.health - 1);
@@ -236,6 +240,7 @@ export default class Game extends IView {
                     },
                 ]);
                 scene.start().then(() => {
+                    this.interface.setfish(10);
                     this.running = true;
                     this.scroller.texture = this.app.loader.resources[
                         'dark_sea'
@@ -260,9 +265,11 @@ export default class Game extends IView {
                     },
                 ]);
                 scene.start();
+                this.interface.setfish(10);
             }, 1000);
         } else if (this.player.got_fish == 44 && this.player.check != 5) {
             this.interface.setHealth(this.player.health - 1);
+            this.interface.setfish(0);
             fadeIn('life_low', 0.5, 2000);
             this.player.check++;
             setTimeout(() => {
