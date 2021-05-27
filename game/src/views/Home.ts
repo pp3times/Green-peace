@@ -47,6 +47,34 @@ export default class Home extends IView {
             this.addChild(btn);
         }
         {
+            let btn2 = new PIXI.Sprite(res['more_info'].texture);
+            btn2.x = GAME_WIDTH / 2;
+            btn2.y = GAME_HEIGHT / 2 + 100;
+            btn2.anchor.set(0.5);
+            btn2.interactive = true;
+            btn2.buttonMode = true;
+            // @ts-ignore
+            btn2.on('mouseover', () => {
+                TweenMax.to(btn2, 0.2, {
+                    pixi: { scale: 1.1 },
+                    ease: 'easeIn',
+                });
+            });
+            // @ts-ignore
+            btn2.on('mouseout', () => {
+                TweenMax.to(btn2, 0.2, {
+                    pixi: { scale: 1 },
+                    ease: 'easeIn',
+                });
+            });
+            // @ts-ignore
+            btn2.on('pointerdown', () => {
+                fadeIn('click', 5, 2000);
+                window.location.href = 'https://fisherman-gp.netlify.app/';
+            });
+            this.addChild(btn2);
+        }
+        {
             let image = new PIXI.Sprite(res['sound_open'].texture);
             image.x = GAME_WIDTH;
             image.y = GAME_HEIGHT;

@@ -224,10 +224,21 @@ export default [
         name: 'next',
         path: 'next.png',
     },
-
+    {
+        name: 'logo',
+        path: 'menu_2.png',
+    },
+    {
+        name: 'more_info',
+        path: 'more_info.png',
+    },
     {
         name: 'info',
         path: 'info.png',
+    },
+    {
+        name: 'info_icon',
+        path: 'info_icon.png',
     },
     {
         name: 'ENDING1-1-1',

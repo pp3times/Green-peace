@@ -126,7 +126,20 @@ export default class Game extends IView {
             });
             this.addChild(image);
         }
-
+        {
+            let btn3 = new PIXI.Sprite(res['info_icon'].texture);
+            btn3.x = GAME_WIDTH;
+            btn3.y = GAME_HEIGHT - 40;
+            btn3.anchor.set(1.2);
+            btn3.interactive = true;
+            btn3.buttonMode = true;
+            // @ts-ignore
+            btn3.on('pointerdown', () => {
+                fadeIn('click', 5, 2000);
+                window.location.href = 'https://fisherman-gp.netlify.app/';
+            });
+            this.addChild(btn3);
+        }
         let scene = new CutScenes(this.app, [
             {
                 frames: ['OPENNING-1-1'],
