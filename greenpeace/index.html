@@ -22,7 +22,7 @@
             scroll-behavior: smooth;
         }
         body{
-            overflow: auto;
+            overflow: hidden;
             font-family: 'Kanit', sans-serif;
         }
         .card{
@@ -172,6 +172,7 @@
             background: linear-gradient(rgb(1, 35, 114),#14222F);
         }
         .divpage2box{
+            border-radius: 5vw 0px 0px 0px;
             width: 50%;
             height: 100%;
         }
@@ -232,6 +233,24 @@
             color: #b3e6ff; 
             cursor: pointer;
             background: #34656d;
+        }
+        .divlink1{
+            width: 20%;
+            border-radius: 10vw;
+            transition: 0.5s;
+        }
+        .link1{
+            font-size: 1.5vw;
+            text-decoration: none; 
+            color: black; 
+            cursor: pointer;
+        }
+        .divlink1:hover{
+            font-size: 1.5vw;
+            text-decoration: none; 
+            color: #b3e6ff; 
+            cursor: pointer;
+            background: #00daa3;
         }
         .texth1{
             color: #3D70D3;
@@ -303,7 +322,7 @@
         }
         .slidesea{
             width: 100%;
-            height: 500px;
+            height: 20vw;
             background: linear-gradient(#094d66,#14222f);
         }
         .page2text1{
@@ -1319,7 +1338,7 @@
                 background-color: #242C5B; 
                 overflow: hidden; 
                 width: 100%; 
-                height: 30vh;
+                height: 30vw;
             }
             .page11{
                 background: #e6eeff;
@@ -1646,6 +1665,10 @@
                 height: 90vw; 
                 background: linear-gradient(#F8CDDA,#FAF1E6); 
             }
+            .questionmarkanimation{
+                top: 15vw;
+                right: 24vw;
+            }
         }
     </style>
 </head>
@@ -1674,7 +1697,7 @@
             </filter>
         </svg>
     </div>
-    <!-- <div class='loader df aic jcc'>
+    <div class='loader df aic jcc'>
         <div>
             <div class="boat">
                 <div class="wrap">
@@ -1787,7 +1810,7 @@
         <footer class='df aic jcc'>
             <p>Images from <a href="https://unsplash.com/">Unsplash</a></p>
         </footer>
-    </div> -->
+    </div>
     <div id="boat" class="page psa op0" style="overflow: hidden;">
         <!-- <header class="headeres">
             <a href="#" class="logo">Greenpeace</a>
@@ -1969,7 +1992,9 @@
             <h1 class="reveal out bottomtotop" style="font-family: 'Sarabun', sans-serif; text-align: right;">ในวันหยุดให้ถูกต้องตามกำหนดเวลา</h1>
         </div>
         <div class="psa page11textbox6">
-            <h1 class="reveal out bottomtotop" onclick="link3()" style="text-align: center; cursor: pointer;">อ่านเพิ่มเติม</h1>
+            <div class="psa divlink1" style="width: 10vw; right: 15vw; bottom: 0;">
+                <h1 class="reveal out bottomtotop link1" onclick="link3()" style="text-align: center; cursor: pointer;">อ่านเพิ่มเติม</h1>
+            </div>
             <h1 class="reveal out bottomtotop" style="text-align: center;">แรงงานในงานประมงทะเล - กระทรวงแรงงาน (mol.go.th)</h1>
         </div>
         <img class="psa page11img6 defult" src="/img/stick.svg" alt="">
@@ -2152,10 +2177,6 @@
         <img class="psa page10img6" src="/img/sea3.svg" alt="">
     </div>
     <script>
-        setTimeout(function(){
-          document.getElementById('first').classList.add('fadeout');
-          document.getElementById('first').classList.remove('op0');
-        },2000);
         function link1(){
             location.href = "https://siamrath.co.th/n/112330";
         }
