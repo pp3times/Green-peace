@@ -19,6 +19,17 @@ export default class Home extends IView {
         super.initial();
         let res = this.app.loader.resources;
         {
+            let logo = new PIXI.Sprite(res['logo'].texture);
+            logo.x = GAME_WIDTH / 2;
+            logo.y = GAME_HEIGHT / 8;
+            logo.anchor.set(0.5);
+            logo.interactive = true;
+            logo.buttonMode = true;
+            // @ts-ignore
+
+            this.addChild(logo);
+        }
+        {
             let btn = new PIXI.Sprite(res['start_button'].texture);
             btn.x = GAME_WIDTH / 2;
             btn.y = GAME_HEIGHT / 2 - 30;
