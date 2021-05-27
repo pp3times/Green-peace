@@ -41,6 +41,7 @@ export default class Home extends IView {
             });
             // @ts-ignore
             btn.on('pointerdown', () => {
+                fadeIn('click', 5, 2000);
                 this.app.changeScenes(new Game(this.app));
             });
             this.addChild(btn);
@@ -55,6 +56,7 @@ export default class Home extends IView {
             // @ts-ignore
             image.on('pointerdown', () => {
                 let open = this.app.option.sound;
+                fadeIn('click', 5, 2000);
                 image.texture =
                     res[open ? 'sound_close' : 'sound_open'].texture;
                 this.app.option.sound = !open;

@@ -74,6 +74,7 @@ export default class Game extends IView {
                             for (let e of this.entities) {
                                 if (e instanceof Fish) {
                                     if (rectsIntersect(tip, e)) {
+                                        fadeIn('get_fish', 4, 2000);
                                         this.interface.addPoint(e.point);
                                         this.player.got_fish++;
                                         e.deSpawn();
@@ -111,6 +112,7 @@ export default class Game extends IView {
             // @ts-ignore
             image.on('pointerdown', () => {
                 let open = this.app.option.sound;
+                fadeIn('click', 5, 2000);
                 image.texture =
                     res[open ? 'sound_close' : 'sound_open'].texture;
                 this.app.option.sound = !open;
@@ -166,6 +168,7 @@ export default class Game extends IView {
     onGotFish(fish: Fish) {
         if (this.player.got_fish == 8 && this.player.check != 1) {
             this.interface.setHealth(this.player.health - 1);
+            fadeIn('life_low', 0.5, 2000);
             this.player.check++;
             setTimeout(() => {
                 let scene = new CutScenes(this.app, [
@@ -184,6 +187,7 @@ export default class Game extends IView {
             }, 1000);
         } else if (this.player.got_fish == 16 && this.player.check != 2) {
             this.interface.setHealth(this.player.health - 1);
+            fadeIn('life_low', 0.5, 2000);
             this.player.check++;
             setTimeout(() => {
                 let scene = new CutScenes(this.app, [
@@ -207,7 +211,12 @@ export default class Game extends IView {
             }, 1000);
         } else if (this.player.got_fish == 24 && this.player.check != 3) {
             this.interface.setHealth(this.player.health - 1);
+            fadeIn('life_low', 0.5, 2000);
             this.player.check++;
+            fadeOut('bg1');
+            fadeIn('dark_song', 0.05, 2000, {
+                loop: true,
+            });
             setTimeout(() => {
                 let scene = new CutScenes(this.app, [
                     {
@@ -235,6 +244,7 @@ export default class Game extends IView {
             }, 1000);
         } else if (this.player.got_fish == 34 && this.player.check != 4) {
             this.interface.setHealth(this.player.health - 1);
+            fadeIn('life_low', 0.5, 2000);
             this.player.check++;
             setTimeout(() => {
                 let scene = new CutScenes(this.app, [
@@ -253,6 +263,7 @@ export default class Game extends IView {
             }, 1000);
         } else if (this.player.got_fish == 44 && this.player.check != 5) {
             this.interface.setHealth(this.player.health - 1);
+            fadeIn('life_low', 0.5, 2000);
             this.player.check++;
             setTimeout(() => {
                 let scene = new CutScenes(this.app, [
@@ -293,7 +304,7 @@ export default class Game extends IView {
 
     beforeDestroy() {
         super.beforeDestroy();
-        fadeOut('bg1');
+        fadeOut('dark_song');
         this.running = false;
     }
 

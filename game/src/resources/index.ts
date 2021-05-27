@@ -249,4 +249,28 @@ export default [
         name: 'END',
         path: 'END.png',
     },
+    {
+        name: 'click',
+        path: 'click.mp3',
+    },
+    {
+        name: 'throw',
+        path: 'throw.mp3',
+    },
+    {
+        name: 'life_low',
+        path: 'life_low.mp3',
+    },
+    {
+        name: 'get_fish',
+        path: 'get_fish.mp3',
+    },
+    {
+        name: 'dark_song',
+        path: 'dark_song.mp3',
+    },
+    {
+        name: 'end_song',
+        path: 'end_song.mp3',
+    },
 ];
