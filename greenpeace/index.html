@@ -7,7 +7,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,200;0,300;1,100&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,500&display =swap" rel="stylesheet">
     <link rel="stylesheet" href="loading.css">
@@ -20,6 +19,12 @@
         }
         html{
             scroll-behavior: smooth;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none; 
+            -ms-user-select: none;
+            user-select: none;
         }
         body{
             overflow: hidden;
@@ -2178,13 +2183,13 @@
     </div>
     <script>
         function link1(){
-            location.href = "https://siamrath.co.th/n/112330";
+            window.open("https://siamrath.co.th/n/112330");
         }
         function link(){
-            location.href = "https://www.thairath.co.th/content/550962";
+            window.open("https://www.thairath.co.th/content/550962");
         }
         function link3(){
-            location.href = "https://www.mol.go.th/wp-content/uploads/sites/2/2019/03/kh77-2b-2557-a0002.pdf";
+            window.open("https://www.mol.go.th/wp-content/uploads/sites/2/2019/03/kh77-2b-2557-a0002.pdf");
         }
         function fadeinsalmon(){
             var questionmark = document.querySelectorAll('.questionmark');
