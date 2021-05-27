@@ -13,6 +13,7 @@ import Interface from '../controllers/Interface';
 import Player from '../Player';
 import End from './End';
 import { sound } from '@pixi/sound';
+import { TweenMax } from 'gsap';
 
 export default class Game extends IView {
     hook: PIXI.Graphics;
