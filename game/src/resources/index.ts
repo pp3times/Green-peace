@@ -286,6 +286,6 @@ export default [
     },
     {
         name: 'end_song',
-        path: 'end_song.mp3',
+        path: 'end_song2.mp3',
     },
 ];
