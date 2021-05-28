@@ -32,6 +32,9 @@ export default class End extends IView {
     initial() {
         super.initial();
         let res = this.app.loader.resources;
+        fadeIn('end_song', 0.3, 2000, {
+            loop: true,
+        });
         const style = new PIXI.TextStyle({
             fontFamily: 'Arial',
             fontSize: 50,
