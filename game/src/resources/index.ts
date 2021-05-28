@@ -76,6 +76,22 @@ export default [
         path: 'fish4.png',
     },
     {
+        name: 'Tip1',
+        path: 'Tip1.png',
+    },
+    {
+        name: 'Tip2',
+        path: 'Tip2.png',
+    },
+    {
+        name: 'Tip3',
+        path: 'Tip3.png',
+    },
+    {
+        name: 'Tip4',
+        path: 'Tip4.png',
+    },
+    {
         name: 'OPENNING-1',
         path: 'OPENING-1.png',
     },
