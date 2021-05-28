@@ -175,7 +175,7 @@ export default class Game extends IView {
             {
                 frames: ['tutorial'],
                 dpf: 1000,
-                duration: 4000,
+                duration: 6000,
             },
         ]);
         await scene.start();
@@ -221,7 +221,7 @@ export default class Game extends IView {
                     {
                         frames: ['SCENE2-2-2'],
                         dpf: 1000,
-                        duration: 4000,
+                        duration: 6000,
                     },
                 ]);
                 scene.start();
@@ -275,7 +275,7 @@ export default class Game extends IView {
                     {
                         frames: ['SCENE4-2-1'],
                         dpf: 1000,
-                        duration: 4000,
+                        duration: 6000,
                     },
                 ]);
                 scene.start();
