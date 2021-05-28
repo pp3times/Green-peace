@@ -10,6 +10,7 @@ export default class Interface extends PIXI.Container {
     game: Game;
     private health: PIXI.Container;
     private point: PIXI.Container;
+    private get_fish: PIXI.Container;
 
     constructor(app: App, game: Game, player: Player) {
         super();
@@ -60,8 +61,36 @@ export default class Interface extends PIXI.Container {
         this.player.point = point;
     }
 
+    setfish(fish: number) {
+        if (this.get_fish) {
+            this.removeChild(this.get_fish);
+        }
+        this.get_fish = new PIXI.Container();
+        this.get_fish.pivot.set(0, 0);
+        let texture = this.app.loader.resources['fish4'].texture;
+        const style = new PIXI.TextStyle({
+            fontFamily: 'Arial',
+            fontSize: texture.height,
+            fontWeight: 'bold',
+            fill: '#ffffff',
+        });
+        const text = new PIXI.Text(`${fish}`, style);
+        text.x += texture.width + 5;
+        text.resolution = 3;
+        this.get_fish.addChild(new PIXI.Sprite(texture));
+        this.get_fish.addChild(text);
+        this.get_fish.x = GAME_WIDTH - (this.point.width + 10);
+        this.get_fish.y = 40;
+        this.addChild(this.get_fish);
+        this.player.fish_get = fish;
+    }
+
     addPoint(point: number) {
         this.setPoint(this.player.point + point);
+    }
+
+    LowFish() {
+        this.setfish(this.player.fish_get - 1);
     }
 
     update() {}

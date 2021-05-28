@@ -13,6 +13,7 @@ import Interface from '../controllers/Interface';
 import Player from '../Player';
 import End from './End';
 import { sound } from '@pixi/sound';
+import { TweenMax } from 'gsap';
 
 export default class Game extends IView {
     hook: PIXI.Graphics;
@@ -35,6 +36,7 @@ export default class Game extends IView {
         this.running = true;
         this.interface.setHealth(5);
         this.interface.setPoint(0);
+        this.interface.setfish(8);
         fadeIn('bg1', 0.05, 2000, {
             loop: true,
         });
@@ -74,7 +76,9 @@ export default class Game extends IView {
                             for (let e of this.entities) {
                                 if (e instanceof Fish) {
                                     if (rectsIntersect(tip, e)) {
+                                        fadeIn('get_fish', 4, 2000);
                                         this.interface.addPoint(e.point);
+                                        this.interface.LowFish();
                                         this.player.got_fish++;
                                         e.deSpawn();
                                         move.pause();
@@ -111,6 +115,7 @@ export default class Game extends IView {
             // @ts-ignore
             image.on('pointerdown', () => {
                 let open = this.app.option.sound;
+                fadeIn('click', 5, 2000);
                 image.texture =
                     res[open ? 'sound_close' : 'sound_open'].texture;
                 this.app.option.sound = !open;
@@ -122,7 +127,20 @@ export default class Game extends IView {
             });
             this.addChild(image);
         }
-
+        {
+            let btn3 = new PIXI.Sprite(res['info_icon'].texture);
+            btn3.x = GAME_WIDTH;
+            btn3.y = GAME_HEIGHT - 40;
+            btn3.anchor.set(1.2);
+            btn3.interactive = true;
+            btn3.buttonMode = true;
+            // @ts-ignore
+            btn3.on('pointerdown', () => {
+                fadeIn('click', 5, 2000);
+                window.location.href = 'https://fisherman-gp.netlify.app/';
+            });
+            this.addChild(btn3);
+        }
         let scene = new CutScenes(this.app, [
             {
                 frames: ['OPENNING-1-1'],
@@ -157,7 +175,7 @@ export default class Game extends IView {
             {
                 frames: ['tutorial'],
                 dpf: 1000,
-                duration: 4000,
+                duration: 6000,
             },
         ]);
         await scene.start();
@@ -166,6 +184,7 @@ export default class Game extends IView {
     onGotFish(fish: Fish) {
         if (this.player.got_fish == 8 && this.player.check != 1) {
             this.interface.setHealth(this.player.health - 1);
+            fadeIn('life_low', 0.5, 2000);
             this.player.check++;
             setTimeout(() => {
                 let scene = new CutScenes(this.app, [
@@ -179,11 +198,18 @@ export default class Game extends IView {
                         dpf: 1000,
                         duration: 5000,
                     },
+                    {
+                        frames: ['Tip1'],
+                        dpf: 1000,
+                        duration: 5000,
+                    },
                 ]);
                 scene.start();
+                this.interface.setfish(8);
             }, 1000);
         } else if (this.player.got_fish == 16 && this.player.check != 2) {
             this.interface.setHealth(this.player.health - 1);
+            fadeIn('life_low', 0.5, 2000);
             this.player.check++;
             setTimeout(() => {
                 let scene = new CutScenes(this.app, [
@@ -200,14 +226,25 @@ export default class Game extends IView {
                     {
                         frames: ['SCENE2-2-2'],
                         dpf: 1000,
-                        duration: 4000,
+                        duration: 6000,
+                    },
+                    {
+                        frames: ['Tip2'],
+                        dpf: 1000,
+                        duration: 5000,
                     },
                 ]);
                 scene.start();
+                this.interface.setfish(8);
             }, 1000);
         } else if (this.player.got_fish == 24 && this.player.check != 3) {
             this.interface.setHealth(this.player.health - 1);
+            fadeIn('life_low', 0.5, 2000);
             this.player.check++;
+            fadeOut('bg1');
+            fadeIn('dark_song', 0.05, 2000, {
+                loop: true,
+            });
             setTimeout(() => {
                 let scene = new CutScenes(this.app, [
                     {
@@ -225,8 +262,14 @@ export default class Game extends IView {
                         dpf: 1000,
                         duration: 4000,
                     },
+                    {
+                        frames: ['Tip3'],
+                        dpf: 1000,
+                        duration: 4000,
+                    },
                 ]);
                 scene.start().then(() => {
+                    this.interface.setfish(10);
                     this.running = true;
                     this.scroller.texture = this.app.loader.resources[
                         'dark_sea'
@@ -235,6 +278,7 @@ export default class Game extends IView {
             }, 1000);
         } else if (this.player.got_fish == 34 && this.player.check != 4) {
             this.interface.setHealth(this.player.health - 1);
+            fadeIn('life_low', 0.5, 2000);
             this.player.check++;
             setTimeout(() => {
                 let scene = new CutScenes(this.app, [
@@ -246,14 +290,23 @@ export default class Game extends IView {
                     {
                         frames: ['SCENE4-2-1'],
                         dpf: 1000,
+                        duration: 6000,
+                    },
+                    {
+                        frames: ['Tip4'],
+                        dpf: 1000,
                         duration: 4000,
                     },
                 ]);
                 scene.start();
+                this.interface.setfish(10);
             }, 1000);
         } else if (this.player.got_fish == 44 && this.player.check != 5) {
             this.interface.setHealth(this.player.health - 1);
+            this.interface.setfish(0);
+            fadeIn('life_low', 0.5, 2000);
             this.player.check++;
+            fadeOut('dark_song');
             setTimeout(() => {
                 let scene = new CutScenes(this.app, [
                     {
@@ -293,7 +346,7 @@ export default class Game extends IView {
 
     beforeDestroy() {
         super.beforeDestroy();
-        fadeOut('bg1');
+        fadeOut('dark_song');
         this.running = false;
     }
 

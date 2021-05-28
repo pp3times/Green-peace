@@ -9,10 +9,10 @@ Official Website: [ComingSoon](http://www.google.com/)
 This is our `features` about this project 🎉 :
 
 - Landingpage 🟢:
-	- Coming Soon
+	- https://fisherman-gp.netlify.app/
 
 - Game 🟩:
-	- Coming Soon
+	- https://fisherman-gpg.netlify.app/
 
 - ......
 

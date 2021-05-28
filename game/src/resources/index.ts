@@ -72,6 +72,26 @@ export default [
         path: 'fish3.png',
     },
     {
+        name: 'fish4',
+        path: 'fish4.png',
+    },
+    {
+        name: 'Tip1',
+        path: 'Tip1.png',
+    },
+    {
+        name: 'Tip2',
+        path: 'Tip2.png',
+    },
+    {
+        name: 'Tip3',
+        path: 'Tip3.png',
+    },
+    {
+        name: 'Tip4',
+        path: 'Tip4.png',
+    },
+    {
         name: 'OPENNING-1',
         path: 'OPENING-1.png',
     },
@@ -220,10 +240,21 @@ export default [
         name: 'next',
         path: 'next.png',
     },
-
+    {
+        name: 'logo',
+        path: 'menu_2.png',
+    },
+    {
+        name: 'more_info',
+        path: 'more_info.png',
+    },
     {
         name: 'info',
         path: 'info.png',
+    },
+    {
+        name: 'info_icon',
+        path: 'info_icon.png',
     },
     {
         name: 'ENDING1-1-1',
@@ -248,5 +279,29 @@ export default [
     {
         name: 'END',
         path: 'END.png',
+    },
+    {
+        name: 'click',
+        path: 'click.mp3',
+    },
+    {
+        name: 'throw',
+        path: 'throw.mp3',
+    },
+    {
+        name: 'life_low',
+        path: 'life_low.mp3',
+    },
+    {
+        name: 'get_fish',
+        path: 'get_fish.mp3',
+    },
+    {
+        name: 'dark_song',
+        path: 'dark_song.mp3',
+    },
+    {
+        name: 'end_song',
+        path: 'end_song2.mp3',
     },
 ];

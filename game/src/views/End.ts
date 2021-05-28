@@ -32,6 +32,31 @@ export default class End extends IView {
     initial() {
         super.initial();
         let res = this.app.loader.resources;
+        fadeIn('end_song', 0.3, 2000, {
+            loop: true,
+        });
+        {
+            let image = new PIXI.Sprite(res['sound_open'].texture);
+            image.x = GAME_WIDTH;
+            image.y = GAME_HEIGHT;
+            image.anchor.set(1.2);
+            image.interactive = true;
+            image.buttonMode = true;
+            // @ts-ignore
+            image.on('pointerdown', () => {
+                let open = this.app.option.sound;
+                fadeIn('click', 5, 2000);
+                image.texture =
+                    res[open ? 'sound_close' : 'sound_open'].texture;
+                this.app.option.sound = !open;
+                if (this.app.option.sound) {
+                    sound.unmuteAll();
+                } else {
+                    sound.muteAll();
+                }
+            });
+            this.addChild(image);
+        }
         const style = new PIXI.TextStyle({
             fontFamily: 'Arial',
             fontSize: 50,
@@ -111,8 +136,8 @@ export default class End extends IView {
                 );
                 scene.start().then(() => {
                     action.texture = res['info'].texture;
-                    action.x = GAME_WIDTH / 4;
-                    action.y = GAME_HEIGHT - action.height / 2 - 100;
+                    action.x = GAME_WIDTH / 4.5;
+                    action.y = GAME_HEIGHT - action.height / 2 - 60;
                     this.removeChild(text);
                     this.removeChild(this.scroller);
                     this.scroller = null;
