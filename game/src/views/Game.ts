@@ -198,6 +198,11 @@ export default class Game extends IView {
                         dpf: 1000,
                         duration: 5000,
                     },
+                    {
+                        frames: ['Tip1'],
+                        dpf: 1000,
+                        duration: 5000,
+                    },
                 ]);
                 scene.start();
                 this.interface.setfish(8);
@@ -222,6 +227,11 @@ export default class Game extends IView {
                         frames: ['SCENE2-2-2'],
                         dpf: 1000,
                         duration: 6000,
+                    },
+                    {
+                        frames: ['Tip2'],
+                        dpf: 1000,
+                        duration: 5000,
                     },
                 ]);
                 scene.start();
@@ -252,6 +262,11 @@ export default class Game extends IView {
                         dpf: 1000,
                         duration: 4000,
                     },
+                    {
+                        frames: ['Tip3'],
+                        dpf: 1000,
+                        duration: 4000,
+                    },
                 ]);
                 scene.start().then(() => {
                     this.interface.setfish(10);
@@ -276,6 +291,11 @@ export default class Game extends IView {
                         frames: ['SCENE4-2-1'],
                         dpf: 1000,
                         duration: 6000,
+                    },
+                    {
+                        frames: ['Tip4'],
+                        dpf: 1000,
+                        duration: 4000,
                     },
                 ]);
                 scene.start();
