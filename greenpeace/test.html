@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+    <style>
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .p {
+            text-align: center;
+            font-size: 14px;
+            padding-top: 140px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Chart(million tones)</h2>
+        <div>
+            <canvas id="canvas"></canvas>
+        </div>
+    </div>
+
+</body>
+<script>
+    var dData = function () {
+        return 19
+    };
+    var dData2 = function () {
+        return 25
+    };
+    var dData3 = function () {
+        return 30
+    };
+    var dData4 = function () {
+        return 37
+    };
+    var dData5 = function () {
+        return 41
+    };
+    var dData6 = function () {
+        return 55
+    };
+    var dData7 = function () {
+        return 59
+    };
+    var dData8 = function () {
+        return 68
+    };
+    var dData9 = function () {
+        return 72
+    };
+    var dData10 = function () {
+        return 80
+    };
+    var dData11 = function () {
+        return 82
+    };
+    var dData12 = function () {
+        return 80
+    };
+    var dData13 = function () {
+        return 82
+    };
+    var dData14 = function () {
+        return 81
+    };
+    var dData15 = function () {
+        return 82
+    };
+    var dData16 = function () {
+        return 82
+    };
+    var dData17 = function () {
+        return 84
+    };
+    var dData18 = function () {
+        return 90
+    };
+
+    var barChartData = {
+        labels: ["1950", "1954", "1958", "1962", "1966", "1970", "1974", "1978", "1982", "1986", "1990", "1994", "1998", "2002", "2006", "2010", "2014", "2018"],
+        datasets: [{
+            fillColor: "rgba(0,60,100,1)",
+            strokeColor: "black",
+            data: [dData(), dData2(), dData3(), dData4(), dData5(), dData6(), dData7(), dData8(), dData9(), dData10(),dData11(),dData12(),dData13(),dData14(),dData15(),dData16(),dData17(),dData18()]
+        }]
+    }
+
+    var index = 11;
+    var ctx = document.getElementById("canvas").getContext("2d");
+    var barChartDemo = new Chart(ctx).Bar(barChartData, {
+        responsive: true,
+        barValueSpacing: 2
+    });
+    // setInterval(function () {
+    //     barChartDemo.removeData();
+    //     barChartDemo.addData([dData()], "dD " + index);
+    //     index++;
+    // }, 3000);
+</script>
+
+</html>
