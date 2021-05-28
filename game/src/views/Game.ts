@@ -286,6 +286,7 @@ export default class Game extends IView {
             this.interface.setfish(0);
             fadeIn('life_low', 0.5, 2000);
             this.player.check++;
+            fadeOut('dark_song');
             setTimeout(() => {
                 let scene = new CutScenes(this.app, [
                     {
