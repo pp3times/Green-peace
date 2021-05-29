@@ -81,7 +81,7 @@ export default class Home extends IView {
             // @ts-ignore
             btn2.on('pointerdown', () => {
                 fadeIn('click', 5, 2000);
-                window.location.href = 'https://fisherman-gpg.netlify.app/landing';
+                window.location.href = 'https://fisherman-gp.netlify.app/';
             });
             this.addChild(btn2);
         }
