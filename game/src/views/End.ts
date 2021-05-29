@@ -144,7 +144,7 @@ export default class End extends IView {
                     this.end.alpha = 1;
                 });
             } else {
-                window.location.href = 'https://fisherman-gp.netlify.app/';
+                window.location.href = 'https://fisherman-gpg.netlify.app/landing';
             }
         });
         this.addChild(action);
