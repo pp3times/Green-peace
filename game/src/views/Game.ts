@@ -137,7 +137,7 @@ export default class Game extends IView {
             // @ts-ignore
             btn3.on('pointerdown', () => {
                 fadeIn('click', 5, 2000);
-                window.location.href = 'https://fisherman-gp.netlify.app/';
+                window.location.href = 'https://fisherman-gpg.netlify.app/landing';
             });
             this.addChild(btn3);
         }
