@@ -24,5 +24,5 @@ This is our `features` about this project 🎉 :
 > Coming Soon
 
 # License 🔒
-This project is licensed under the terms of the MIT license. 
+This project is licensed under the terms of the MIT license.
 
